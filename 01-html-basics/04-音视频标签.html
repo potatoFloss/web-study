@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>视频标签的应用</h2>
+  <!-- 普通写法 -->
+  <!--
+    当键值对中的键和值相同时时，可以省略值。
+    controls：添加视频控制器
+    autoplay：自动播放，必须在静音时才能使用
+    muted：静音
+    loop：循环播放
+    poster：视频封面图片，当视频不能及时加载出来时，可以有封面图片给用户看
+  -->
+  <video src="./media/xiaomiYu7.mp4" controls autoplay muted loop width="500"
+    poster="./images/05xiaomiUltra.jpg"></video>
+
+  <!-- 兼容性写法 -->
+  <video controls autoplay muted loop poster="./images/05xiaomiUltra.jpg" width="400">
+    <!-- 
+      浏览器会从上往下依次执行source标签，直到加载成功为止。
+      type：视频格式，帮助浏览器在不需要加载的情况下判断是否支持该视频类型，节约资源。
+      如果所有source标签都加载失败，才会显示p标签中的内容。
+    -->
+    <source src="./media/xiaomiYu7.mp4" type="video/mp4">
+    <p>您的浏览器不支持视频播放，请使用升级后的浏览器。</p>
+  </video>
+
+  <h2>音频标签的应用</h2>
+  <!-- 普通写法 -->
+  <!--
+    和视频标签的属性差不多
+    controls：添加音频控制器
+    但是不能自动播放（autoplay），因为浏览器不允许，可以通过JS来实现
+    muted：静音
+    loop：循环播放
+  -->
+  <audio src="./media/wangdonghai.mp3" controls muted loop></audio>
+
+  <!-- 兼容性写法 -->
+  <audio controls>
+    <source src="./media/wangdonghai.mp3" type="audio/mp3">
+    <p>您的浏览器不支持音频播放，请使用升级后的浏览器。</p>
+  </audio>
+</body>
+
+</html>
