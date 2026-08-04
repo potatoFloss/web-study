@@ -22,7 +22,11 @@
         accesskey 使元素获得焦点的快捷键，按alt+指定的键即可获得焦点
         autocomplete 是否根据用户的历史输入自动填写，no/off
         -->
-        账户：<input type="text" name="username" placeholder="请输入账户" autocomplete="off" accesskey="s">
+        <!-- 辅助标签：label标签，可以把光标移动到输入框的位置 -->
+        <!-- label标签的第一种写法 -->
+        <label>
+          账户：<input type="text" name="username" placeholder="请输入账户" autocomplete="off" accesskey="s">
+        </label>
       </li>
 
       <!-- 密码框：password标签 -->
@@ -34,9 +38,13 @@
       <li>
         <!-- 单选框中，name属性相同的元素，只能选择一个，所以可以做到一个分组的效果 -->
         性别：
-        <input type="radio" name="gender" value="male">男
+        <!-- label标签还可以包裹单选框，实现点击label也可以选择单选框的效果 -->
+        <!-- label标签的第二种写法 -->
+        <input type="radio" name="gender" value="male" id="male">
+        <label for="male">男</label>
         <!-- checked属性默认选中 -->
-        <input type="radio" name="gender" value="female" checked>女
+        <input type="radio" name="gender" value="female" checked id="female">
+        <label for="female">女</label>
       </li>
 
       <!-- 复选框：checkbox标签 -->
