@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字体样式</title>
+  <style>
+    /* 字体颜色 */
+    .red {
+      /* 方法一：关键字，实际开发中不推荐 */
+      color: red;
+    }
+
+    .blue {
+      /* 方法二：十六进制颜色值 */
+      color: #0000ff;
+    }
+
+    .green {
+      /* 方法三：RGB颜色值 */
+      color: rgb(0, 255, 0);
+    }
+
+    /* rgba颜色值，透明度 */
+    .rgba {
+      color: rgba(255, 0, 0, 0.5);
+    }
+
+    /* 字体族 */
+    .font-family {
+      /* 实际开发中，直接复制字体族名称 */
+      font-family: "宋体";
+    }
+
+    /* 字体大小 */
+    /* 不同浏览器默认的字体大小不同，建议给body标签统一指定大小，做到浏览器统一 */
+    .font14 {
+      font-size: 14px;
+    }
+
+    .font16 {
+      font-size: 16px;
+    }
+
+    .font18 {
+      font-size: 18px;
+    }
+
+    /* 字体倾斜与不倾斜 */
+    .italic {
+      font-style: italic;
+    }
+
+    .normal {
+      font-style: normal;
+    }
+
+    /* 字体粗细 */
+    .bold {
+      /* font-weight: bold; */
+      /* 字体粗细值，100-900，700为正常粗细，400为正常粗细 */
+      font-weight: 700;
+    }
+
+    .nobold {
+      /* font-weight: normal; */
+      font-weight: 400;
+    }
+
+    /* 字体装饰 */
+    .underline {
+      text-decoration: underline;
+    }
+
+    .overline {
+      text-decoration: overline;
+    }
+
+    .line-through {
+      text-decoration: line-through;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 字体颜色 -->
+  <p class="red">用关键字设置字体颜色为红色</p>
+  <p class="blue">用十六进制颜色值设置字体颜色为蓝色</p>
+  <p class="green">用RGB颜色值设置字体颜色为绿色</p>
+  <p class="rgba">用rgba颜色值设置字体颜色为透明红色</p>
+
+  <!-- 字体族 -->
+  <p class="font-family">用font-family属性设置字体族为宋体</p>
+
+  <!-- 字体大小 -->
+  <p class="font14">设置为14像素的字体</p>
+  <p class="font16">设置为16像素的字体</p>
+  <p class="font18">设置为18像素的字体</p>
+
+  <!-- 字体倾斜与不倾斜 -->
+  <p class="italic">设置为倾斜字体</p>
+  <em class="normal">设置为正常字体</em>
+
+  <!-- 字体粗细 -->
+  <p class="bold">设置为粗体</p>
+  <h3 class="nobold">设置为正常字体</h3>
+
+  <!-- 字体装饰 -->
+  <p class="underline">用underline属性添加下划线</p>
+  <p class="overline">用overline属性添加上划线</p>
+  <p class="line-through">用line-through属性添加删除线</p>
+  <a href="#">用none属性取消下划线</a>
+</body>
+
+</html>
