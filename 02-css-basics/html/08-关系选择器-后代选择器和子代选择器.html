@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>后代选择器和子代选择器</title>
+  <!-- 后代选择器 -->
+  <!-- 前者作为限定条件，选择器类型任意 -->
+  <style>
+    /* .nav a {
+      color: red;
+    } */
+
+    /* .nav li a {
+      color: blueviolet;
+    } */
+
+    ul li a {
+      color: brown;
+    }
+
+    /* 子代选择器 */
+    /* 选择某个元素的直接子元素，仅限一层 */
+    .footer>span {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 后代选择器 -->
+  <ul class="nav">
+    <li><a href="#">喜羊羊</a></li>
+    <li><a href="#">美羊羊</a></li>
+    <li><a href="#">懒羊羊</a></li>
+    <li><a href="#">灰太狼</a></li>
+  </ul>
+
+  <!-- 子代选择器 -->
+  <div class="footer">
+    <span>懒羊羊</span>
+    <p>
+      <span>灰太狼</span>
+    </p>
+  </div>
+</body>
+
+</html>

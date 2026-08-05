@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 邻接兄弟选择器 -->
+  <!-- 选择紧接在指定元素后面的第一个同级元素 -->
+  <style>
+    h3+p {
+      color: blueviolet;
+    }
+  </style>
+
+  <!-- 通用兄弟选择器 -->
+  <!-- 选择所有紧接在指定元素后面的所有同级元素 -->
+  <style>
+    .second~li {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <p>1111111</p>
+    <p>2222222</p>
+    <h3>^_^</h3>
+    <p>3333333</p>
+    <p>4444444</p>
+  </div>
+
+  <ul>
+    <li>1</li>
+    <li class="second">2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+</body>
+
+</html>

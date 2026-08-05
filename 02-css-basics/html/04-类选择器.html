@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类选择器</title>
+  <!-- 类选择器：选择一个或多个元素，实现差异化选择 -->
+  <style>
+    .pink {
+      color: pink;
+    }
+
+    /* 类选择器的权重（优先级）高于类型选择器 */
+    li {
+      color: blueviolet;
+    }
+
+    /* 字体大小 */
+    /* 类选择器的名字应便于理解，中间可以使用短横线连接多个单词 */
+    .font-size {
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <!-- 一个标签可以有多个类选择器，每个类选择器之间用空格隔开 -->
+    <li class="pink font-size">喜羊羊</li>
+    <li class="pink">美羊羊</li>
+    <li>懒羊羊</li>
+    <li>灰太狼</li>
+  </ul>
+</body>
+
+</html>

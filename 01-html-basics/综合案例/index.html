@@ -16,28 +16,20 @@
   <!-- 网页头部 -->
   <header>
     <h1 title="科技日报" id="内容顶部">
-      <a href="#">科技日报</a>
+      <a href="./index.html">科技日报</a>
     </h1>
     <p>探索未来科技，传递创新力量</p>
-  </header>
 
-  <!-- 导航栏标签 -->
-  <nav>
-    <ul>
-      <li>
-        <a href="#">首页</a>
-      </li>
-      <li>
-        <a href="#">科技动态</a>
-      </li>
-      <li>
-        <a href="#">国际科技</a>
-      </li>
-      <li>
-        <a href="#">科技论坛</a>
-      </li>
-    </ul>
-  </nav>
+    <!-- 导航栏标签 -->
+    <nav>
+      <ul>
+        <li><a href="./index.html">首页</a></li>
+        <li><a href="#">科技动态</a></li>
+        <li><a href="#">国际科技</a></li>
+        <li><a href="#">科技论坛</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- 主体内容 -->
   <main>
@@ -51,58 +43,62 @@
       结合国内现有的AI芯片产业，两者就可以发挥出1+1大于2的能力。但就目前而言，国用量子计算机在商用领域仍需要解决诸多问题。比如，需将量子比特数从72提升至千级规模，同时将量子门保真度从99.5%提高至99.99%，涉及超导材料、误差校正等关键技术攻关。
     </p>
     <p>量子计算需与经典体系深度耦合，推动编译器、开发工具链等生态成熟，降低应用门槛等。但就目前而言，国内在量子计算机领域的确已经开始领先全球，叠加美方近段时间的关税措施，其综合研发实力已经大不如之前。</p>
-    <img src="./img/1.webp" alt="人工智能在医疗领域的最新应用">
+    <img src="./img/1.webp" alt="人工智能在医疗领域的最新应用" width="500">
     <p>人工智能在医疗领域的最新应用</p>
 
     <h3>2.AI辅助诊断准确率突破95%</h3>
     <p>近日，美国科技公司DeepHealth宣布，其研发的AI医疗诊断系统在乳腺癌筛查中的准确率超过95%，远超人类医生的平均水平。该系统通过深度学习技术，能够快速分析医学影像，识别早期癌症病变，并提供诊断建议。</p>
     <p>目前，DeepHealth的AI系统已在美国多家医院试点应用，未来有望在全球范围内推广。专家表示，AI技术的引入将极大提高医疗诊断的效率和准确性，为患者带来更好的治疗效果。</p>
-    <img src="./img/2.webp" alt="这是医疗AI发展的里程碑">
+    <img src="./img/2.webp" alt="这是医疗AI发展的里程碑" width="500">
     <p>"这是医疗AI发展的里程碑"</p>
     <p>— 引自《科技报告》主编WSWW</p>
 
     <h3>3.行业数据</h3>
     <table border="1">
-      <tr>
-        <th>领域</th>
-        <th>投资额（亿美元）</th>
-        <th>增长率</th>
-      </tr>
-      <tr>
-        <td>人工智能</td>
-        <td>580</td>
-        <td>+42%</td>
-      </tr>
-      <tr>
-        <td>量子计算</td>
-        <td>120</td>
-        <td>+215%</td>
-      </tr>
-      <tr>
-        <td>生物科技</td>
-        <td>80</td>
-        <td>+120%</td>
-      </tr>
-      <tr>
-        <td>机器人</td>
-        <td>100</td>
-        <td>+150%</td>
-      </tr>
-      <tr>
-        <td>VR/AR</td>
-        <td>20</td>
-        <td>+100%</td>
-      </tr>
-      <tr>
-        <td>自动驾驶</td>
-        <td>10</td>
-        <td>+120%</td>
-      </tr>
+      <thead>
+        <tr>
+          <th>领域</th>
+          <th>投资额（亿美元）</th>
+          <th>增长率</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>人工智能</td>
+          <td>580</td>
+          <td>+42%</td>
+        </tr>
+        <tr>
+          <td>量子计算</td>
+          <td>120</td>
+          <td>+215%</td>
+        </tr>
+        <tr>
+          <td>生物科技</td>
+          <td>80</td>
+          <td>+120%</td>
+        </tr>
+        <tr>
+          <td>机器人</td>
+          <td>100</td>
+          <td>+150%</td>
+        </tr>
+        <tr>
+          <td>VR/AR</td>
+          <td>20</td>
+          <td>+100%</td>
+        </tr>
+        <tr>
+          <td>自动驾驶</td>
+          <td>10</td>
+          <td>+120%</td>
+        </tr>
+      </tbody>
     </table>
 
     <h3>4.读者互动</h3>
+    <p>您最关注的科技领域是？</p>
     <form action="">
-      <p>您最关注的科技领域是？</p>
       <ul>
         <li>
           <label><input type="radio" name="domain" value="ai">人工智能</label>
@@ -125,7 +121,10 @@
 
     <h3>5.科技大讲堂</h3>
     <p>《未来十年科技趋势》讲座节选</p>
-    <video src="./img/video.mp4" controls></video>
+    <video controls poster="./img/poster.jpg" width="500">
+      <source src="./img/video.mp4" type="video/mp4">
+      <p>您的浏览器不支持 video 标签。</p>
+    </video>
     <p>《未来十年科技趋势》讲座节选</p>
 
     <!-- 页脚 -->
@@ -135,6 +134,8 @@
       <p>联系我们：<a href="mailto:123@qq.com">123@qq.com</a></p>
       <p>地址：北京市海淀区</p>
       <a href="#内容顶部">返回内容顶部</a>
+      <!-- 直接写空链接，点击后也会滚动到页面顶部，不是非得用锚点链接 -->
+      <a href="#">返回顶部</a>
     </footer>
   </main>
 </body>
