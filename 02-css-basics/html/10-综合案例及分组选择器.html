@@ -13,6 +13,10 @@
       padding: 0;
     }
 
+    body {
+      font: 14px/1.5 Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+    }
+
     .box {
       width: 677px;
       background-color: #badef5;
@@ -30,13 +34,38 @@
     }
 
     /* 让白色盒子里面的图片和白色盒子一样宽 */
-    .content img {
+    /* .content img {
+      width: 100%;
+    } */
+
+    /* 让视频和content盒子一样宽 */
+    /* .content video {
+      width: 100%;
+    } */
+
+    /* 分组选择器（并集选择器），实现同时对多个元素进行样式设置 */
+    .content img,
+    .content video {
       width: 100%;
     }
 
-    /* 让视频和content盒子一样宽 */
-    .content video {
-      width: 100%;
+    /* 行高设置为27px，首行缩进，段落两端对齐 */
+    .content>p {
+      line-height: 27px;
+      text-indent: 2em;
+      text-align: justify;
+    }
+
+    /* 诗句水平居中，文字加粗 */
+    .shi {
+      font-weight: 700;
+      text-align: center;
+      line-height: 27px;
+    }
+
+    /* 诗句标题修改大小 */
+    .shi h5 {
+      font-size: 18px;
     }
   </style>
 </head>

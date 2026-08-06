@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户行为伪类</title>
+
+  <style>
+    /* 用户行为伪类（动态伪类），用户以某种方式和元素交互时触发的伪类 */
+    /* 应用场景：1.鼠标经过元素时，修改元素的样式 2.表单获得焦点的时候，修改表单的样式 */
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      text-align: center;
+      line-height: 200px;
+      color: white;
+    }
+
+    .box:hover {
+      background-color: powderblue;
+      text-align: left;
+      line-height: 1;
+      color: rgba(255, 0, 0, 0);
+    }
+
+    .search {
+      width: 200px;
+      height: 30px;
+    }
+
+    .search:focus {
+      background-color: pink;
+      width: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"><span>这是一个盒子</span></div>
+  <input class="search" type="text" placeholder="请输入">
+</body>
+
+</html>

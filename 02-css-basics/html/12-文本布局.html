@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文本布局</title>
+
+  <!-- 文本对齐 text-align  -->
+  <!-- 控制文本在其所在的块级盒子内进行水平对齐： -->
+  <!-- 左对齐 left、右对齐 right、居中对齐 center、两端对齐 justify -->
+  <style>
+    div {
+      background-color: pink;
+      height: 50px;
+      text-align: center;
+      /* text-align: left; */
+      /* text-align: right; */
+
+      /* 字间距 letter-spacing，块级元素和行内元素都可以应用 */
+      letter-spacing: 2px;
+
+      /* 行高 line-height */
+      /* 当行高的高度等于盒子的高度时，可以实现单行文本的垂直居中 */
+      line-height: 50px;
+      /* 行高的数值不带单位时，是行高的倍数 */
+      /* line-height: 30; */
+    }
+
+    p {
+      text-align: justify;
+      /* 首行缩进 text-indent，同样只能应用在块级元素中 */
+      /* em指本元素的字体大小，2em表示缩进2个字体大小，
+      如果本元素没有设置字体大小，则参照上一级元素的字体大小 */
+      text-indent: 2em;
+
+      /* 行高，可以优化阅读体验 */
+      line-height: 26px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>女篮世界杯最新实力榜：美国稳居第一 中国第六 日本第10位</div>
+  <p>本届赛事共有16支球队参赛，被分成4组，每组4支球队，小组循环赛后小组第一直接进入八强，各小组第二、三名的球队则需要进行一场交叉淘汰赛，取胜的一方入围四分之一决赛。四分之一决赛、半决赛及决赛均采用单场淘汰制。</p>
+  <p>
+    目前中国女篮在训运动员14名：陈玉婕（山西兴瑞）、刘禹彤（上海开元）、罗欣棫、张曼曼、孙宇、吴梦婕（江苏南钢）、李雨汧（浙江稠州）、张子宇（山东山高）、钟佳丽（东莞新彤盛）、王思雨、李缘、贾赛琪、唐子婷（四川远达美乐）、邓雨婷（俄克拉荷马州立大学）。
+  </p>
+</body>
+
+</html>
