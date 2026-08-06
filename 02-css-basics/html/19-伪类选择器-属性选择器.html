@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>属性选择器</title>
+  <style>
+    /* 通过元素的属性特征来精准定位元素 */
+    /* 语法：
+      元素名[属性名] 匹配包含指定属性的元素
+      元素名[属性名=”值“] 匹配属性值=指定值的元素
+      元素名[属性名^=”值“] 匹配属性值以指定值开头的元素
+      元素名[属性名$=”值“] 匹配属性值以指定值结尾的元素
+      元素名[属性名*=”值“] 匹配属性值包含指定值的元素
+      注意，值不能是纯数字
+    */
+
+    /* 匹含指定属性的元素 */
+    input[class] {
+      /* 去掉默认的轮廓线 */
+      outline: none;
+    }
+
+    /* 匹配属性值=指定值的元素 */
+    input[class="font"] {
+      width: 600px;
+    }
+
+    /* 匹配属性值以指定值开头的元素 */
+    a[class^="font"] {
+      color: red;
+    }
+
+    /* 匹配属性值以指定值结尾的元素 */
+    a[class$="t5"] {
+      color: blue;
+    }
+
+    /* 匹配属性值包含指定值的元素 */
+    a[class*="font"] {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <input class="font" type="text" placeholder="请输入用户名">
+  <input class="font1" type="password" placeholder="请输入密码">
+  <!-- 单选框 -->
+  <input class="font3" type="radio" name="gender" value="male">男
+  <input class="font4" type="radio" name="gender" value="female">女
+
+  <a class="font5" href="#">点击跳转</a>
+  <a class="font6" href="#">点击跳转</a>
+  <a class="font7" href="#">点击跳转</a>
+  <a class="font8" href="#">点击跳转</a>
+  <a class="font9" href="#">点击跳转</a>
+</body>
+
+</html>

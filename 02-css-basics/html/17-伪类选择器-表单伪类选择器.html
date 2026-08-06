@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表单伪类选择器</title>
+  <style>
+    /* 按钮背景颜色 #ff6900 */
+    button {
+      width: 150px;
+      height: 40px;
+      background-color: #ff6900;
+      /* 去掉按钮默认的边框 */
+      border: none;
+      color: #fff;
+    }
+
+    /* 使用场景：
+    1.表单按钮禁用时，修改按钮样式
+    2.复选框被选中时，修改复选框样式
+    */
+    button:disabled {
+      /* background-color: #f6a674; */
+      /* 透明度 */
+      opacity: 0.5;
+    }
+
+    input:checked+label {
+      color: #ff6900;
+    }
+  </style>
+</head>
+
+<body>
+  <button disabled>提交</button>
+  <br>
+  <input type="checkbox" id="agree">
+  <label for="agree">同意协议</label>
+</body>
+
+</html>

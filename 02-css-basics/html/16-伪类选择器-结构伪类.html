@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>结构伪类选择器</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 结构伪类选择器：根据元素的位置关系来选择元素
+    1. :first-child：选择第一个子元素
+    2. :last-child：选择最后一个子元素
+    3. :nth-child(n)：选择第n个子元素，n从1开始计数
+    */
+    .list1 li:first-child {
+      color: red;
+    }
+
+    .list1 li:last-child {
+      color: blue;
+    }
+
+    .list1 li:nth-child(2) {
+      color: green;
+    }
+
+    /* :nth-child()的括号内可以填写数学公式，n的值为0，例如：
+    1. :nth-child(2n)：选择所有是2的倍数的子元素
+    2. :nth-child(n+3)：选择自3开始的所有元素
+    2. :nth-child(-n+3)：选择所有3之前的元素（包含第3个元素）
+    */
+    .list1 li:nth-child(2n) {
+      color: pink;
+    }
+
+    .list1 li:nth-child(n+3) {
+      color: rgb(255, 0, 115);
+    }
+
+    .list1 li:nth-child(-n+3) {
+      color: orange;
+    }
+
+    /* 当n为关键字时，odd奇数，even偶数 */
+    .list2 li:nth-child(odd) {
+      color: rgb(255, 0, 234);
+    }
+
+    .list2 li:nth-child(even) {
+      color: rgb(66, 0, 128);
+    }
+
+    /* 制作一个隔行变色的表格 */
+    .data {
+      /* 合并相邻边框 */
+      border-collapse: collapse;
+      /* 边框 1像素 实线 颜色 */
+      border: 1px solid #f1f1f1;
+      width: 400px;
+      margin: 0 auto;
+      /* 让表格中的文字水平居中 */
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .data tr {
+      height: 35px;
+    }
+
+    /* 隔行变色 背景颜色#f9f9f9f1f1 */
+    .data tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    /* 表格第1行 背景颜色#8fbcf1 */
+    .data tr:first-child {
+      background-color: #8fbcf1;
+      color: #fff;
+    }
+
+    /* 鼠标经过 背景颜色#f1f1f1 除了第一行其他行 */
+    .data tr:hover:not(:first-child) {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="list1">
+    <li>111111</li>
+    <li>222222</li>
+    <li>333333</li>
+    <li>444444</li>
+    <li>555555</li>
+  </ul>
+
+  <ul class="list2">
+    <li>111111</li>
+    <li>222222</li>
+    <li>333333</li>
+    <li>444444</li>
+    <li>555555</li>
+  </ul>
+
+  <!-- 制作一个隔行变色的表格 -->
+  <table class="data">
+    <tr>
+      <th>姓名</th>
+      <th>数据</th>
+      <th>年龄</th>
+    </tr>
+    <tr>
+      <td>张三</td>
+      <td>123</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>李四</td>
+      <td>456</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>王五</td>
+      <td>789</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td>赵六</td>
+      <td>012</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>王二</td>
+      <td>345</td>
+      <td>26</td>
+    </tr>
+  </table>
+</body>
+
+</html>

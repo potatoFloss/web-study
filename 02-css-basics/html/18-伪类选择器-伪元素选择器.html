@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>伪元素选择器</title>
+
+  <style>
+    /* 选择首行 */
+    p::first-line {
+      color: brown;
+    }
+
+    /* 选择首字母 */
+    p::first-letter {
+      font-size: 30px;
+    }
+
+    /* 修改表单中的placeholder文字颜色 */
+    textarea::placeholder {
+      color: red;
+    }
+
+    /* 插入内容 */
+    /* 类似于行内元素 */
+    /* 在元素内容之前插入内容 */
+    .box::before {
+      /* content必须要写，否则不会插入内容，没有值就写''或者“” */
+      content: '这是一个盒子';
+      color: red;
+    }
+
+    /* 在元素内容之后插入内容 */
+    .box::after {
+      content: '这是一个盒子';
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <p>
+    诗意：天高风急，猿啸声声似乎蕴含着无限的悲哀，孤洲沙白的河洲上有鸟儿在盘旋。无边无际的落叶纷纷飘坠，望不到头的长江水滚滚奔腾而来。悲对秋景感慨万里漂泊常年为客，一生当中疾病缠身今日独上高台。历尽了艰难苦恨白发长满了双鬓，衰颓满心偏又暂停了浇愁的酒杯。诗中表达了诗人对时光易逝、生命短暂的悲叹，也揭示了诗人对国家兴衰、自身境遇的感慨和忧虑。诗人运用独特的意象和生动的语言，表达了生命的珍贵和对生活的热爱，具有深刻的思想内涵和艺术魅力。
+  </p>
+  <textarea name="" id="" placeholder="请输入内容"></textarea>
+  <div class="box">pink</div>
+</body>
+
+</html>
