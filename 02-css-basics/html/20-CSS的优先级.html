@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS的优先级</title>
+  <style>
+    /* CSS的三大特性：继承性、层叠性、优先级 */
+    /* 优先级：!important > 内联样式 > id选择器 > 类/伪类/属性 > 类型（标签）/伪元素 > 通配符/继承 */
+    /* 权重值：
+      !important：无限大，强制覆盖所有，慎用
+      内联样式：1000
+      id选择器：0100
+      类/伪类/属性：0010
+      类型（标签）/伪元素：0001
+      通配符/继承：0000
+    */
+    /* 在关系选择器中，权重值可以累加，但不能进位 */
+    /* 优先级相同，根据定义顺序来确定，也就是层叠性 */
+
+    .box {
+      color: pink;
+    }
+
+    div::first-letter {
+      color: red;
+    }
+
+    div {
+      color: blue;
+    }
+
+    * {
+      /* !important：无限大，强制覆盖所有，慎用 */
+      color: green !important;
+    }
+
+    /* 取消h1标签的加粗样式 */
+    h1 {
+      font-weight: normal;
+    }
+
+    /* 继承无法取消h1标签的加粗样式 */
+    header {
+      font-weight: normal;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="box">CSS的优先级</div>
+
+  <!-- 类似h标签和a标签，在浏览器中有自己默认的样式，这种样式的修改需要选中它们自己来实现，而不能通过继承来实现 -->
+  <header>
+    <h1>这是一个标题</h1>
+  </header>
+</body>
+
+</html>

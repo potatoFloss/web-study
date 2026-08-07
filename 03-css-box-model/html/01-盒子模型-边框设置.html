@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>边框设置</title>
+  <style>
+    /* 盒子模型：区块盒子block、行内盒子inline */
+    /* 区块盒子：
+    默认是块级元素，
+    可以设置width和height属性，
+    宽度默认是上级元素空间的100%，
+    内边距、外边距和边框会撑大元素，
+    例如：div、p、h、ul、table等 
+    */
+    /* 行内盒子：
+    默认是行内元素，
+    width和height属性无效，
+    垂直方向的内外边距无效，
+    水平方向的内外边距有效，
+    例如：span、em、a、strong等 
+    */
+    div[class*="box"] {
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+    }
+
+    .box1 {
+      /* 边框的属性设置：
+      border: 边框宽度 边框样式 边框颜色;
+      三个属性没有顺序要求，中间必须用空格隔开。
+      边框样式：边框的样式，有实线solid、虚线dashed、点线dotted、无边框none
+       */
+      border: 1px solid red;
+    }
+
+    .box2 {
+      border: 1px dashed red;
+    }
+
+    .box3 {
+      border: 1px dotted red;
+    }
+
+    /* 将第4个盒子的上边框和左边框设置为实线，下边框和右边框设置为虚线 */
+    .box4 {
+      border-top: 3px solid red;
+      border-left: 4px solid pink;
+      border-bottom: 5px dashed green;
+      border-right: 2px dashed blue;
+    }
+
+    /* 模仿新浪新闻的边框样式 */
+    .box5 {
+      border: 1px solid #ccc;
+      border-top: 2px solid #000;
+    }
+
+    /* 单边框 */
+    h2 {
+      border-bottom: 2px solid #bc816e;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1">实线边框</div>
+  <div class="box2">虚线边框</div>
+  <div class="box3">点线边框</div>
+  <div class="box4">不同边框1</div>
+  <div class="box5">不同边框2</div>
+  <h2>单边框</h2>
+</body>
+
+</html>
