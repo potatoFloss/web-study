@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圆角边框</title>
+  <!-- 圆角边框：border-radius: 圆角半径; 
+  圆角半径可以是像素值、百分比值、长度值等 
+  -->
+  <!-- 特殊场景：1.胶囊圆角 2.盒子或图片设置为圆形 -->
+  <style>
+    .redius1 {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      border-radius: 10px;
+    }
+
+    .redius2 {
+      width: 200px;
+      height: 200px;
+      background-color: burlywood;
+      /* 当盒子是正方形时，将圆角半径设置为50%，可以实现圆形效果 */
+      border-radius: 50%;
+    }
+
+    /* 胶囊圆角：圆角半径为宽和高中较小的值的一半 */
+    .redius3 {
+      width: 200px;
+      height: 40px;
+      background-color: rgb(255, 0, 225);
+      border-radius: 20px;
+    }
+
+    /* 胶囊圆角 */
+    .redius4 {
+      width: 40px;
+      height: 200px;
+      background-color: rgb(0, 234, 255);
+      border-radius: 20px;
+    }
+
+    /* 圆角设置，从左上角开始顺时针设置，对角线圆角半径相同（如果其中一个没有值） */
+
+    /* 一个值：设置所有圆角半径 */
+    .redius5 {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      border-radius: 20px;
+    }
+
+    /* 两个值 */
+    .redius6 {
+      width: 200px;
+      height: 200px;
+      background-color: rgba(0, 0, 255, 0.416);
+      /* 左上和右下是20px，右上和左下是40px */
+      border-radius: 20px 40px;
+    }
+
+    /* 三个值 */
+    .redius7 {
+      width: 200px;
+      height: 200px;
+      background-color: rgba(255, 0, 225, 0.091);
+      /* 左上是20px，右上和左下是40px，右下是60px */
+      border-radius: 20px 40px 60px;
+    }
+
+    /* 四个值 */
+    .redius8 {
+      width: 200px;
+      height: 200px;
+      background-color: rgba(255, 255, 0, 0.416);
+      /* 左上是20px，右上是40px，右下是60px，左下不变 */
+      border-radius: 20px 40px 60px 0;
+    }
+
+    /* 作业 */
+    .button {
+      width: 100px;
+      height: 30px;
+      background-color: rgb(246, 238, 245);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* .button:focus {
+      outline: none;
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="redius1"></div>
+  <div class="redius2"></div>
+  <div class="redius3"></div>
+  <div class="redius4"></div>
+  <!-- 圆角设置，从左上角开始顺时针设置，对角线圆角半径相同（如果其中一个没有值） -->
+  <div class="redius5">一个值</div>
+  <div class="redius6">两个值</div>
+  <div class="redius7">三个值</div>
+  <div class="redius8">四个值</div>
+  <!-- 作业 -->
+  <button class="button">我的购物车</button>
+</body>
+
+</html>
