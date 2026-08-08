@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>背景渐变</title>
+  <style>
+    /* 背景渐变：
+    linear-gradient() 线性渐变 
+    radial-gradient() 径向渐变
+    */
+
+    /* 线性渐变：方向可控 
+    linear-gradient(方向, 颜色1 位置1, 袜色2 位置2, ...);
+    方向可以是方位名词（如：top, bottom, left, right），也可以是角度（单位：deg）
+    位置：色标的位置，非必填
+    */
+    .box1 {
+      width: 500px;
+      height: 200px;
+      background-color: pink;
+      /* background: linear-gradient(pink, red); */
+      /* background-image: linear-gradient(to right, pink, red); */
+      /* background: linear-gradient(90deg, pink 50%, red 50%); */
+      background: linear-gradient(45deg, red, yellow, green);
+    }
+
+    /* 径向渐变： 形状和位置可控
+    radial-gradient(形状, 颜色1 位置1, 颜色2 位置2, ...);
+    */
+
+
+    /* 文字渐变 */
+    .text {
+      font: 700 30px "宋体";
+      background: linear-gradient(to right, red, yellow 10%, green 20%);
+      /* -webkit 针对谷歌浏览器老版本的兼容性写法 */
+      -webkit-background-clip: text;
+      /* 背景裁剪，以文字的形式裁剪 */
+      background-clip: text;
+      /* 文字填充颜色，为透明 */
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* 通过ai为按钮添加渐变效果 */
+    button {
+      width: 120px;
+      height: 44px;
+      border: none;
+      border-radius: 15px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      background: linear-gradient(135deg, #4e9cff 0%, #1e6fd9 100%);
+      box-shadow: 0 2px 6px rgba(30, 111, 217, 0.4);
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #5aafff 0%, #2a7ce0 100%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1"></div>
+  <div class="text">我是文字渐变</div>
+  <button>按钮</button>
+</body>
+
+</html>
