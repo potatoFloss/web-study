@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>盒子的尺寸计算</title>
+  <style>
+    /* 以后推荐 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 盒子的实际尺寸：width + padding + border，外边距margin不影响实际尺寸 */
+    /* 内容盒子（默认）：content-box */
+    .box1 {
+      /* 为了使盒子的宽和高为200px，
+      所以通过计算，减去padding和border的宽度（200-2x20-2x10=140），
+      得到实际内容的宽度和高度应该为140px 
+      */
+      width: 140px;
+      height: 140px;
+      background-color: pink;
+      /* 需要手动计算 */
+      box-sizing: content-box;
+      padding: 20px;
+      border: 10px solid red;
+    }
+
+    /* 边框盒子：border-box */
+    .box2 {
+      width: 200px;
+      height: 200px;
+      background-color: skyblue;
+      /* 不用手动计算 */
+      box-sizing: border-box;
+      padding: 20px;
+      border: 10px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1">content-box</div>
+  <div class="box2">border-box</div>
+</body>
+
+</html>

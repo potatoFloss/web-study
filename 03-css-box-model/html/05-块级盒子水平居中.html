@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>块级盒子水平居中</title>
+  <style>
+    [class^="box"] {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+
+    /* 技巧：区块元素可以通过margin来实现水平居中 */
+    /* 方法：设置左右外边距auto */
+    /* 条件：盒子必须有宽度 */
+
+    .box1 {
+      /* 三种不同的居中写法 */
+      /* margin: 0 auto; */
+      /* margin: auto; */
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .box2 {
+      background-color: skyblue;
+      /* 左外边距auto，盒子会被挤到右边 */
+      margin-left: auto;
+    }
+
+    .box3 {
+      /* 右外边距auto，盒子会被挤到左边 */
+      margin-right: auto;
+    }
+
+    /* 使行内元素实现水平居中，用一个块级元素将其包裹，设置块级元素的text-align为center */
+    span {
+      background-color: aquamarine;
+    }
+
+    p {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1">盒子1</div>
+  <div class="box2">盒子2</div>
+  <div class="box3">盒子3</div>
+  <span>行内元素1</span>
+  <p>
+    <span>行内元素2</span>
+  </p>
+</body>
+
+</html>

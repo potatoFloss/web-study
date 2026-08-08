@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>外边距的合并和塌陷</title>
+  <style>
+    .box1,
+    .box2 {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+
+    /* 外边距折叠：并列关系的区块元素之间的上下外边距会出现折叠现象。 */
+    /* 现象：两个外边距会合并为一个外边距，其值为较大的外边距的值。 */
+    /* 解决方法：只设置一个盒子的上或下外边距。 */
+    .box1 {
+      margin-bottom: 20px;
+    }
+
+    .box2 {
+      background-color: skyblue;
+      margin-top: 5px;
+    }
+
+    /* 
+    外边距塌陷：发生于包含关系的块级元素之间。
+    现象：如果上级区块元素没有设置上边框或者上内边距，给子区块元素设置上外边距后，上级块元素会跟着子块元素一起下移。
+    解决方案（3种）：
+    1. 给上级盒子设置上边框或者上内边距。
+    2. 给上级盒子设置上内边距。（推荐）
+    3. 给上级盒子添加：overflow:hidden;属性。
+    */
+    .father {
+      width: 150px;
+      height: 150px;
+      background-color: pink;
+      border-top: 1px solid red;
+      /* padding-top: 20px; */
+      /* overflow: hidden; */
+    }
+
+    .son {
+      width: 80px;
+      height: 80px;
+      background-color: plum;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1">盒子1</div>
+  <div class="box2">盒子2</div>
+
+  <!-- 外边距塌陷 -->
+  <div class="father">
+    <div class="son"></div>
+  </div>
+</body>
+
+</html>

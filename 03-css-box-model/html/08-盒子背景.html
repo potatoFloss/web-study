@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>盒子背景</title>
+  <style>
+    body {
+      height: 2000px;
+    }
+
+    .box {
+      width: 400px;
+      height: 400px;
+      /* background-color: pink; */
+
+      /* 背景图片 */
+      /* background-image: url(../img/03.webp); */
+
+      /* 背景平铺
+      no-repeat：不平铺，只显示一次。 
+      repeat-x：水平方向平铺。
+      repeat-y：垂直方向平铺。
+      */
+      /* background-repeat: no-repeat; */
+      /* background-repeat: repeat-x; */
+      /* background-repeat: repeat-y; */
+
+      /* 背景位置
+      background-position: x轴 y轴;
+      左上角为原点(0, 0)。
+      x轴：背景图片在水平方向上的位置。
+      y轴：背景图片在垂直方向上的位置。
+      方位名词：top, bottom, left, right, center。
+      如果只设置一个值，默认为x轴，另一个值（y轴）为center。
+      如果设置两个值，第一个值为x轴，第二个值为y轴。
+      */
+      /* background-position: 10px 30px; */
+      /* background-position: 50% 50%; */
+      /* background-position: center center; */
+      /* background-position: top center; */
+      /* background-position: bottom right; */
+      /* background-position: 10px; */
+
+      /* 背景缩放 尺寸
+      background-size: x轴 y轴;
+      x轴：背景图片在水平方向上的尺寸。
+      y轴：背景图片在垂直方向上的尺寸。
+      auto：自动调整。（默认）
+      contain：包含。
+      cover：覆盖。
+      */
+      /* background-size: 200px 200px; */
+      /* background-size: 50%; */
+      /* background-size: auto; */
+      /* background-size: contain; */
+      /* background-size: cover; */
+
+
+      /* 背景是否随页面滚动 */
+      /* scroll：随页面滚动。（默认） */
+      /* fixed：固定，相对于当前视口固定。 */
+      /* background-attachment: fixed; */
+      /* background-attachment: scroll; */
+
+      /* 背景的复合写法：（没有顺序要求，但是背景位置和背景缩放中间必须用/隔开）
+      background: 背景颜色 背景图片 背景平铺 背景是否随页面滚动 背景位置/背景缩放;
+      */
+      background: pink url(../img/03.webp) no-repeat fixed center center/200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>内边距</title>
+  <style>
+    .box1 {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      /* 使文字两端对齐 */
+      text-align: justify;
+      /* 一个值 */
+      /* padding: 20px; */
+
+      /* 多个值的情况，从上边开始，顺时针设置，没有设置的与对面边内边距的值相同 */
+      /* 两个值 */
+      /* padding: 20px 40px; */
+      /* 三个值 */
+      /* padding: 20px 30px 40px; */
+      /* 四个值 */
+      padding: 20px 30px 40px 50px;
+    }
+
+    /* 单独设置某条内边距 */
+    /* 
+    上内边距 padding-top
+    左内边距 padding-left
+    下内边距 padding-bottom
+    右内边距 padding-right
+    */
+    .title {
+      width: 240px;
+      height: 35px;
+      border: 1px solid #d9e0ee;
+      border-top: 3px solid #ff8400;
+      line-height: 35px;
+      /* 设置左侧内边距 */
+      padding-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1">20世纪30年代初，苏联的农业集体化和快速工业化造成了巨大灾难与民生困顿，党内和社会上积累了大量不满。通过“公开审判”，斯大林成功创造了一种叙事。
+  </div>
+
+  <hr>
+  <div class="title">时尚美妆热榜</div>
+</body>
+
+</html>
