@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小米卡片</title>
+  <style>
+    /* CSS初始化 简单重置 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* body {
+      background-color: #b3a8a8;
+    } */
+
+    .cart {
+      margin: 100px auto;
+      width: 234px;
+      height: 300px;
+      background-color: #fff;
+      padding-top: 20px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    /* 鼠标经过 阴影效果 */
+    .cart:hover {
+      box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+    }
+
+    .cart img {
+      width: 160px;
+      height: 160px;
+    }
+
+    .cart .title {
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0 10px 2px;
+    }
+
+    .cart .desc {
+      font-size: 12px;
+      font-weight: 400;
+      color: #b0b0b0;
+      margin: 0 10px 10px;
+
+      /* 文字溢出省略号显示 */
+      /* 文字超出部分隐藏起来 */
+      /* overflow: hidden; */
+      /* 文字超出部分省略号显示 */
+      /* text-overflow: ellipsis; */
+      /* 文字不换行 */
+      /* white-space: nowrap; */
+
+      /* 多行文本溢出显示省略号 */
+      /* 注意，修改盒子的高度为正好显示行数的高度 */
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      overflow: hidden;
+      white-space: normal;
+    }
+
+    .cart .price {
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0 10px 14px;
+    }
+
+    .cart .price span {
+      color: #ff6700;
+    }
+
+    .cart .price del {
+      color: #b0b0b0;
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cart">
+    <img src="../img/01小米商城.webp" alt="手机图片">
+    <h3 class="title">REDMI 17 5G</h3>
+    <p class="desc">大屏长续航 久用也流畅 久用也流畅 久用也流畅 久用也流畅</p>
+    <p class="price">
+      <span>¥999元起</span>
+      <del>¥1000元</del>
+    </p>
+  </div>
+</body>
+
+</html>

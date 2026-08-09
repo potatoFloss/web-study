@@ -1,0 +1,93 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6691",
+      "name": "食品饮料",
+      "font_class": "shipinyinliao",
+      "unicode": "3486",
+      "unicode_decimal": 13446
+    },
+    {
+      "icon_id": "586888",
+      "name": "fire",
+      "font_class": "fire",
+      "unicode": "e729",
+      "unicode_decimal": 59177
+    },
+    {
+      "icon_id": "750904",
+      "name": "母婴",
+      "font_class": "muying",
+      "unicode": "e7b4",
+      "unicode_decimal": 59316
+    },
+    {
+      "icon_id": "1048410",
+      "name": "美妆类目",
+      "font_class": "meizhuangleimu",
+      "unicode": "e6e6",
+      "unicode_decimal": 59110
+    },
+    {
+      "icon_id": "1048411",
+      "name": "家装家居类目-fill",
+      "font_class": "jiazhuangjiajuleimufill",
+      "unicode": "e6e7",
+      "unicode_decimal": 59111
+    },
+    {
+      "icon_id": "1086249",
+      "name": "鞋子",
+      "font_class": "xiezi",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "5387752",
+      "name": "电脑_o",
+      "font_class": "diannao_o",
+      "unicode": "eb49",
+      "unicode_decimal": 60233
+    },
+    {
+      "icon_id": "5961393",
+      "name": "汽车",
+      "font_class": "qiche",
+      "unicode": "ec6d",
+      "unicode_decimal": 60525
+    },
+    {
+      "icon_id": "5982856",
+      "name": "洗衣机",
+      "font_class": "xiyiji",
+      "unicode": "ec78",
+      "unicode_decimal": 60536
+    },
+    {
+      "icon_id": "13091809",
+      "name": "工业品",
+      "font_class": "gongyepin",
+      "unicode": "e6b3",
+      "unicode_decimal": 59059
+    },
+    {
+      "icon_id": "13605921",
+      "name": "边看边买女装直播icon1024",
+      "font_class": "biankanbianmainvzhuangzhiboicon-",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "34952306",
+      "name": "斜线",
+      "font_class": "xiexian",
+      "unicode": "e6ae",
+      "unicode_decimal": 59054
+    }
+  ]
+}

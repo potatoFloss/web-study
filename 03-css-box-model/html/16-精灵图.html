@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>精灵图</title>
+  <style>
+    /* 精灵图作为图片背景进行使用，
+    默认精灵图与盒子的左上角对齐，
+    所以需要通过background-position属性来调整精灵图的位置。
+    精灵图的好处是，可以减少请求次数，提高页面加载速度。
+    */
+    .box {
+      width: 27px;
+      height: 26px;
+      background: url(../img/wz.webp) no-repeat;
+    }
+
+    .box1 {
+      background-position: 0 -170px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box box1"></div>
+</body>
+
+</html>

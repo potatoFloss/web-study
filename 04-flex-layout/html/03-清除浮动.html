@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>清除浮动（闭合浮动）</title>
+  <style>
+    /* 共有4种方法可以清除浮动
+     1. 额外标签法：在浮动元素的最后面，新增一个块级标签，添加属性clear: both;
+     2. 单伪元素清除浮动：在上级元素添加::after伪元素，设置属性clear: both; content: ""; 同时还要将该伪元素设置为块级元素display: block;。
+     3. 双伪元素清除浮动：在上级元素添加::before和::after伪元素，设置属性content: ""; display: table; 再在::after伪元素中设置属性clear: both;
+     4. overflow属性清除浮动：在上级元素添加属性overflow: hidden;
+     */
+  </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

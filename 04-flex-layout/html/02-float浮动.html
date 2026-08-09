@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>float浮动</title>
+  <style>
+    /* 浮动最开始用来实现文字的环绕效果，
+    后来发现它可以使元素脱离文档流，向左或向右移动，直到元素碰到上一级元素边缘或者其它浮动元素 */
+    /* 脱离文档流（脱离标准流）；盒子上浮在其它文档流元素之上，浮动的盒子不占位置。 */
+    /* 
+    float: left; 左侧浮动
+    float: right; 右侧浮动
+    float: none; 不浮动
+    */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .box {
+      width: 500px;
+      height: 500px;
+      background-color: pink;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .box1 li {
+      width: 150px;
+      height: 150px;
+      background-color: skyblue;
+      margin: 0 25px 25px 0;
+      float: left;
+    }
+
+    .box1 li:nth-child(3n) {
+      margin-right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <ul class="box1">
+      <li>第1个盒子</li>
+      <li>第2个盒子</li>
+      <li>第3个盒子</li>
+      <li>第4个盒子</li>
+      <li>第5个盒子</li>
+      <li>第6个盒子</li>
+    </ul>
+  </div>
+</body>
+
+</html>
