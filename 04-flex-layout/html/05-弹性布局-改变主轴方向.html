@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>改变主轴方向</title>
+  <link rel="stylesheet" href="../iconfont/iconfont.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .iconfont {
+      font-size: 30px;
+    }
+
+    .sanlian {
+      font-size: 13px;
+      display: flex;
+    }
+
+    .sanlian li {
+      width: 60px;
+      height: 80px;
+      /* border: 1px solid red; */
+    }
+
+    .sanlian li a {
+      display: flex;
+      /* 改变主轴方向 */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* a标签如果是flax布局，则可以给a标签设置高度和宽度，
+      任何行内标签如果是flax布局，都可以设置高度和宽度 */
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="sanlian">
+    <li>
+      <a href="#">
+        <i class="iconfont icon-dianzan"></i>
+        <p>点赞</p>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="iconfont icon-yingbi"></i>
+        <p>投币</p>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="iconfont icon-shoucang"></i>
+        <p>收藏</p>
+      </a>
+    </li>
+  </ul>
+</body>
+
+</html>

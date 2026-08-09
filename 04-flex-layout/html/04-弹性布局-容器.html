@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>弹性布局-容器</title>
+  <style>
+    /* 弹性布局，样式是写在容器上（即上一级元素）。
+    主轴：水平方向
+    侧轴：垂直方向
+    容器设置display:flex; 可以让子元素按照主轴方向排列。
+    如果子元素有大小，则按照给定大小来显示；
+    如果子元素没有大小，则width按照内容大小来显示，height拉伸至容器高度；
+    若子元素总宽度大于容器宽度，默认会压缩子元素。
+    */
+    /* 大部分开发情况下，容器设置display:flex;，子元素设定大小。 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .box {
+      width: 500px;
+      height: 300px;
+      border: 1px solid red;
+
+      /* 弹性布局 */
+      display: flex;
+
+      /* 主轴方向对齐方式 */
+      /* justify-content: flex-start; */
+      /* justify-content: flex-end; */
+      /* justify-content: center; */
+      justify-content: space-between;
+      /* justify-content: space-around; */
+      /* justify-content: space-evenly; */
+
+      /* 侧轴方向对齐方式，以下方式只对单行有用 */
+      /* align-items: flex-start; */
+      align-items: center;
+      /* align-items: flex-end; */
+      /* align-items: stretch; 前提是子元素没有设置高度，它会将子元素拉伸至容器高度。 */
+      /* align-items: stretch; */
+    }
+
+    .box .item {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+</body>
+
+</html>
