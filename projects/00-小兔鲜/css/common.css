@@ -1,0 +1,45 @@
+/* 公共样式，例如网页的头部和底部等，这些样式在每个页面都需要使用 */
+/* 版心 */
+.w {
+  width: 1240px;
+  margin: 0 auto;
+}
+
+/* 1.页面头部 */
+/* 1.1快速导航栏 */
+.short-nav {
+  height: 52px;
+  background-color: #333333;
+}
+
+.short-nav ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 52px;
+}
+
+.short-nav ul li a {
+  font-size: 14px;
+  color: #FFFFFF;
+}
+
+.short-nav ul li a:hover {
+  color: #5EB69C;
+}
+
+.short-nav ul li:first-child a {
+  color: #5EB69C;
+}
+
+/* 小竖线 */
+.short-nav .line {
+  width: 1px;
+  height: 12px;
+  background-color: #999;
+  margin: 0 15px;
+}
+
+.short-nav ul li a i {
+  font-size: 16px;
+}
