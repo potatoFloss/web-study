@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex项目尺寸伸缩</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .box {
+      width: 80%;
+      border: 1px solid blue;
+      margin: 0 auto;
+      /* 开启flex布局 */
+      display: flex;
+      /* 设置项目之间的间隔 */
+      /* gap属性写在容器上 */
+      gap: 10px;
+    }
+
+    .box .item {
+      width: 80px;
+      height: 100px;
+      background-color: pink;
+      /* 项目尺寸伸缩比例 */
+      /* flex属性的优先级比width属性和height属性要高，所以flex属性会覆盖width属性和height属性 */
+      /* flex: 1; 简单理解就是占一份 */
+      flex: 1;
+      /* 项目尺寸伸缩比例为1，表示项目尺寸会等比例缩放 */
+    }
+
+    .box .item:nth-child(odd) {
+      background-color: purple;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+</body>
+
+</html>

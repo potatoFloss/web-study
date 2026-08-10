@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>淘宝多行弹性布局写法</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .w {
+      width: 80%;
+      border: 1px solid blue;
+      margin: 20px auto;
+    }
+
+    .box {
+      /* 开启flex布局 */
+      display: flex;
+      /* 项目换行 */
+      flex-wrap: wrap;
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+
+    .box .item {
+      /* width: 80px; */
+      height: 120px;
+      /* background-color: pink; */
+
+      /* 每个小盒子占一份空间 */
+      /* flex: 1; 会使换行失效 */
+      /* flex: 1; */
+      /* 每行显示6个小盒子 */
+      /* 前面两个0表示在大盒子的剩余空间中不占任何空间 */
+      flex: 0 0 16.6666666%;
+
+      /* 为了使每个小盒子之间有间隔，淘宝的做法是为.item添加padding值 */
+      /* 同时在.item中再嵌套一个小盒子.content，用来显示内容 */
+      /* 此时我们会发现，.content盒子最左边和最右边没有和footer盒子对齐，差8px */
+      /* 淘宝的解决方法是，添加一个.w盒子将.box盒子包裹起来，用.w盒子实现居中对齐，
+      而.box盒子则分别将margin-left和margin-right设置为-8px，使之向左右割移动8px */
+      padding: 8px;
+    }
+
+    .item .content {
+      width: 100%;
+      height: 100%;
+      background-color: pink;
+    }
+
+    .footer {
+      width: 80%;
+      height: 120px;
+      border: 1px solid blue;
+      /* background-color: black; */
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="w">
+    <div class="box">
+      <div class="item">
+        <div class="content">1</div>
+      </div>
+      <div class="item">
+        <div class="content">2</div>
+      </div>
+      <div class="item">
+        <div class="content">3</div>
+      </div>
+      <div class="item">
+        <div class="content">4</div>
+      </div>
+      <div class="item">
+        <div class="content">5</div>
+      </div>
+      <div class="item">
+        <div class="content">6</div>
+      </div>
+      <div class="item">
+        <div class="content">7</div>
+      </div>
+      <div class="item">
+        <div class="content">8</div>
+      </div>
+      <div class="item">
+        <div class="content">9</div>
+      </div>
+      <div class="item">
+        <div class="content">10</div>
+      </div>
+      <div class="item">
+        <div class="content">11</div>
+      </div>
+      <div class="item">
+        <div class="content">12</div>
+      </div>
+      <div class="item">
+        <div class="content">13</div>
+      </div>
+      <div class="item">
+        <div class="content">14</div>
+      </div>
+      <div class="item">
+        <div class="content">15</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer"></div>
+  </footer>
+</body>
+
+</html>

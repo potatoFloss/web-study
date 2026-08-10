@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>弹性布局-瀑布流-百度图片案例</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .col-flex {
+      width: 1180px;
+      margin: 20px auto;
+      /* border: 1px solid red; */
+      /* 设置弹性布局 */
+      display: flex;
+      gap: 16px;
+    }
+
+    .col-flex .item {
+      flex: 1;
+    }
+
+    .col-flex .item a {
+      display: block;
+      width: 100%;
+      /* border: 1px solid blue; */
+      /* 圆角 */
+      border-radius: 18px;
+      /* 溢出隐藏 */
+      overflow: hidden;
+      /* 添加下外边距 */
+      margin-bottom: 15px;
+    }
+
+    .col-flex .item a img {
+      width: 100%;
+      /* 设置对齐方式 */
+      /* 行内元素和行内块元素默认基于基线对齐，一共有4种对齐方式：top、middle、bottom、基线baseline */
+      /* vertical-align: middle; */
+      /* 也可以把img设置为块级元素 */
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="col-flex">
+    <!-- 第一列 -->
+    <div class="item">
+      <a href="#"><img src="../img/c1.webp" alt=""></a>
+      <a href="#"><img src="../img/c2.webp" alt=""></a>
+      <a href="#"><img src="../img/c3.webp" alt=""></a>
+      <a href="#"><img src="../img/c4.webp" alt=""></a>
+      <a href="#"><img src="../img/c5.webp" alt=""></a>
+      <a href="#"><img src="../img/c6.webp" alt=""></a>
+      <a href="#"><img src="../img/c7.webp" alt=""></a>
+    </div>
+    <!-- 第二列 -->
+    <div class="item">
+      <a href="#"><img src="../img/c2-1.webp" alt=""></a>
+      <a href="#"><img src="../img/c2-2.webp" alt=""></a>
+      <a href="#"><img src="../img/c2-3.webp" alt=""></a>
+      <a href="#"><img src="../img/c2-4.webp" alt=""></a>
+      <a href="#"><img src="../img/c2-5.webp" alt=""></a>
+      <a href="#"><img src="../img/c2-6.webp" alt=""></a>
+      <a href="#"><img src="../img/c2-7.webp" alt=""></a>
+    </div>
+    <!-- 第三列 -->
+    <div class="item">
+      <a href="#"><img src="../img/c3-1.webp" alt=""></a>
+      <a href="#"><img src="../img/c3-2.webp" alt=""></a>
+      <a href="#"><img src="../img/c3-3.webp" alt=""></a>
+      <a href="#"><img src="../img/c3-4.webp" alt=""></a>
+      <a href="#"><img src="../img/c3-5.webp" alt=""></a>
+    </div>
+    <!-- 第四列 -->
+    <div class="item">
+      <a href="#"><img src="../img/c4-1.webp" alt=""></a>
+      <a href="#"><img src="../img/c4-2.webp" alt=""></a>
+      <a href="#"><img src="../img/c4-3.webp" alt=""></a>
+      <a href="#"><img src="../img/c4-4.webp" alt=""></a>
+      <a href="#"><img src="../img/c4-5.webp" alt=""></a>
+      <a href="#"><img src="../img/c4-6.webp" alt=""></a>
+      <a href="#"><img src="../img/c4-7.webp" alt=""></a>
+    </div>
+    <!-- 第五列 -->
+    <div class="item">
+      <a href="#"><img src="../img/c5-1.webp" alt=""></a>
+      <a href="#"><img src="../img/c5-2.webp" alt=""></a>
+      <a href="#"><img src="../img/c5-3.webp" alt=""></a>
+      <a href="#"><img src="../img/c5-4.webp" alt=""></a>
+      <a href="#"><img src="../img/c5-5.webp" alt=""></a>
+      <a href="#"><img src="../img/c5-6.webp" alt=""></a>
+      <a href="#"><img src="../img/c5-7.webp" alt=""></a>
+    </div>
+  </div>
+</body>
+
+</html>

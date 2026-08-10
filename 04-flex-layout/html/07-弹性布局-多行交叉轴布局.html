@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多行交叉轴布局</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .box {
+      width: 830px;
+      height: 500px;
+      border: 1px solid blue;
+      margin: 30px auto;
+      /* flex布局，强制换行 */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      /* 多行情况下，交叉轴对齐方式 */
+      /* align-content: start; */
+      /* align-content: end; */
+      /* align-content: center; */
+      /* align-content: space-between; */
+      /* align-content: space-around; */
+      align-content: space-evenly;
+    }
+
+    .box .item {
+      width: 200px;
+      height: 150px;
+      background-color: pink;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+  </div>
+</body>
+
+</html>
