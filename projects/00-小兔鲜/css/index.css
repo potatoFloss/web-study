@@ -14,3 +14,38 @@
   width: 250px;
   background-color: rgba(0, 0, 0, 0.42);
 }
+
+.entry .category ul li {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: pink; */
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  padding: 0 12px 0 29px;
+  color: #fff;
+}
+
+/* 鼠标经过li 背景色变成#00BE9A */
+.entry .category ul li:hover {
+  background-color: #00BE9A;
+}
+
+/* 清除因为换行符导致的a标签之间的间距（大概4px），
+因为flex布局的子元素之间不受HTML 空白字符的影响
+ */
+.entry .category ul li p {
+  display: flex;
+  align-items: center;
+}
+
+.entry .category ul li a {
+  color: #fff;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.entry .category ul li a:first-child {
+  font-size: 16px;
+  margin-right: 14px;
+}
