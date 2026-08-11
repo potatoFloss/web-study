@@ -1,1 +1,16 @@
 /* 首页样式 */
+.entry {
+  height: 500px;
+  background-color: #F5F5F5;
+}
+
+.entry .w {
+  height: 100%;
+  background: url(../uploads/banner1.png) no-repeat;
+}
+
+.entry .category {
+  height: 100%;
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0.42);
+}
