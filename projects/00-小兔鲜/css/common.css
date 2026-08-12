@@ -5,6 +5,13 @@
   margin: 0 auto;
 }
 
+/* 单行文本溢出显示省略号 */
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* 1.页面头部 */
 /* 1.1快速导航栏 */
 .short-nav {
