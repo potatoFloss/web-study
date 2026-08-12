@@ -1,15 +1,22 @@
 /* 首页样式 */
+/* entry模块 */
 .entry {
   height: 500px;
   background-color: #F5F5F5;
 }
 
 .entry .w {
+  position: relative;
   height: 100%;
-  background: url(../uploads/banner1.png) no-repeat;
+  /* background: url(../uploads/banner1.png) no-repeat; */
 }
 
 .entry .category {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* 增加权重，默认后面的权重比前面的高，所以要单独设置前面的z-index */
+  z-index: 999;
   height: 100%;
   width: 250px;
   background-color: rgba(0, 0, 0, 0.42);
@@ -48,6 +55,34 @@
 .entry .category ul li a:first-child {
   font-size: 16px;
   margin-right: 14px;
+}
+
+/* banner轮播图模块 */
+.banner {
+  position: relative;
+}
+
+.banner .dots {
+  display: flex;
+  gap: 12px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.banner .dots li {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  /* cursor: pointer;
+  text-indent: -9999px; */
+}
+
+.banner .dots li:hover {
+  /* 阴影效果 */
+  box-shadow: 0 0 0 4px rgba(223, 214, 214, 0.5);
+  background-color: #fff;
 }
 
 /* 新鲜好物模块 */

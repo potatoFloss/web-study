@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    [class^="box"] {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+
+    /* 相对定位：相对于元素自身的位置进行移动，不脱离文档流。
+    top的优先级高于bottom，left的优先级高于right。
+    */
+    .box1 {
+      position: relative;
+      top: 100px;
+      left: 100px;
+    }
+
+    .box2 {
+      background-color: skyblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1"></div>
+  <div class="box2"></div>
+</body>
+
+</html>

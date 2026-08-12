@@ -109,6 +109,18 @@
 }
 
 /* 1.2.3 搜索框 */
+.header .search {
+  position: relative;
+}
+
+.header .search i {
+  position: absolute;
+  top: 9px;
+  left: 4px;
+  font-size: 20px;
+  color: #8d8787;
+}
+
 .header .search input {
   width: 170px;
   height: 40px;
@@ -123,6 +135,21 @@
 }
 
 /* 1.2.4 购物车 */
+.header .car {
+  position: relative;
+}
+
+.header .car span {
+  position: absolute;
+  top: -2px;
+  left: 22px;
+  padding: 1px 5px;
+  border-radius: 8px;
+  background-color: #f14848;
+  color: #CCCCCC;
+  font-size: 12px;
+}
+
 .header .car i {
   font-size: 35px;
   margin-right: 15px;
