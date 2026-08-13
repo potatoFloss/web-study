@@ -1,4 +1,21 @@
 /* 首页样式 */
+/* 返回顶部按钮 */
+html {
+  scroll-behavior: smooth;
+}
+
+.back-top {
+  position: fixed;
+  z-index: 9999;
+  bottom: 50px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  line-height: 20px;
+}
+
 /* entry模块 */
 .entry {
   height: 500px;
@@ -83,6 +100,41 @@
   /* 阴影效果 */
   box-shadow: 0 0 0 4px rgba(223, 214, 214, 0.5);
   background-color: #fff;
+}
+
+/* 上一页、下一页按钮 */
+.banner .prev,
+.banner .next {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  width: 40px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.banner .prev {
+  left: 250px;
+}
+
+.banner .next {
+  right: 0px;
+}
+
+.banner>a {
+  /* font-size: 30px; */
+  line-height: 60px;
+  text-align: center;
+  /* color: #fff; */
+}
+
+.banner>a:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.banner>a i {
+  font-size: 30px;
+  color: #fff;
 }
 
 /* 新鲜好物模块 */

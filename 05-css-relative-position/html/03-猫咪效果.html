@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    .box {
+      position: relative;
+      overflow: hidden;
+      width: 1000px;
+      margin: 100px auto;
+    }
+
+    .box::before,
+    .box::after {
+      /* ::before是行内元素，但是设置定位之后，就可以设置宽高了，不用再将之转化为块级元素 */
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background-color: #fff;
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    .box::before {
+      content: "可爱的小猫咪，滚动鼠标滚轮可以进行查看哦~~~";
+      top: -40px;
+      line-height: 100px;
+    }
+
+    .box::after {
+      content: "喜欢我们吗？点击图片可以查看哦~~~";
+      bottom: -40px;
+      line-height: 60px;
+    }
+
+    .box ul {
+      display: flex;
+      /* 添加滚动条 */
+      overflow-x: auto;
+      /* 隐藏滚动条 */
+      scrollbar-width: none;
+      /* 平滑滚动 */
+      scroll-behavior: smooth;
+    }
+
+    .box ul li {
+      /* width: 200px; */
+      /* flex: flex-grow flex-shrink flex-basis 的简写 */
+      /* flex-grow: 0 不放大，不参与剩余空间的分配 */
+      /* flex-shrink: 0 不缩小，空间不足时也不压缩 */
+      /* flex-basis: 200px 初始基础宽度为200px */
+      /* 综合效果：每个li固定宽度200px，既不放大也不缩小 */
+      flex: 0 0 200px;
+    }
+
+    /* .box ul li a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    } */
+
+    .box ul li a img {
+      display: block;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <ul>
+      <li><a href="#"><img src="../img/cat1.jpg" alt=""></a></li>
+      <li><a href="#"><img src="../img/cat2.jpg" alt=""></a></li>
+      <li><a href="#"><img src="../img/cat3.jpg" alt=""></a></li>
+      <li><a href="#"><img src="../img/cat4.jpg" alt=""></a></li>
+      <li><a href="#"><img src="../img/cat5.jpg" alt=""></a></li>
+      <li><a href="#"><img src="../img/cat6.jpg" alt=""></a></li>
+      <li><a href="#"><img src="../img/cat7.jpg" alt=""></a></li>
+      <li><a href="#"><img src="../img/cat8.jpeg" alt=""></a></li>
+      <li><a href="#"><img src="../img/cat9.jpeg" alt=""></a></li>
+      <li><a href="#"><img src="../img/cat10.jpeg" alt=""></a></li>
+      <li><a href="#"><img src="../img/cat11.jpeg" alt=""></a></li>
+      <li><a href="#"><img src="../img/cat12.jpeg" alt=""></a></li>
+    </ul>
+  </div>
+
+  <!-- 用鼠标滚轮实现滚动效果 -->
+  <script>
+    const box = document.querySelector('.box');
+    const ul = box.querySelector('ul');
+    // 滚动速度系数：>1 加速，<1 减速，=1 默认速度
+    const speed = 2;
+    box.addEventListener('wheel', (e) => {
+      // 阻止页面默认的垂直滚动
+      e.preventDefault();
+      // 将垂直滚动的距离乘以速度系数后赋值给水平滚动条
+      ul.scrollLeft += e.deltaY * speed;
+    });
+  </script>
+
+</body>
+
+</html>

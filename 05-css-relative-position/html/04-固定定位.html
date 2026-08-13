@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      /* 固定定位，脱离文档流，根据视口进行定位 */
+      /* top的优先级高于bottom，left的优先级高于right */
+      position: fixed;
+      bottom: 50px;
+      /* 水平居中 */
+      left: 50%;
+      margin-left: -200px;
+      width: 400px;
+      height: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+</body>
+
+</html>

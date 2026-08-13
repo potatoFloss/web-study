@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid布局</title>
+  <style>
+    /* grid布局，通过设置网格轨道来实现网格布局 */
+    .box {
+      display: grid;
+      /* 设置网格轨道，4列，2行，每列每行1fr */
+      /* fr 表示容器中除去固定尺寸（如 px）后剩余空间的比例份额。 */
+      /* grid-template-columns: repeat(4, 1fr); */
+      /* grid-template-rows: repeat(2, 1fr); */
+      grid-template-columns: 300px 300px 300px;
+      grid-template-rows: 300px 300px 300px;
+      /* grid-gap: 20px; */
+      /* grid布局的布局样式和flex布局的布局样式基本相同 */
+      justify-content: space-between;
+      align-content: space-between;
+      width: 1000px;
+      height: 1000px;
+      border: 1px solid red;
+    }
+
+    .box div {
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+  </div>
+</body>
+
+</html>

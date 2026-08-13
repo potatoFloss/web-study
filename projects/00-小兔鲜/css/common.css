@@ -54,11 +54,15 @@
 
 /* 1.2 header部分 */
 .header {
+  /* 粘性定位 */
+  position: sticky;
+  top: 0;
+  z-index: 99999;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 132px;
-  /* background-color: pink; */
+  background-color: #fff;
 }
 
 /* 1.2.1 logo */

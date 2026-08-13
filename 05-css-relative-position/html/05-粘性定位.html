@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .nav {
+      /* 粘性定位，在没有到指定位置时，是相对定位，到了指定位置，就是固定定位 */
+      /* 以上级容器为位置参照，上级容器的overflow需要为visible，否则粘性定位失效 */
+      /* top、bottom、left、right四个属性必须设置一个，否则粘性定位失效 */
+      position: sticky;
+      top: 0;
+      background-color: pink;
+      width: 500px;
+      height: 80px;
+      margin: 200px auto 20px;
+    }
+
+    .main {
+      width: 1000px;
+      height: 1500px;
+      background-color: skyblue;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav"></div>
+  <div class="main"></div>
+</body>
+
+</html>
