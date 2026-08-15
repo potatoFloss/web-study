@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仿B站导航栏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ol,
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .nav {
+      /* grid布局 */
+      display: grid;
+      grid-template-columns: repeat(11, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+      width: 800px;
+      height: 66px;
+      margin: 100px auto;
+      /* border: 1px solid red; */
+    }
+
+    .nav li a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      color: #61666d;
+      font-size: 13px;
+      letter-spacing: 2px;
+      background-color: #f6f7f8;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="nav">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">视频</a></li>
+    <li><a href="#">直播</a></li>
+    <li><a href="#">关注</a></li>
+    <li><a href="#">设置</a></li>
+    <li><a href="#">登录</a></li>
+    <li><a href="#">注册</a></li>
+    <li><a href="#">更多</a></li>
+    <li><a href="#">更多</a></li>
+    <li><a href="#">更多</a></li>
+    <li><a href="#">更多</a></li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">视频</a></li>
+    <li><a href="#">直播</a></li>
+    <li><a href="#">关注</a></li>
+    <li><a href="#">设置</a></li>
+    <li><a href="#">登录</a></li>
+    <li><a href="#">注册</a></li>
+    <li><a href="#">更多</a></li>
+    <li><a href="#">更多</a></li>
+    <li><a href="#">更多</a></li>
+    <li><a href="#">更多</a></li>
+  </ul>
+</body>
+
+</html>
