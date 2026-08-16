@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>项目对齐方式</title>
+  <style>
+    /* 网格布局中，项目（在单元格中的）对齐方式：
+    给项目指定了大小，且比单元格更小，可以通过在容器中设置项目对齐方式，来实现项目在单元格中的不同对齐。
+    1.横向对齐：justify-items: ;
+    2.纵向对齐：align-items: ;
+    3.横向+纵向对齐（不推荐）：place-items: ;
+    其中：
+    center：居中对齐
+    start：左/上对齐
+    end：右/下对齐
+    stretch（默认，在没有给项目指定大小时）：拉伸对齐
+    */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .box {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      /* 项目对齐方式 */
+      justify-items: center;
+      align-items: center;
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+      margin: 20px;
+    }
+
+    .box .item {
+      width: 50px;
+      height: 50px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+  </div>
+</body>
+
+</html>

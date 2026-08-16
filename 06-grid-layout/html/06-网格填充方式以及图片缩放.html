@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>网格填充方式以及图片缩放</title>
+  <style>
+    /* 网格填充方式：默认为行填充
+    1.填充方式（列）：grid-auto-flow: row;
+    2.填充方式（行）：grid-auto-flow: column;
+    */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .box {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 20px;
+      /* 改为列填充方式 */
+      grid-auto-flow: column;
+      max-width: 1760px;
+      height: 900px;
+      margin: 100px auto;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .box .item {
+      background-color: pink;
+    }
+
+    /* 第一个盒子合并1列2行 */
+    .box .item:first-child {
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 2;
+    }
+
+    /* 第3个盒子合并2列1行 */
+    .box .item:nth-child(3) {
+      grid-column: 2 / span 2;
+      grid-row: 2 / span 1;
+    }
+
+    .box .item img {
+      display: block;
+      /* 此时如果视口宽度变小，图片会被压缩变扁 */
+      width: 100%;
+      height: 100%;
+      /* 解决方法 object-fit: cover; 使图片按照固定的宽高比缩放，覆盖整个盒子 */
+      /* object-fit: fill; 默认值，没有固定的宽高比，图片会拉伸填充整个盒子。
+      object-fit: contain; 在完整展示图片的前提下，图片会保持原始的宽高比，不会拉伸填充整个盒子。
+      */
+      object-fit: cover;
+      /* object-fit: contain; */
+      /* 同时加上图片显示的位置 */
+      /* 图片居中显示 */
+      object-position: center;
+      /* top left左上角 */
+      /* object-position: top left; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="item">
+      <img src="../../05-css-position/img/tree1.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="../../05-css-position/img/tree2.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="../../05-css-position/img/tree3.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="../../05-css-position/img/tree4.jpg" alt="">
+    </div>
+  </div>
+</body>
+
+</html>

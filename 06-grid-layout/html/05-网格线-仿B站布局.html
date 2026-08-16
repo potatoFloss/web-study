@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>网格线-仿B站布局</title>
+  <style>
+    /* 网格线：按照n+1来计算，网格线有编号，编号从1开始，从左往右，从上往下，编号递增。
+    如果是一个3行3列的网格，则列网格线和行网格线各有4条 */
+    /* 如何实现网格合并？ 
+    第一种写法：
+    1.合并列网格：grid-column: 起始列网格线编号1/结束列网格线编号2;
+    2.合并行网格：grid-row: 起始行网格线编号1/结束行网格线编号2;
+    第二种写法：
+    1.合并列网格：grid-column: 起始列网格线编号1/span 列数;
+    2.合并行网格：grid-row: 起始行网格线编号1/span 行数;
+    */
+    /* 网格线练习的网站：https://cssgridgarden.com/ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .box {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 10px;
+      max-width: 1200px;
+      border: 1px solid red;
+      margin: 100px auto;
+    }
+
+    .box .item {
+      height: 120px;
+      background-color: pink;
+    }
+
+    .box .item:first-child {
+      /* grid-column: 1 / 3;
+      grid-row: 1 / 3; */
+      grid-column: 1 / span 2;
+      grid-row: 1 / span 2;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+    <div class="item">10</div>
+    <div class="item">11</div>
+    <div class="item">12</div>
+  </div>
+</body>
+
+</html>
