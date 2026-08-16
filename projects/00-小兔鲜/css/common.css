@@ -26,6 +26,17 @@
   height: 52px;
 }
 
+.short-nav ul .phone i {
+  /* i默认是inline元素，transform对inline元素无效，必须转为inline-block */
+  display: inline-block;
+  transition: all .3s;
+}
+
+/* 当鼠标经过.phone时，使手机图标旋转 */
+.short-nav ul .phone:hover i {
+  transform: rotate(360deg);
+}
+
 .short-nav ul li a {
   font-family: PingFangSC-Regular;
   font-size: 14px;

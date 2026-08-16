@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 200px;
+      border-radius: 50%;
+      border: 1px solid #00BE9A;
+      margin: 130px;
+      transition: all 1s;
+    }
+
+    img:hover {
+      /* 顺时针旋转360° */
+      transform: rotate(360deg);
+      /* 旋转的中心点在左边 */
+      transform-origin: left;
+      /* 过渡写在hover上，当鼠标离开时，过渡效果就消失了，变化很快 */
+      /* transition: all 1s; */
+    }
+  </style>
+</head>
+
+<body>
+  <img src="../../05-css-position/img/c1.webp" alt="">
+</body>
+
+</html>

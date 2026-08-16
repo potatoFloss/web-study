@@ -107,10 +107,11 @@ html {
 .banner .next {
   position: absolute;
   top: 50%;
-  margin-top: -30px;
   width: 40px;
   height: 60px;
   background-color: rgba(0, 0, 0, 0.5);
+  /* margin-top: -30px; */
+  transform: translateY(-50%);
 }
 
 .banner .prev {
@@ -174,6 +175,13 @@ html {
   height: 404px;
   background-color: #EEF9F4;
   text-align: center;
+  /* 过渡：transition: all 过渡时间; */
+  transition: all .3s;
+}
+
+/* 鼠标经过li，向上移动10px */
+.box-bd ul li:hover {
+  transform: translateY(-10px);
 }
 
 .box-bd ul li a {
@@ -280,10 +288,42 @@ html {
 }
 
 .body .body-right li {
+  position: relative;
   width: 242px;
   height: 305px;
   padding: 10px 21px 0;
+  /* 一个2px的透明边框 */
+  border: 2px solid transparent;
+  transition: all .3s;
+  overflow: hidden;
 }
+
+/* 鼠标移动到li上时，底部出现的绿色盒子 */
+.body .body-right li .mask {
+  position: absolute;
+  bottom: -83px;
+  left: 0;
+  width: 100%;
+  height: 83px;
+  line-height: 83px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  background-color: #00BE9A;
+  transition: all .3s;
+}
+
+/* 鼠标移动到li上时，底部出现绿色盒子 */
+.body .body-right li:hover .mask {
+  transform: translateY(-83px);
+}
+
+/* 鼠标移动到li上时，边框颜色变成绿色 */
+.body .body-right li:hover {
+  border-color: #00BE9A;
+}
+
+
 
 .body .body-right li img {
   width: 200px;
