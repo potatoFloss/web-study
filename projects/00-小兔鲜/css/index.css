@@ -364,8 +364,19 @@ html {
   height: 355px;
 }
 
+.news li .img {
+  /* 裁切图片经过放大之后超出的部分 */
+  overflow: hidden;
+}
+
+/* 鼠标经过news中的li时，li中的img放大1.5倍 */
+.news li:hover img {
+  transform: scale(1.5);
+}
+
 .news .img img {
   width: 100%;
+  transition: all .3s;
 }
 
 .news {

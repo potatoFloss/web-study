@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2D-skew倾斜</title>
+
+  <style>
+    .box {
+      width: 200px;
+      height: 55px;
+      text-align: center;
+      line-height: 55px;
+      color: #fff;
+      background-color: pink;
+      /* 倾斜：
+      skew(水平方向的倾斜角度，垂直方向的倾斜角度) 
+      skewX(水平方向的倾斜角度)
+      skewY(垂直方向的倾斜角度)
+      */
+      transform: skewX(-16deg);
+    }
+
+    .card {
+      position: relative;
+      width: 240px;
+      height: 280px;
+      margin: 50px;
+    }
+
+    .card div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 240px;
+      height: 280px;
+      border-radius: 0px 30px 40px 40px;
+      /* transition写在真正会发生属性变化的元素上 */
+      transition: all .3s;
+      /* transform-origin只对自身的transform生效，所以写在真正要倾斜的.back上，.card div等同于给.back和.front都添加transform-origin: left top; */
+      transform-origin: left top;
+    }
+
+    .card .front {
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.4);
+      /* 添加滤镜效果，磨砂玻璃 */
+      backdrop-filter: blur(1px);
+    }
+
+    .card .back {
+      background-color: purple;
+      transform: skewY(8deg);
+    }
+
+    /* 当鼠标经过card时，back沿着y轴旋转15°，原点为card左上角（默认是垂直于x轴中心的那条y轴） */
+    .card:hover .back {
+      transform: skewY(15deg);
+      width: 200px;
+    }
+
+    .card:hover .front {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">英雄联盟</div>
+
+  <!-- 案例效果 -->
+  <div class="card">
+    <div class="front"></div>
+    <div class="back"></div>
+  </div>
+</body>
+
+</html>

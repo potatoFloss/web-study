@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>transform的复合写法</title>
+
+  <style>
+    /* transform的复合写法：
+    transform: A() B() C() D(); 
+    执行顺序：D -> C -> B -> A
+    */
+    .box {
+      width: 1000px;
+      height: 100px;
+      border: 1px solid red;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      transition: all 2s;
+    }
+
+    /* 鼠标经过box时，img一边旋转一边平移，所以应该先旋转后平移 */
+    .box:hover img {
+      transform: translate(600px) rotate(360deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <img src="../../05-css-position/img/xg.png" alt="">
+  </div>
+</body>
+
+</html>
