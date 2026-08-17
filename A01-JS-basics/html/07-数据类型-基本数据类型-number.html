@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数字类型-number</title>
+</head>
+
+<body>
+  <script>
+    /*
+    JavaScript是一种弱数据类型，即变量的类型是根据赋值的值来确定类型。
+    JavaScript的数据类型整体分为两大类：基本数据类型、引用数据类型（Object对象类型）
+    常见的基本数据类型有：
+    1. 数字 Number
+    2. 字符串 String
+    3. 布尔值 Boolean
+    4. 空值 Null
+    5. 未定义 Undefined
+    */
+    /*
+    算数运算符：+ - * / % ++ --
+    1. 加法运算符：+ 可以用于数字和字符串的加法
+    2. 减法运算符：- 可以用于数字的减法，也可以用于字符串的拼接
+    3. 乘法运算符：* 可以用于数字的乘法
+    4. 除法运算符：/ 可以用于数字的除法
+    5. 取余运算符：% 可以用于数字的取余
+    6. 自增运算符：++ 可以用于数字的自增
+    7. 自减运算符：-- 可以用于数字的自减
+    */
+    // 练习：对话框中输入圆的半径，计算圆的面积并输出到页面中
+    let radius = prompt('请输入圆的半径')
+    const PI = 3.1415926
+    let area = PI * radius * radius
+    document.write(area)
+
+    // NaN：Not a Number，非数字，表示一个无效的数字。
+    // 代表一个计算错误。它是一个不正确的或者说一个未定义的数学操作所得到的结果。
+    // NaN是粘性的，即任何操作与NaN进行运算，结果都是NaN。
+    // NaN !== NaN
+    console.log(NaN)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // 输出语法
+    // 1. document.write('') 向浏览器（浏览器的body标签）中输出内容，document是文档的意思
+    document.write('hello')
+    // document.write('') 也可以输出html标签
+    document.write('<h1>hello world</h1>')
+    // 2. alert('') 页面弹出提示框
+    alert('hello')
+    // 3. console.log('') 控制台输出内容，程序员调试时使用
+    console.log('hello')
+
+    // 输入语法
+    // 1. prompt('') 弹出输入框，用户可以在输入框中输入内容
+    let name = prompt('请输入你的姓名')
+    console.log(name)
+    // 2. confirm('') 弹出确认框，用户可以在确认框中确认或取消
+    let isConfirm = confirm('你确定要删除吗？')
+    console.log(isConfirm)
+  </script>
+</body>
+
+</html>
