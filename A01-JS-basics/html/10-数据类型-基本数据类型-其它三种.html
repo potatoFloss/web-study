@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 通过typeof运算符可以判断变量的类型
+
+    // boolean：布尔值类型 只有两个值：true和false
+    let isTrue = true
+    console.log(isTrue)
+    console.log(typeof isTrue)
+    console.log(3 > 4)  // false
+
+    // undefined：未定义类型 未赋值的变量，默认值为undefined
+    let a
+    console.log(a)
+    console.log(typeof a)  // undefined
+
+    // null：空值类型 表示一个空值，没有对象。
+    // 和undefined的区别：null已经赋值了，赋的值为空值，而undefined是没有赋值
+    // 使用场景：将来有个变量存放的是一个对象，但现在这个对象还没有创建好，可以先给它赋值为null
+    let b = null
+    console.log(b)
+    console.log(typeof b)  // object
+  </script>
+</body>
+
+</html>

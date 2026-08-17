@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h2 {
+      text-align: center;
+    }
+
+    table {
+      /* 表格边框合并为一条 */
+      border-collapse: collapse;
+      /* 表格居中 */
+      margin: 0 auto;
+    }
+
+    /* 给表格加上边框 */
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+
+    th,
+    td {
+      /* 给表格单元格添加居中对齐 */
+      text-align: center;
+      /* 添加内边距 */
+      padding: 5px 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 需求：用户输入商品价格和商品数量，以及收货地址，可以自动打印订单信息 -->
+
+  <!-- 1. 搭建html页面 -->
+
+
+  <script>
+    // 获取用户输入
+    let price = +prompt('请输入商品价格')
+    let num = +prompt('请输入商品数量')
+    let address = prompt('请输入收货地址')
+    // 计算总额
+    let total = price * num
+    // 打印订单信息，由于没有学DOM，所以直接把HTML代码剪切过来
+    document.write(`
+    <h2>订单确认</h2>
+    <table>
+      <tr>
+        <th>商品名称</th>
+        <th>商品价格</th>
+        <th>商品数量</th>
+        <th>总价</th>
+        <th>收货地址</th>
+      </tr>
+      <tr>
+        <td>商品1</td>
+        <td>${price}元</td>
+        <td>${num}</td>
+        <td>${total}元</td>
+        <td>${address}</td>
+      </tr>
+    </table>
+    `)
+
+  </script>
+</body>
+
+</html>

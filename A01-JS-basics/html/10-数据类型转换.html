@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 数据类型转换：将一个数据类型转换为另一个数据类型
+    // 1. 隐式转换：自动转换
+    // 2. 显式转换：使用类型转换函数
+    /*
+    为什么需要数据类型转换？
+    表单、prompt()函数获取到的用户输入的类型是字符串类型，不能简单进行相加，需要转换成数字类型。
+    */
+    /*
+    隐式转换：
+    1. +号两边，只要有一个是字符串，就会将另一个转换为字符串
+    2. 除+号以外的算数运算符，会将非数字类型转换为数字
+    3. +号作为正号，解析可将字符串类型的数字转换为数字类型
+    */
+    let num = +'123'
+    console.log(num)
+    console.log(typeof num)  // number
+
+    /*
+    显式转换：
+    1. Number()：将字符串转换为数字类型
+    2. parseInt()：将字符串（数字开头）转换为整数类型
+    3. parseFloat()：将字符串（数字开头）转换为浮点数类型
+    4. Boolean()：将字符串转换为布尔类型 有值就true，空就false
+    只有6个值会被转为false：
+    false     布尔值false
+    0         数字0
+    ''        空字符串
+    null      空值
+    undefined 未定义
+    NaN       非数字  
+    */
+    console.log(parseInt('123.456px'))  // 123
+    console.log(parseFloat('123.456px'))  // 123.456
+    console.log(parseInt('hhh123.456px'))  // NaN
+    console.log(Boolean('123'))  // true
+  </script>
+</body>
+
+</html>
