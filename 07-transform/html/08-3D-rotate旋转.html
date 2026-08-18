@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D-rotate旋转</title>
+  <style>
+    img {
+      display: block;
+      width: 200px;
+      margin-bottom: 50px;
+      transition: all .5s;
+    }
+
+    .car-x:hover {
+      transform: rotateX(180deg);
+    }
+
+    .car-y:hover {
+      transform: rotateY(180deg);
+    }
+
+    .car-z:hover {
+      transform: rotateZ(180deg);
+    }
+  </style>
+</head>
+
+<body>
+  <img src="../img/car.webp" alt="" class="car-x">
+  <img src="../img/car.webp" alt="" class="car-y">
+  <img src="../img/car.webp" alt="" class="car-z">
+</body>
+
+</html>

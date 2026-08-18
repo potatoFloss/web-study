@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D-perspective透视</title>
+  <style>
+    img {
+      display: block;
+      width: 300px;
+      transition: all .5s;
+    }
+
+    /* 透视效果，近大远小，使图片旋转更有立体感 */
+    /* 
+    两种方式：
+    1. 直接给容器添加perspective属性，容器中的所有元素都会添加透视效果
+    2. 通过transform属性给元素单独添加透视效果，且perspective必须在第一个才能生效，只对该元素生效，其他元素不受影响 
+    */
+
+    body {
+      perspective: 1000px;
+    }
+
+    .car-x {
+      /* transform: perspective(1000px) rotateX(30deg); */
+      transform: rotateX(30deg);
+    }
+
+    .car-y {
+      /* transform: perspective(1000px) rotateY(40deg); */
+      transform: rotateY(40deg);
+    }
+  </style>
+</head>
+
+<body>
+
+</body>
+<img src="../img/car.webp" alt="" class="car-x">
+<br>
+<img src="../img/car.webp" alt="" class="car-y">
+<br>
+<img src="../img/car.webp" alt="" class="car-z">
+
+</html>

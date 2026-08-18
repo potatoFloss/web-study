@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>两面翻转的盒子</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .box {
+      position: relative;
+      width: 300px;
+      height: 450px;
+      border: 1px solid blue;
+      margin: 100px auto;
+      /* 透视效果 */
+      perspective: 1000px;
+    }
+
+    .box>div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: pink;
+      text-align: center;
+      line-height: 450px;
+      font-size: 30px;
+      color: white;
+      transition: all .8s;
+      /* 反转后，背面会显示出来，需要隐藏背面 */
+      backface-visibility: hidden;
+    }
+
+    /* .box .front {
+      z-index: 1;
+    } */
+
+    .box:hover .front {
+      transform: rotateY(-180deg);
+    }
+
+    .box .back {
+      background-color: skyblue;
+      /* 初始化：沿着y轴正方向旋转180度 */
+      transform: rotateY(180deg);
+    }
+
+    .box:hover .back {
+      transform: rotateY(0deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="front">前面</div>
+    <div class="back">背面</div>
+  </div>
+</body>
+
+</html>

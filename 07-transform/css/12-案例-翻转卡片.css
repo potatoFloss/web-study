@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+body {
+  background-color: #24252d;
+}
+
+p {
+  color: white;
+}
+
+.box {
+  width: 80%;
+  margin: 100px auto;
+}
+
+/* 网格布局 */
+ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+li {
+  position: relative;
+}
+
+li:hover .card-front {
+  transform: rotateY(-180deg);
+}
+
+li:hover .card-back {
+  transform: rotateY(0deg);
+}
+
+[class^="card"] {
+  /* position: absolute; */
+  /* width: 350px; */
+  width: 100%;
+  /* height: 250px; */
+  /* border: 1px solid red; */
+  border-radius: 15px;
+  text-align: center;
+  /* 背面隐藏 */
+  backface-visibility: hidden;
+  /* 3D空间 */
+  transform-style: preserve-3d;
+  /* 旋转平滑 */
+  transition: all .7s;
+}
+
+/* 卡片正面：相对定位，在正常流中，高度由图片自动撑开 */
+.card-front {
+  position: relative;
+}
+
+/* 卡片正面 */
+.card-front img {
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.card-front h3,
+.card-front p {
+  position: absolute;
+  left: 50%;
+  /* 沿着x轴向左移动自身宽度的一半，
+  再沿着Z轴正向移动60px，
+  切记一定要写在一起，否则后一句覆盖前一句，没有写的默认为0 */
+  transform: translateX(-50%) translateZ(60px);
+  /* 背面隐藏 */
+  backface-visibility: hidden;
+}
+
+.card-front h3 {
+  top: 60px;
+  font-size: 30px;
+  font-weight: 400;
+  color: white;
+  padding-bottom: 20px;
+  border-bottom: 1px solid white;
+}
+
+.card-front p {
+  top: 150px;
+}
+
+/* 卡片背面 */
+.card-back {
+  /* 绝对定位，高度跟随 card-front */
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(45deg, #cedce7 0, #596a72 100%);
+  line-height: 35px;
+  padding-top: 20px;
+  /* 旋转180度 */
+  transform: rotateY(180deg);
+}
+
+.card-back p {
+  transform: translateZ(60px);
+  backface-visibility: hidden;
+}
