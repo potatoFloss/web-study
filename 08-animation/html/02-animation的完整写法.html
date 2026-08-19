@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @keyframes move {
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(300px, 300px);
+      }
+    }
+
+    /* 2. 调用动画 */
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      /* animation: 动画名称 动画时长 速度曲线 延迟时间 播放次数 播放方向 执行完毕状态 */
+      /* 注意：前两个参数是必填的，以及（前两个参数）要严格按照顺序填写 */
+      /* infinite: 无限循环
+      alternate: 跑马灯效果
+      forwards: 执行完毕后保持最后一帧的状态
+      backwards: 执行完毕后保持第一帧的状态
+      normal: 正常播放
+      reverse: 反向播放 */
+      animation: move 4s ease 0s infinite alternate forwards;
+
+      /* 单写属性：
+      animation-timing-function 速度曲线
+      animation-delay 延迟时间
+      animation-iteration-count 播放次数
+      animation-direction 播放方向
+      animation-fill-mode 执行完毕状态
+      animation-play-state 暂停或者继续动画 这个要单独写，不能写在animation中
+      */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../iconfont/iconfont.css">
+</head>
+
+<body>
+  <script>
+    // 页面打印5行5列的小星星
+    for (let i = 0; i < 5; i++) {
+      for (let j = 0; j < 5; j++) {
+        document.write(`<i class="iconfont icon-xingxing"></i>`)
+      }
+      document.write('<br>')
+    }
+
+    // 用户输入几行几列，就打印几行几列的小星星
+    // let x = +prompt('请输入行数')
+    // let y = +prompt('请输入列数')
+    // for (let i = 0; i < x; i++) {
+    //   for (let j = 0; j < y; j++) {
+    //     document.write(`<i class="iconfont icon-xingxing"></i>`)
+    //   }
+    //   document.write('<br>')
+    // }
+
+    // 打印三角形星星
+    for (let i = 0; i < 5; i++) {
+      for (let j = 0; j <= i; j++) {
+        document.write(`<i class="iconfont icon-xingxing"></i>`)
+      }
+      document.write('<br>')
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 动画的基本使用 */
+    /* 1. 定义动画 
+    @keyframes 动画名称 { 
+      关键帧1 { 动画样式1 } 
+      关键帧2 { 动画样式2 } ... 
+    } */
+    /* @keyframes move {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(300px, 300px);
+      }
+    } */
+    /* 如果只有两个状态，可以直接使用from和to来定义 */
+    /* @keyframes move {
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(300px, 600px);
+      }
+    } */
+    /* 多个关键帧 */
+    @keyframes move {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      25% {
+        transform: translate(300px, 0);
+      }
+
+      50% {
+        transform: translate(300px, 300px);
+      }
+
+      75% {
+        transform: translate(0, 300px);
+      }
+
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+
+    /* 2. 调用动画 */
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      animation: move 4s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+</body>
+
+</html>

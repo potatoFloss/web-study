@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仿360官网首页动画效果</title>
+  <style>
+    /* 首先要将html和body的宽高设置为和视口一致 */
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      /* 隐藏滚动条，防止滚动条遮挡动画 */
+      overflow: hidden;
+      /* 写cover必须写图片位置，这里是center */
+      background: url(../img/bg.jpg) no-repeat center/cover #000;
+    }
+
+    .ball1 {
+      position: absolute;
+      left: 20%;
+      top: 22%;
+      width: 13%;
+    }
+
+    .ball2 {
+      position: absolute;
+      left: 65%;
+      top: 50%;
+      width: 22%;
+    }
+
+    .wx {
+      position: absolute;
+      width: 8%;
+      left: 64%;
+      top: 40%;
+    }
+
+    /* 星球上下移动的动画 */
+    @keyframes ball-animation {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-25px);
+      }
+    }
+
+    /* 调用动画 */
+    .ball1 {
+      animation: ball-animation 5s linear infinite alternate;
+    }
+
+    .ball2 {
+      animation: ball-animation 6s linear infinite alternate;
+    }
+
+    /* 定义卫星动画 */
+    @keyframes wx-animation {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(-45deg);
+      }
+    }
+
+    /* 调用卫星动画 */
+    .wx {
+      animation: wx-animation 30s linear infinite alternate;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="../img/ball1.png" alt="" class="ball1">
+  <img src="../img/ball2.png" alt="" class="ball2">
+  <img src="../img/wx.png" alt="" class="wx">
+</body>
+
+</html>

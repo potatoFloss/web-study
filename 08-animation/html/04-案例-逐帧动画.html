@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>逐帧动画</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      background: url(../img/bg2.png) no-repeat center/cover;
+    }
+
+    /* 定义动画 */
+    @keyframes box-animation {
+      from {
+        /* 这里不能写translateX(0) 因为translateX是移动盒子，我们想要的是移动背景图片，盒子的位置保持不变 */
+        background-position: 0;
+      }
+
+      to {
+        background-position: -13700px;
+      }
+    }
+
+    .box {
+      width: 548px;
+      height: 513px;
+      background-color: pink;
+      margin: 200px;
+      /* 背景图片 */
+      background: url(../img/step.png) no-repeat;
+      background-size: 13700px 513px;
+      /* 调用动画 逐帧动画 
+      速度曲线用steps(帧数) 帧数=精灵图数量 */
+      animation: box-animation 1.2s steps(25) infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+</body>
+
+</html>
