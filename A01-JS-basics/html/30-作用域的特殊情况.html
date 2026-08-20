@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 作用域的特殊情况：
+    // 1. （强烈不允许！）在局部作用域中，变量没有声明，直接赋值，也当全局变量来看
+    function fn() {
+      num = 10
+    }
+    fn();
+    console.log(num);  //  10
+
+    // 2.形参可以看作是函数的局部变量
+
+    // 3. 作用域链采取就近原则，即在局部作用域中，先查找变量，如果没有，再在上一级作用域中查找
+    function fn1() {
+      let a = 10;
+      function fn2() {
+        let a = 20;
+        console.log(a);  //  20
+      }
+      fn2();
+    }
+    fn1()  //  20
+  </script>
+</body>
+
+</html>

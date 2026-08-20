@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组增删</title>
+</head>
+
+<body>
+  <script>
+    // 给数组新增一个或多个元素
+    // 1. push()方法  向数组的末尾添加一个或多个元素，返回新数组的长度
+    // 2. unshift()方法  向数组的开头添加一个或多个元素，返回新数组的长度
+    let arr = ['pink', 'red', 'green']
+    let len = arr.push('blue')
+    console.log(arr)
+    console.log(len)
+    len = arr.unshift('orange')
+    console.log(arr)
+    console.log(len)
+    console.log(`-----------------`)
+
+    // 删除数组中的元素
+    // 1. pop()方法  删除数组的最后一个元素，返回删除的元素
+    // 2. shift()方法  删除数组的第一个元素，返回删除的元素
+    // 3. splice(start, deleteCount)方法  删除数组中下标从start开始的deleteCount个连续元素，返回删除的元素
+    console.log(arr)
+    let last = arr.pop()  // 'blue'
+    console.log(arr)
+    console.log(last)
+    console.log(`-----------------`)
+    console.log(arr.shift())  // 'orange'
+    console.log(arr)  // ['pink', 'red', 'green']
+    console.log(arr.splice(1, 2))
+    console.log(arr)
+
+  </script>
+</body>
+
+</html>

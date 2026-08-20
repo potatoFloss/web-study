@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 匿名函数：没有名字的函数
+    // 匿名函数的调用：
+    // 1.函数表达式
+    let fn = function () {
+      console.log('hello world');
+    };
+    fn();
+    // 函数表达式和具名函数的区别：
+    // 具名函数可以在任何地方调用函数，包括在函数定义之前，而匿名函数只能在函数定义之后调用
+
+    // 2.立即执行函数，结束必须加分号,也可以在开头加分号
+    // 第一种写法
+    (function () {
+      let num = 10
+    })();
+    (function () {
+      let num = 20
+    })();
+    // 第二种写法
+    (function (x, y) { }(1, 3));
+  </script>
+</body>
+
+</html>

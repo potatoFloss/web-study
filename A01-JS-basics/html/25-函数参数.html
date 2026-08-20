@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 函数的参数
+    // 这里的a和b叫做形参
+    function addHello(a, b) {
+      console.log(a + b);
+    }
+    // 函数的调用
+    // 这里的1和2叫做实参，实参可以是变量
+    addHello(1, 2);
+
+    // 参数默认值，如果用户不输入实参，就会使用默认值
+    function addHello2(a, b = 0) {
+      console.log(a + b);
+    }
+    // 这里的1实参，所以b的默认值0会生效
+    addHello2(1);  //  1
+    // 这里的1和2都是实参，所以b的默认值0不会生效
+    addHello2(1, 2);  //  3
+  </script>
+</body>
+
+</html>

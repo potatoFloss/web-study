@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 根据函数的实际作用，来判断是否需要返回值
+    // 没有return的函数，默认返回undefined
+    // return只能返回一个数据，如果想要返回多个数据，可以把它们装进一个数组/对象中
+    function sayHello() {
+      console.log('hello world');
+    }
+    // 函数的调用
+    let result = sayHello();
+    console.log(result);  //  undefined
+
+    // 函数的返回值
+    function addHello(a, b) {
+      return a + b;
+    }
+    // 函数的调用
+    console.log(addHello(1, 2));  //  3
+  </script>
+</body>
+
+</html>

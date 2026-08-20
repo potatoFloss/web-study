@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let arr = [7, 8, 3, 6, 5]
+    // sort() 默认对数组进行升序排序
+    // arr.sort()
+
+    // 开发中，升序写法
+    arr.sort(function (a, b) {
+      return a - b
+    })
+    // arr.sort((a, b) => a - b)
+
+    // 开发中，降序写法
+    arr.sort(function (a, b) {
+      return b - a
+    })
+
+
+    console.log(arr)
+  </script>
+</body>
+
+</html>
