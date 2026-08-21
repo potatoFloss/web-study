@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 定义一个对象，对象包含属性（名词）和方法（动词）
+    let obj = {
+      // 属性
+      username: '张三',
+      age: 18,
+      sex: '男',
+      // 方法
+      sayHello: function () {
+        console.log('你好，我是' + this.username)
+      }
+    }
+
+    // 2. 对象的使用：增删改查
+    console.log(obj)
+    // 增
+    obj.address = '北京'
+    console.log(obj)
+    // 删
+    delete obj.age
+    console.log(obj)
+    // 查
+    console.log(obj.username)
+    // 改
+    obj.username = '李四'
+    console.log(obj)
+
+    // 查 的两种写法
+    // 1. 对象名.属性名
+    // 2. 对象名['属性名'] 适用于属性名是字符串的情况，比如中间有短横线之类的，例如'user-name'
+    console.log(obj['username'])
+
+  </script>
+</body>
+
+</html>

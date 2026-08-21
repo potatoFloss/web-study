@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 逻辑中断
+    // && 左边为假，右边就不会执行
+    // || 左边为真，右边就不会执行
+
+    // 在开发中常见的一个写法
+    function fun(x, y) {  // 作用和形参默认值相同
+      // 在逻辑运算符||中，一真为真，都是假的则返回最后一个假值
+      // 在这里，如果x是假的，就会返回0给x赋值
+      x = x || 0
+      y = y || 0
+      return x + y
+    }
+    console.log(fun())  //  0
+  </script>
+</body>
+
+</html>

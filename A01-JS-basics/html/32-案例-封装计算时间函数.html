@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 需求；用户输入需要计算的秒数，返回计算结果，格式为：时:分:秒
+    function formatTime(seconds) {
+      let hours = Math.floor(seconds / 3600) % 24
+      let minutes = Math.floor(seconds / 60) % 60
+      seconds = Math.floor(seconds % 60)
+      function padZero(num) {
+        return num < 10 ? '0' + num : num + ''
+      }
+      hours = padZero(hours)
+      minutes = padZero(minutes)
+      seconds = padZero(seconds)
+      return `${hours}:${minutes}:${seconds}`
+    }
+    let num = prompt('请输入需要计算的秒数')
+    document.write(formatTime(num))
+  </script>
+</body>
+
+</html>

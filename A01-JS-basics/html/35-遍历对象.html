@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // for...in 循环遍历对象的所有属性
+    for (let key in obj) {
+      // 需要注意的是，key的取值是字符串类型，
+      // 所以一般不用for...in遍历数组，因为数组下标是数字类型，它会把数字转换为字符串
+      console.log(key)
+      console.log(obj[key])
+    }
+  </script>
+</body>
+
+</html>

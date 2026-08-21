@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/37-渲染学生信息表.css">
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>地址</th>
+      </tr>
+    </thead>
+    <tbody>
+      <script>
+        // 创建一个对象数组
+        let students = [
+          {
+            username: '张三',
+            age: 18,
+            sex: '男',
+            address: '北京东城区'
+          },
+          {
+            username: '李四',
+            age: 19,
+            sex: '男',
+            address: '北京东城区'
+          },
+          {
+            username: '王五',
+            age: 20,
+            sex: '男',
+            address: '北京东城区'
+          }
+        ]
+
+        // 渲染学生信息表
+        for (let i = 0; i < students.length; i++) {
+          document.write(`<tr>`)
+          for (let key in students[i]) {
+            document.write(`<td>${students[i][key]}</td>`)
+          }
+          document.write(`</tr>`)
+        }
+      </script>
+    </tbody>
+  </table>
+
+
+</body>
+
+</html>
