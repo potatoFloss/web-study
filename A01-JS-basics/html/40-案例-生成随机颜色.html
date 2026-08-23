@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    需求：该函数接收一个布尔类型参数，表示颜色的格式是十六进制还是rgb格式。
+    1. 如果传的参数是true或者无参数，则随机输出一个十六进制的颜色值，例如：#ffffff
+    2. 如果传的参数是false，则随机输出一个rgb格式的颜色值，例如：rgb(255, 255, 255)
+    3. 格式：
+    function getRandomColor(flag) {
+      console.log(getRandomColor(true))  // #ffffff
+      console.log(getRandomColor(false))  // rgb(255, 255, 255)
+    }
+    4. 分析：
+    十六进制的格式为'#ffffff'，其中f可以是任意0-f之间的字符。
+    rgb格式的格式为'rgb(255, 255, 255)'，其中255可以是任意[0-255]之间的整数。
+    */
+
+    function getRandomColor(flag = true) {
+      if (flag) {
+        let str = '#'
+        let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+        for (let i = 0; i < 6; i++) {
+          let randomNum = Math.floor(Math.random() * arr.length)
+          str += arr[randomNum]
+        }
+        return str
+
+      } else {
+        let r = Math.floor(Math.random() * 256)
+        let g = Math.floor(Math.random() * 256)
+        let b = Math.floor(Math.random() * 256)
+        return `rgb(${r}, ${g}, ${b})`
+      }
+    }
+
+    console.log(getRandomColor())
+    console.log(getRandomColor(true))
+    console.log(getRandomColor(false))
+  </script>
+</body>
+
+</html>
