@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>流光渐变边框按钮</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .btn1 {
+      position: relative;
+      display: block;
+      margin: 100px auto;
+      width: 300px;
+      height: 100px;
+      padding: 5px;
+      border-radius: 10px;
+      background-color: pink;
+      text-align: center;
+      line-height: 90px;
+      overflow: hidden;
+    }
+
+    .btn1::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
+      background-size: 50% 100%;
+    }
+
+    .btn1:hover::before {
+      animation: move .75s linear infinite;
+    }
+
+    /* 动画 */
+    @keyframes move {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .btn1 .btn1-text {
+      position: relative;
+      display: block;
+      background-color: #000;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#" class="btn1">
+    <span class="btn1-text">点击开始</span>
+  </a>
+</body>
+
+</html>
