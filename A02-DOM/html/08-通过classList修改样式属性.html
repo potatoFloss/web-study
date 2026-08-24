@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通过classList修改样式属性</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      border-radius: 20px;
+      color: #333;
+    }
+
+    .box-end {
+      color: blue;
+      text-align: center;
+      line-height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">文字</div>
+
+  <script>
+    // 1. 获取DOM元素
+    const box = document.querySelector('.box')
+
+    // 2. 修改样式属性
+    // 格式：元素.classList.方法名('类名')
+    // 方法名：add、remove、toggle
+    // 类名：类名，不能添加空格
+    // add：添加类名 在原来的基础上添加
+    box.classList.add('box-end')
+    // remove：移除类名
+    box.classList.remove('box-end')
+    // toggle：切换类名 有就删除，没有就添加
+    box.classList.toggle('box-end')
+
+  </script>
+</body>
+
+</html>

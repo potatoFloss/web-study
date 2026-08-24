@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通过className修改DOM元素的样式属性</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      border-radius: 20px;
+    }
+
+    .box-end {
+      width: 500px;
+      height: 300px;
+      background-color: red;
+      border: 2px solid blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+
+  <script>
+    // 1. 获取DOM元素
+    const box = document.querySelector('.box')
+
+    // 2. 修改样式属性
+    // 格式：元素.className = '新的类名' 新类会覆盖旧类的样式
+    // box.className = 'box-end'
+    // 如果是在原来的类名基础上添加新的类名，需要使用空格隔开
+    box.className = 'box box-end'
+  </script>
+</body>
+
+</html>
