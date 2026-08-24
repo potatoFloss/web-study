@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>修改DOM元素常见的属性</title>
+</head>
+
+<body>
+  <img src="../img/day1-images/1.webp" alt="">
+  <script>
+    // 1. 随机数函数 [min, max]
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min
+    }
+
+    // 2. 随机数，一共有6张图片
+    const randomNum = getRandomInt(1, 6)
+
+    // 3. 获取DOM元素
+    const img = document.querySelector('img')
+
+    // 4. 修改属性
+    img.src = `../img/day1-images/${randomNum}.webp`
+  </script>
+</body>
+
+</html>

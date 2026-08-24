@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取DOM元素</title>
+</head>
+
+<body>
+  <div id="div1">我是div元素1</div>
+  <div class="div2">我是div元素2</div>
+  <ul>
+    <li>测试1</li>
+    <li>测试2</li>
+    <li>测试3</li>
+  </ul>
+
+  <script>
+    // 通过CSS选择器获取对象（重点）
+    // 1. 获取第一个匹配的元素
+    const div = document.querySelector('div')
+    console.dir(div)
+    const div1 = document.querySelector('#div1')
+    console.dir(div1)
+    console.log('-------------------')
+    const li1 = document.querySelector('ul li')
+    console.dir(li1)
+    const li2 = document.querySelector('ul li:nth-child(2)')
+    console.dir(li2)
+
+    // 2. 获取所有匹配的元素,返回的是一个伪数组，有长度和索引号，但是不能用数组的方法
+    const divs = document.querySelectorAll('div')
+    console.dir(divs)
+  </script>
+</body>
+
+</html>

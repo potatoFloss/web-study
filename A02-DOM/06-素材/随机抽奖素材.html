@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>年会抽奖</title>
+  <style>
+    .wrapper {
+      width: 840px;
+      height: 420px;
+      background: url(./images/bg01.jpg) no-repeat center / cover;
+      padding: 100px 250px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <strong>传智教育年会抽奖</strong>
+    <h1>一等奖：<span id="prize1">???</span></h1>
+    <h3>二等奖：<span id="prize2">???</span></h3>
+    <h5>三等奖：<span id="prize3">???</span></h5>
+  </div>
+  <script>
+    // 1. 创建一个数组，存储所有参与抽奖的人姓名
+    const names = ['张三', '李四', '王五', '赵六', '钱七', '孙八', '周九', '吴十']
+
+    for (let i = 1; i <= 3; i++) {
+      // 2. 随机获取一个元素
+      const randomIndex = Math.floor(Math.random() * names.length)
+      // 3. 获取元素
+      const name = document.querySelector(`#prize${i}`)
+      name.innerText = names[randomIndex]
+      // 4. 从数组中删除已抽中的元素
+      names.splice(randomIndex, 1)
+    }
+  </script>
+</body>
+
+</html>

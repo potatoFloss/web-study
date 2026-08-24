@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+
+  <script>
+    // 1. 获取DOM元素
+    const box = document.querySelector('.box')
+
+    // 2. 修改样式属性 
+    // 格式：元素.style.属性名 = '属性值'
+    // 属性值是字符串，一定记得添加引号
+    box.style.width = '300px'
+    // 2.1 如果属性名有短横线，则使用 小驼峰命名法 修改
+    box.style.backgroundColor = `red`
+    box.style.borderTop = `10px solid blue`
+  </script>
+</body>
+
+</html>
