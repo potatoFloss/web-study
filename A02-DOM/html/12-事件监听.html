@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件监听</title>
+</head>
+
+<body>
+  <button id="btn">点击我</button>
+
+  <script>
+    // 事件监听格式：事件源.addEventListener('事件类型', 事件处理函数)
+
+    // 需求：点击按钮，弹出提示框
+    // 1. 事件源 按钮
+    const btn = document.querySelector('#btn')
+    // 2. 事件类型 鼠标点击 click
+    // 3. 事件处理函数
+    btn.addEventListener('click', function () {
+      alert('点击了按钮')
+    })
+  </script>
+</body>
+
+</html>

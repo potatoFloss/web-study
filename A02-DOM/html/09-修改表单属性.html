@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>修改表单属性</title>
+</head>
+
+<body>
+  <input type="text" id="username" placeholder="请输入用户名" value="hhh">
+  <br>
+  <button>提交</button>
+  <br>
+  <input type="checkbox" id="agree">
+
+  <script>
+    // 获取表单的值 元素.value
+    // 获取输入框
+    const username = document.querySelector('#username')
+    // 注意：button按钮没有value属性，只能通过innerHTML获取按钮的文本内容，
+    // 其它表单元素都有value属性
+    console.log(username.value)
+
+    // 1. 修改表单类型 元素.type = '新类型名' 
+    // 使用场景：密码框点击显示/隐藏密码
+    // 1.2 修改输入框类型
+    username.type = 'password'
+
+    // 2. disabled按钮禁用 checked复选框选中 selected下拉菜单选中（下拉菜单不常用）
+    // 通过JS控制以上属性的值 只接收boolean类型
+    // 2.1 获取按钮
+    const btn = document.querySelector('button')
+    // 2.2 禁用按钮
+    btn.disabled = true
+    // 2.3 获取复选框
+    const agree = document.querySelector('#agree')
+    // 2.4 选中复选框
+    agree.checked = true
+  </script>
+</body>
+
+</html>

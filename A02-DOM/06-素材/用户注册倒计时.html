@@ -14,8 +14,26 @@
         【请您注意】如果您不同意以下协议全部或任何条款约定，请您停止注册。您停止注册后将仅可以浏览我们的商品信息但无法享受我们的产品或服务。如您按照注册流程提示填写信息，阅读并点击同意上述协议且完成全部注册流程后，即表示您已充分阅读、理解并接受协议的全部内容，并表明您同意我们可以依据协议内容来处理您的个人信息，并同意我们将您的订单信息共享给为完成此订单所必须的第三方合作方（详情查看
     </textarea>
     <br>
-    <button class="btn">我已经阅读用户协议(60)</button>
+    <button class="btn" disabled>我已经阅读用户协议(5)</button>
 
+    <script>
+        // 1. 获取按钮
+        const btn = document.querySelector('.btn')
+        // 2. 定时器
+        let i = 5
+        const timer = setInterval(function () {
+            i--
+            btn.innerHTML = `我已经阅读用户协议(${i})`
+            if (i === 0) {
+                // 3. 清除定时器
+                clearInterval(timer)
+                // 4. 启用按钮
+                btn.disabled = false
+                // 5. 改变按钮的文本内容
+                btn.innerHTML = '同意'
+            }
+        }, 1000)
+    </script>
 </body>
 
 </html>

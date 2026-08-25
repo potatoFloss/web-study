@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>点击关闭</title>
+  <style>
+    .box {
+      position: relative;
+      width: 600px;
+      height: 100px;
+      background-color: pink;
+      margin: 0 auto;
+
+    }
+
+    .box p {
+      font-size: 20px;
+      color: #333;
+      font-weight: bold;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 20px;
+      height: 20px;
+      background-color: skyblue;
+      color: #333;
+      /* 鼠标悬停时的样式 小手 */
+      cursor: pointer;
+      text-align: center;
+      line-height: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 广告 -->
+  <div class="box">
+    <p>这是一个广告</p>
+    <!-- 关闭按钮 -->
+    <div class="close">X</div>
+  </div>
+
+  <script>
+    // 1. 事件源 关闭按钮
+    const close = document.querySelector('.close')
+    const box = document.querySelector('.box')
+    // 2. 事件类型 鼠标点击 click
+    // 3. 事件处理函数 关闭广告
+    close.addEventListener('click', function () {
+      // 关闭广告
+      box.style.display = 'none'
+    })
+  </script>
+</body>
+
+</html>

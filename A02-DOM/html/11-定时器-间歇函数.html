@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>定时器-间歇函数</title>
+</head>
+
+<body>
+  <script>
+    /*
+    间歇函数 setInterval(函数, 时间间隔)
+    说明：
+    1. 该函数会重复执行指定的函数，一般写匿名函数，如果是具名函数，函数名后面不要加()
+    2. 时间间隔：指定函数执行的时间间隔（单位：毫秒）,1s = 1000ms
+    3. 该函数返回一个定时器ID
+    */
+    // let num = setInterval(function () {
+    //   console.log(num++)
+    // }, 1000)
+    function fn() {
+      console.log(num++)
+    }
+    let num = setInterval(fn, 1000)
+    console.log(`定时器ID：${num}`)
+
+    // 4. 清除定时器 clearInterval(定时器ID) 清除指定的定时器
+    // 4.1 一般在满足某种条件时清除定时器，例如，鼠标移动到轮播图上时，清除定时器，鼠标移出时，重新开启定时器
+    // 4.2 所以在接收定时器ID时，要用let声明，而不是const声明，因为定时器ID重新开启时，会重新赋值
+    clearInterval(num)
+  </script>
+</body>
+
+</html>

@@ -127,44 +127,6 @@
       { url: './images/slider08.jpg', title: '谁不想和小猫咪贴贴呢！', color: 'rgb(99, 72, 114)' },
     ]
 
-    // 2. 获取一个随机数
-    // const randomIndex = parseInt(Math.random() * sliderData.length)
-
-    // 3. 获取图片元素
-    const img = document.querySelector('.slider-wrapper img')
-
-    // 4. 获取标题元素
-    const title = document.querySelector('.slider-footer p')
-
-    // 5. 获取footer的背景颜色
-    const footer = document.querySelector('.slider-footer')
-
-    // 2.1 修改为轮播图
-    let randomIndex = 1
-    let n = setInterval(function () {
-      if (randomIndex === sliderData.length) {
-        randomIndex = 0
-      }
-      changeSlider()
-      randomIndex++
-    }, 1500)
-
-    // 修改函数
-    function changeSlider() {
-      img.src = sliderData[randomIndex].url
-
-      title.innerHTML = sliderData[randomIndex].title
-
-      footer.style.backgroundColor = sliderData[randomIndex].color
-
-      // 6. 小圆点
-      // 6.1 清除上一个的active类
-      const activeLi = document.querySelector('.slider-indicator .active')
-      activeLi.classList.remove('active')
-      // 6.2 给当前的小圆点添加active类
-      const li = document.querySelector(`.slider-indicator li:nth-child(${randomIndex + 1})`)
-      li.classList.add('active')
-    }
 
   </script>
 </body>

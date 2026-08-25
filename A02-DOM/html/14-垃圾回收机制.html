@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>点击</button>
+  <script>
+    const btn = document.querySelector('button')
+    btn.addEventListener('click', function () {
+      // 当函数执行完毕之后，num变量会被垃圾回收机制回收，直到下次执行函数时才会重新创建
+      const num = Math.random()
+      console.log(num)
+    })
+  </script>
+</body>
+
+</html>
