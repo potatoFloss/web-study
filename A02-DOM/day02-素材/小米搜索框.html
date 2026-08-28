@@ -14,7 +14,7 @@
         }
 
         ul {
-
+            display: none;
             list-style: none;
         }
 
@@ -77,8 +77,25 @@
         </ul>
     </div>
     <script>
+        // 1. 获取元素
+        const input = document.querySelector('[type="search"]')
+        const resultList = document.querySelector('.result-list')
 
+        // 2. 监听事件 输入框获得焦点
+        input.addEventListener('focus', function () {
+            // 2.1 ul显示
+            resultList.style.display = 'block'
+            // 2.2 输入框添加.search类名
+            input.classList.add('search')
+        })
 
+        // 3. 监听事件 输入框失去焦点
+        input.addEventListener('blur', function () {
+            // 3.1 ul隐藏
+            resultList.style.display = 'none'
+            // 3.2 输入框移除.search类名
+            input.classList.remove('search')
+        })
 
     </script>
 </body>

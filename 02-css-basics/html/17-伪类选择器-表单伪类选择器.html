@@ -29,6 +29,16 @@
     input:checked+label {
       color: #ff6900;
     }
+
+    input[type="text"] {
+      width: 200px;
+      transition: all 0.5s;
+    }
+
+    /* focus获得焦点时，修改输入框样式 */
+    input[type="text"]:focus {
+      width: 300px;
+    }
   </style>
 </head>
 
@@ -37,6 +47,8 @@
   <br>
   <input type="checkbox" id="agree">
   <label for="agree">同意协议</label>
+  <br>
+  <input type="text" placeholder="请输入搜索内容">
 </body>
 
 </html>
