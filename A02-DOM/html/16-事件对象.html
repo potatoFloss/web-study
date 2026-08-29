@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件对象</title>
+</head>
+
+<body>
+  <button id="btn">点击</button>
+  <input type="text" placeholder="请输入">
+
+  <script>
+    const btn = document.getElementById('btn')
+    // 事件对象 也是是对象，事件对象包含了事件相关的信息，比如事件类型、事件目标、事件时间等
+    // 事件对象的位置：事件绑定的回调函数的第一个参数，通常写作e event evt
+    btn.addEventListener('click', function (e) {
+      console.log(e)
+    })
+
+    // 事件对象常用的属性
+    // type 事件类型
+    // clientX clientY 事件触发的坐标位置，相对于浏览器窗口的左上角坐标
+    // offsetX offsetY 事件触发的坐标位置，相对于当前DOM元素的左上角坐标
+    // key 事件触发的按键的值
+    const input = document.querySelector('input')
+    // 按回车键发送评论，应该是松开回车键时触发
+    input.addEventListener('keyup', function (e) {
+      // console.log(e.key)
+      if (e.key === 'Enter') {
+        console.log('发送评论')
+      }
+    })
+
+
+  </script>
+</body>
+
+</html>

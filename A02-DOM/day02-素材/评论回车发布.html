@@ -124,6 +124,8 @@
     // 1.1 获取元素
     const tx = document.querySelector('#tx')
     const total = document.querySelector('.total')
+    const item = document.querySelector('.item')
+    const text = document.querySelector('.text')
 
     // 1.2 监听事件 文本域获得焦点
     tx.addEventListener('focus', function () {
@@ -145,6 +147,26 @@
       total.innerHTML = `${len}/200字`
     })
 
+    // 2. 回车键发送评论，应该是松开回车键时触发
+    tx.addEventListener('keyup', function (e) {
+      // console.log(e.key)
+      if (e.key === 'Enter') {
+        // 2.4 检测用户输入的字符串 去掉首尾空格后是否为空字符串
+        // 这里的判断条件也可以写成 if(tx.value.trim()) 因为空字符串转换为布尔值为false
+        if (tx.value.trim() !== '') {
+          // 2.1 显示评论项
+          item.style.display = 'block'
+          // 2.2 更换评论项的评论内容
+          text.innerHTML = tx.value
+        }
+
+        // 2.3 清空文本域
+        tx.value = ''
+
+        // 2.5 按下回车键松开后，清空total字数
+        total.innerHTML = '0/200字'
+      }
+    })
   </script>
 
 </body>
