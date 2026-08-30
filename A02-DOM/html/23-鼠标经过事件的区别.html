@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鼠标经过事件的区别</title>
+  <style>
+    .paret {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+
+    .child {
+      width: 100px;
+      height: 100px;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="paret">
+    <div class="child"></div>
+  </div>
+
+  <script>
+    const paret = document.querySelector('.paret')
+    const child = document.querySelector('.child')
+
+    // 1. mouseenter 和 mouseleave 没有事件冒泡 （推荐！）
+    // paret.addEventListener('mouseenter', function () {
+    //   console.log('鼠标进入parent元素')
+    // })
+    // paret.addEventListener('mouseleave', function () {
+    //   console.log('鼠标离开parent元素')
+    // })
+
+    // 2. mouseover 和 mouseout 有事件冒泡 （不推荐！）
+    paret.addEventListener('mouseover', function () {
+      console.log('鼠标进入parent元素')
+    })
+    paret.addEventListener('mouseout', function () {
+      console.log('鼠标离开parent元素')
+    })
+  </script>
+</body>
+
+</html>

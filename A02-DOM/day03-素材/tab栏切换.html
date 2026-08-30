@@ -90,29 +90,6 @@
     </div>
   </div>
 
-  <script>
-    // 1. a模块
-    const as = document.querySelectorAll('.tab-nav a')
-    // console.log(as)
-    // 1.2 给每个a元素添加鼠标经过事件
-    for (let i = 0; i < as.length; i++) {
-      // console.log(as[i])
-      // 添加鼠标经过事件
-      as[i].addEventListener('mouseenter', function () {
-        // 移除其它a的active类名
-        document.querySelector('.tab-nav .active').classList.remove('active')
-        // 给当前a添加active类名
-        this.classList.add('active')
-
-        // 2. 下面5个div盒子切换
-        // 2.1 移除其它div的active类名
-        document.querySelector('.tab-content .active').classList.remove('active')
-        // 2.2 给当前div添加active类名
-        document.querySelector(`.tab-content .item:nth-child(${i + 1})`).classList.add('active')
-      })
-
-    }
-  </script>
 </body>
 
 </html>

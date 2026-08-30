@@ -75,31 +75,7 @@
     </tr>
   </table>
   <script>
-    // 1. 获取总复选框
-    const checkAll = document.querySelector("#checkAll")
-    // 2. 获取所有商品复选框
-    const cks = document.querySelectorAll(".ck")
-    // 3. 给总复选框添加点击事件，实现全选反选
-    checkAll.addEventListener("click", function () {
-      // console.log(this.checked)
-      // 4. 遍历所有商品复选框
-      for (let i = 0; i < cks.length; i++) {
-        cks[i].checked = this.checked
-      }
-    })
 
-    // 5. 商品复选框控制总复选框状态
-    // 5.1 给每个商品复选框添加点击事件
-    for (let i = 0; i < cks.length; i++) {
-      cks[i].addEventListener('click', function () {
-        // 5.2 检查此时所有商品复选框中被勾选的数量
-        // 一定要写在点击事件里面，因为要获取最新的数量，点击事件会改变数量
-        // console.log(document.querySelectorAll('.ck:checked').length)
-        // console.log(document.querySelectorAll('.ck:checked').length === cks.length)
-        // 5.3 修改总复选框的选中状态
-        checkAll.checked = document.querySelectorAll('.ck:checked').length === cks.length
-      })
-    }
   </script>
 </body>
 
