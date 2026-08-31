@@ -74,11 +74,11 @@
     <div class="tab-nav">
       <h3>每日特价</h3>
       <ul>
-        <li><a class="active" href="javascript:;">精选</a></li>
-        <li><a href="javascript:;">美食</a></li>
-        <li><a href="javascript:;">百货</a></li>
-        <li><a href="javascript:;">个护</a></li>
-        <li><a href="javascript:;">预告</a></li>
+        <li><a class="active" href="javascript:;" data-index="0">精选</a></li>
+        <li><a href="javascript:;" data-index="1">美食</a></li>
+        <li><a href="javascript:;" data-index="2">百货</a></li>
+        <li><a href="javascript:;" data-index="3">个护</a></li>
+        <li><a href="javascript:;" data-index="4">预告</a></li>
       </ul>
     </div>
     <div class="tab-content">
@@ -90,6 +90,37 @@
     </div>
   </div>
 
+  <script>
+    // 通过事件委托的方法实现tab栏切换
+    // 1. 获取上级元素ul
+    const ul = document.querySelector('.tab-nav ul')
+    // 2. 给ul注册事件
+    ul.addEventListener('mouseover', function (e) {
+      // 查看点击的元素对象是谁
+      // console.dir(e.target)
+      // 查看点击的元素对象的标签名
+      // console.log(e.target.tagName)
+
+      // 2.1 当a标签被点击时，为该a标签添加active类名
+      if (e.target.tagName === 'A') {
+        // 2.1.1 先移除原来的active类名
+        document.querySelector('.tab-nav .active').classList.remove('active')
+        e.target.classList.add('active')
+
+        // 2.2 通过自定义属性data-index获取当前点击的a标签的索引值
+        const index = Number(e.target.dataset.index)
+        // console.log(index)
+
+        // 2.3 通过索引值切换tab-content中的item
+        // 2.3.1 先移除之前的active类名
+        document.querySelector('.tab-content .active').classList.remove('active')
+        // 2.3.2 再给对应的item添加active类名
+        // document.querySelectorAll('.tab-content .item')[index].classList.add('active')
+        document.querySelector(`.tab-content .item:nth-child(${index + 1})`).classList.add('active')
+
+      }
+    })
+  </script>
 </body>
 
 </html>

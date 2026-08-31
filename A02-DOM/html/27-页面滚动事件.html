@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面滚动事件</title>
+  <style>
+    body {
+      height: 2000px;
+      /* 内边距：将内容与边框之间的距离 */
+      padding: 100px;
+    }
+
+    div {
+      display: none;
+      margin: 100px auto;
+      width: 500px;
+      height: 500px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+
+  <script>
+    // 获取div元素
+    const div = document.querySelector('div')
+
+    // scrollTop scrollLeft 获取的值是可读写的、不带单位的
+    document.documentElement.scrollTop = 800
+
+    // 1. scroll页面滚动事件：当页面滚动时，触发该事件
+    // 只要有滚动条，都能添加滚动事件
+    // 一般用在window对象上
+    window.addEventListener('scroll', function () {
+      // console.log('页面滚动了')
+
+      // scrollTop：获取滚动条上方被卷去的距离
+      // console.log(this.scrollTop)
+
+      // scrollLeft：获取滚动条左侧被卷去的距离
+      // console.log(this.scrollLeft)
+
+      // 获取html元素的滚动条上方被卷去的距离
+      // 1. 获取html元素
+      const html = document.documentElement
+      // 2. 获取html元素的滚动条上方被卷去的距离
+      const n = html.scrollTop
+      console.log(n)
+      // 3. 当距离超过100px时，显示div标签
+      if (n >= 100) {
+        div.style.display = 'block'
+      } else {
+        div.style.display = 'none'
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面加载事件</title>
+  <script>
+    // 如果JS写在上面，一定写页面加载事件，否则报错
+
+    // 1. load事件：当页面所有资源加载完成后，触发该事件
+    // load事件一般用在window对象上，也可以用在一些需要等待资源加载完毕才能触发事件的元素上（如图片、视频、音频等）
+    /*
+    window.addEventListener('load', function () {
+      // 点击按钮时，改变按钮的背景颜色
+      const btn = document.querySelector('button')
+      btn.addEventListener('click', function () {
+        btn.style.color = 'red'
+      })
+    })
+    */
+
+    // 2. DOMContentLoaded事件：当页面标签加载完成后，触发该事件
+    // DOMContentLoaded事件一般用在document对象上
+    document.addEventListener('DOMContentLoaded', function () {
+      // 点击按钮时，改变按钮的背景颜色
+      const btn = document.querySelector('button')
+      btn.addEventListener('click', function () {
+        btn.style.color = 'red'
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <button>点击</button>
+</body>
+
+</html>

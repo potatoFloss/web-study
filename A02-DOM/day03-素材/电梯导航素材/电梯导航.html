@@ -1215,6 +1215,62 @@
     </ul>
   </div>
 
+  <script>
+    // 第一个模块 为了防止变量污染，所以放在自执行函数中
+    (function () {
+      // 获取电梯导航元素
+      const elevator = document.querySelector('.xtx-elevator')
+      // 获取xtx_entry元素
+      const entry = document.querySelector('.xtx_entry')
+
+      // 给页面添加滚动事件
+      window.addEventListener('scroll', function () {
+        // 获取html元素的滚动条上方被卷去的距离
+        const n = document.documentElement.scrollTop
+        // console.log(n)
+        // 判断，当距离超过entry距离页面顶部的距离时，显示电梯导航
+        elevator.style.opacity = n >= entry.offsetTop ? 1 : 0
+      })
+
+      // 点击返回顶部按钮，滚动到顶部
+      const backTop = document.querySelector('#backTop')
+      backTop.addEventListener('click', function () {
+        // 方法一：scrollTop 调整html上方被卷去的距离
+        // document.documentElement.scrollTop = 0
+
+        // 方法二：scrollTo(x, y) 调整页面位置
+        window.scrollTo(0, 0)
+      })
+    })();
+
+    // 第二、三模块
+    (function () {
+      // querySelectorAll 返回的是伪数组，没有 addEventListener 方法
+      // 这里 ul 只有一个，用 querySelector 获取单个元素
+      const list = document.querySelector('.xtx-elevator-list')
+      list.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          // 移除原来的active类，这里需要注意的是，最开始所有的a标签都没有active类
+          const old = document.querySelector('.xtx-elevator-list .active')
+          if (old) {
+            old.classList.remove('active')
+          }
+          // 给当前点击的a标签添加active类
+          e.target.classList.add('active')
+
+          // 获取当前对象的data-name属性值
+          const goodsName = e.target.dataset.name
+          // 根据该名称，获取对应大盒子对象
+          const box = document.querySelector(`.xtx_goods_${goodsName}`)
+          // 获得大盒子的顶部距离
+          const top = box.offsetTop
+          // 滚动到大盒子顶部
+          // window.scrollTo(0, top)
+          document.documentElement.scrollTop = top
+        }
+      })
+    })();
+  </script>
 </body>
 
 </html>

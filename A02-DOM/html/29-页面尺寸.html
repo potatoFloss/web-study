@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面尺寸</title>
+  <style>
+    div {
+      display: inline-block;
+      /* width: 500px; */
+      height: 100px;
+      padding: 10px;
+      border: 5px solid skyblue;
+      margin: 15px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div>12313111135145</div>
+
+  <script>
+    // 获取div元素
+    const div = document.querySelector('div')
+
+    // 1. clientWidth clientHeight 不包含边框和外边距的宽度
+    // 获取div元素的宽度
+    console.log(`div元素的宽度是：${div.clientWidth}`)
+    // 获取div元素的高度
+    console.log(`div元素的高度是：${div.clientHeight}`)
+
+    // 2. offsetWidth offsetHeight 包含边框的宽度
+    // 获取div元素的宽度
+    console.log(`div元素的宽度是：${div.offsetWidth}`)
+    // 获取div元素的高度
+    console.log(`div元素的高度是：${div.offsetHeight}`)
+
+    // 3. offsetTop offsetLeft 元素（可视区域）距离最近的有定位的上级元素的距离
+    // 获取div元素（可视区域）距离最近的有定位的上级元素的顶部的距离
+    console.log(`div元素（可视区域）距离页面顶部的距离是：${div.offsetTop}`)
+    // 获取div元素（可视区域）距离页面左侧的距离
+    console.log(`div元素（可视区域）距离页面左侧的距离是：${div.offsetLeft}`)
+  </script>
+</body>
+
+</html>
