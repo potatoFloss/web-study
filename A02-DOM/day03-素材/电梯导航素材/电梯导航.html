@@ -1245,11 +1245,10 @@
 
     // 第二、三模块
     (function () {
-      // querySelectorAll 返回的是伪数组，没有 addEventListener 方法
-      // 这里 ul 只有一个，用 querySelector 获取单个元素
+      // 第二模块：点击电梯导航，滚动到对应位置
       const list = document.querySelector('.xtx-elevator-list')
       list.addEventListener('click', function (e) {
-        if (e.target.tagName === 'A') {
+        if (e.target.tagName === 'A' && e.target.dataset.name) {
           // 移除原来的active类，这里需要注意的是，最开始所有的a标签都没有active类
           const old = document.querySelector('.xtx-elevator-list .active')
           if (old) {
@@ -1267,6 +1266,36 @@
           // 滚动到大盒子顶部
           // window.scrollTo(0, top)
           document.documentElement.scrollTop = top
+        }
+      })
+
+
+      // 第三模块：根据滚动位置，切换电梯导航的active类
+      window.addEventListener('scroll', function () {
+        // 1. 移除原来的active类
+        const old = document.querySelector('.xtx-elevator-list .active')
+        if (old) {
+          old.classList.remove('active')
+        }
+
+        // 2. 获取html元素的滚动条上方被卷去的距离
+        const n = document.documentElement.scrollTop
+
+        // 3. 获取所有大盒子
+        const goodsNew = document.querySelector('.xtx_goods_new')
+        const goodsPopular = document.querySelector('.xtx_goods_popular')
+        const goodsBrand = document.querySelector('.xtx_goods_brand')
+        const goodsTopic = document.querySelector('.xtx_goods_topic')
+
+        // 4. 判断
+        if (n >= goodsNew.offsetTop && n < goodsPopular.offsetTop) {
+          document.querySelector('[data-name="new"]').classList.add('active')
+        } else if (n >= goodsPopular.offsetTop && n < goodsBrand.offsetTop) {
+          document.querySelector('[data-name="popular"]').classList.add('active')
+        } else if (n >= goodsBrand.offsetTop && n < goodsTopic.offsetTop) {
+          document.querySelector('[data-name="brand"]').classList.add('active')
+        } else if (n >= goodsTopic.offsetTop) {
+          document.querySelector('[data-name="topic"]').classList.add('active')
         }
       })
     })();

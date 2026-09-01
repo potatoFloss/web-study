@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 获得时间戳的三个方法：
+    // 1. getTime() 可以返回指定时间的时间戳
+    const date = new Date()
+    console.log(date.getTime())
+
+    // 2. +new Date() 可以返回当前时间的时间戳
+    console.log(+new Date())
+    // 2.1 可以返回指定时间的时间戳
+    console.log('---------------')
+    console.log(+new Date('2026-09-02 10:30:00'))
+
+    // 3. Date.now() 只能获得当前时间的时间戳
+    console.log(Date.now())
+
+
+    // 通过getDay()方法返回 0~6 要得到 星期一……星期日
+    const week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+    console.log(week[new Date().getDay()])
+  </script>
+</body>
+
+</html>

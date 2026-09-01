@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="grandparet">
+    你好
+    <div class="paret">
+      <div class="child" date-id="0"></div>
+      <div class="child" date-id="1"></div>
+      <div class="child" date-id="2"></div>
+    </div>
+  </div>
+
+  <script>
+    // DOM节点：元素节点、属性节点、文本节点，最常用的是元素节点（标签）
+    // DOM节点的查找不同于querySelector()方法，而是通过节点之间的关系来查找
+
+    const child = document.querySelector('.child:nth-child(2)')
+    // 查找child的父母节点
+    const paret = child.parentNode
+
+    // 查找grandparet的孩子节点
+    const grandparet = document.querySelector('.grandparet')
+    // .childNodes 不推荐使用 返回的伪数组 所有孩子节点，包括文本节点和注释节点
+    const ch1 = grandparet.childNodes
+    console.log(ch1)
+    // .children 返回的伪数组 最近以及的所有孩子节点(只返回元素节点)
+    const ch2 = grandparet.children  // 返回的伪数组 最近以及的所有孩子节点
+    console.log(ch2)
+
+    // 查找同级节点
+    // .previousElementSibling 返回的上一个同级元素节点
+    const previousSibling = child.previousElementSibling
+    console.log(previousSibling)
+    // .nextElementSibling 返回的下一个同级元素节点
+    const nextSibling = child.nextElementSibling
+    console.log(nextSibling)
+  </script>
+</body>
+
+</html>
