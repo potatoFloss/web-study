@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 300px;
+      height: 100px;
+      margin: 20px;
+      background-color: pink;
+      text-align: center;
+      line-height: 100px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='box'>我是广告</div>
+
+  <script>
+    const box = document.querySelector('.box')
+    setTimeout(function () {
+      box.style.display = 'none'
+    }, 3000)
+  </script>
+</body>
+
+</html>

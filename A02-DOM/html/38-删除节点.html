@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li>111</li>
+  </ul>
+  <script>
+    /*
+    在JS的原生DOM操作中，删除一个节点，必须通过它的parent节点来删除
+    删除节点：对象.removeChild(要删除的子节点)
+    */
+    const ul = document.querySelector('ul')
+    // 删除第一个li
+    ul.removeChild(ul.children[0])
+  </script>
+</body>
+
+</html>
