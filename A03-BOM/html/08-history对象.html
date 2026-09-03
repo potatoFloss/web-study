@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>后退</button>
+  <button>前进</button>
+
+  <script>
+    const backBtn = document.querySelector('button')
+    const forwardBtn = backBtn.nextElementSibling
+    backBtn.addEventListener('click', function () {
+      // history.back()
+      history.go(-1)
+    })
+    forwardBtn.addEventListener('click', function () {
+      // history.forward()
+      history.go(1)
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    JS执行是单线程的
+    例如：
+    1. 一个任务执行完成，才会执行下一个任务
+    2. 一个任务执行过程中，不能执行其他任务
+
+    为了提高性能，JS引擎会将任务分为同步任务和异步任务
+    - 同步任务：放在执行栈中，依次执行
+    - 异步任务：放在消息队列（任务队列）中，等待执行栈中的所有任务执行完成，将消息队列中的任务取到执行栈中执行
+    - 事件循环（event loop）：JS引擎会不断检查消息队列，是否有任务需要执行，如果有，就取到执行栈中执行
+
+    异步任务先通过浏览器进行多线程处理，处理完成后，将结果放到消息队列中，等待执行栈中的所有任务执行完成，将消息队列中的任务取到执行栈中执行。
+
+    异步任务通过回调函数实现
+    常见的异步任务：事件绑定、定时器、资源加载等
+    */
+
+    // 下面的代码执行顺序是：111 333 222
+    console.log('111')
+    setTimeout(function () {
+      console.log('222')
+    }, 0)
+    console.log('333')
+  </script>
+</body>
+
+</html>

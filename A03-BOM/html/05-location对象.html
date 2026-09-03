@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="">
+    <input type="text" name="username" autocomplete="off">
+    <input type="password" name="password" autocomplete="off">
+    <button>提交</button>
+  </form>
+
+  <a href="#/my">我的</a>
+  <a href="#/friend">好友</a>
+  <a href="#/message">消息</a>
+
+  <button class="reload">刷新</button>
+
+  <script>
+    /*
+    location对象：用于操作当前页面的URL
+    location对象的常用属性：
+    - href：当前页面的URL
+    - search：当前页面URL中 ?及其后面的内容，比如表单提交时的查询字符串
+    - hash：当前页面URL中 #及其后面的内容 后期vue路由的铺垫，经常用于不刷新页面，显示不同的页面，比如网易云音乐
+    
+    location对象的常用方法：
+    - reload()：刷新当前页面
+    */
+
+    // href属性 当前页面的URL 
+    // console.log(location.href)
+    // JS常通过href属性来进行页面跳转
+    // location.href = 'https://www.baidu.com'
+
+    // search属性 当前页面URL中 ?及其后面的内容，比如表单提交时的查询字符串
+    // console.log(location.search)
+
+    // hash属性 当前页面URL中 #及其后面的内容
+    // console.log(location.hash)
+
+    // reload()：刷新当前页面，括号中的参数为true表示强制刷新
+    const reloadBtn = document.querySelector('.reload')
+    reloadBtn.addEventListener('click', function () {
+      // 刷新当前页面 ctrl + r
+      location.reload()
+      // 强制刷新 ctrl + shift + r
+      // location.reload(true)
+    })
+  </script>
+</body>
+
+</html>

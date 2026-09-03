@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // localStorage对象：用于操作本地存储，存储在浏览器中，相同的域名都可以访问到
+    // 在控制台的Application面板中可以查看到，需要手动删除
+
+    // 1. 要存储一个用户名
+    // localStorage.setItem('key', 'value')
+    localStorage.setItem('username', 'admin')
+
+    // 2. 要获取用户名
+    // localStorage.getItem('key')
+    console.log(localStorage.getItem('username'))
+
+    // 3. 要删除用户名
+    // localStorage.removeItem('key')
+    localStorage.removeItem('username')
+
+    // 4. 修改用户名
+    // localStorage.setItem('key', 'value')
+    localStorage.setItem('username', 'user')
+
+    // 存年龄
+    localStorage.setItem('age', 18)
+    // 重点：localStorage只能存储字符串类型的数据
+    console.log(typeof localStorage.getItem('age'))  // string
+  </script>
+</body>
+
+</html>

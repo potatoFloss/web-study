@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 用userAgent属性来判断是PC端还是移动端
+    // 检测 userAgent（浏览器信息）
+    !(function () {
+      const userAgent = navigator.userAgent
+      // 验证是否为Android或iPhone
+      const android = userAgent.match(/(Android);?[\s\/]+([\d.]+)?/)
+      const iphone = userAgent.match(/(iPhone\sOS)\s([\d_]+)/)
+      // 如果是Android或iPhone，则跳转至移动站点
+      if (android || iphone) {
+        location.href = 'http://m.itcast.cn'
+      }
+    })();
+    // 自执行函数的其它写法：不用小括号括起来，而是在开头添加!或者其它特殊字符
+    // !function () { }()
+  </script>
+</head>
+
+<body>
+  这是PC端
+  <script>
+    /*
+    navigator对象：用于操作浏览器
+    navigator对象的常用属性：
+    - userAgent：浏览器的用户代理字符串 用来检测浏览器的类型和版本号
+    */
+
+    console.log(navigator.userAgent)
+  </script>
+</body>
+
+</html>
