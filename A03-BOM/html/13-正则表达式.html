@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+      正则表达式 ：也是一种对象，用于匹配字符串中符合某种规则的字符序列
+      语法 ：
+      方法1. /正则表达式/
+      方法2. new RegExp('正则表达式')
+    */
+
+    const str = '123456'
+    // 正则表达式的使用
+    // 1. 定义规则
+    const reg = /123/
+    // 2. 是否匹配
+    // test()
+    console.log(reg.test(str))  // 返回boolean值
+    // exec()
+    console.log(reg.exec(str))  // 返回数组，没有则返回null
+  </script>
+</body>
+
+</html>

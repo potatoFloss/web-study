@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text">
+
+  <script>
+    /*
+    change事件：当输入框的内容发生变化时触发
+    */
+    const input = document.querySelector('input')
+    input.addEventListener('change', function () {
+      console.log(input.value)
+    })
+  </script>
+</body>
+
+</html>

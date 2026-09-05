@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+      修饰符：写在正则表达式末尾（'/'后面）
+      g 全局匹配（正常情况下，只匹配第一个，加了g修饰符，会匹配所有）
+      i 忽略大小写
+      m 多行匹配
+      replace(/正则表达式/g, '替换字符串') 替换匹配到的字符串
+    */
+
+    console.log(/^java$/.test('java'))
+    console.log(/^java$/i.test('Java'))
+    console.log(/^java$/i.test('JAVA'))
+
+    // 替换字符串
+    const str = 'Hello world, hello person'
+    const result = str.replace(/hello/g, '你好')
+    console.log(result)  // Hello world, 你好 person
+    const result2 = str.replace(/hello/ig, '你好')
+    console.log(result2)  // 你好 world, 你好 person
+  </script>
+</body>
+
+</html>

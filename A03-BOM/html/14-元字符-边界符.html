@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+      元字符：具有特殊含义的字符
+      - 边界符
+      - 量词
+      - 字符类
+    */
+
+    // 边界符
+    // ^ 匹配字符串的开头
+    // $ 匹配字符串的结尾
+    // ^ 和 $ 组合在一起使用时，为精确匹配
+
+    console.log(/哈/.test('哈'))     // true
+    console.log(/哈/.test('哈哈'))   // true
+    console.log(/哈/.test('二哈'))   // true
+    console.log('-----------------')
+    console.log(/^哈/.test('哈'))     // true
+    console.log(/^哈/.test('哈哈'))   // true
+    console.log(/^哈/.test('二哈'))   // false
+    console.log('-----------------')
+    console.log(/哈$/.test('哈'))     // true
+    console.log(/哈$/.test('哈哈'))   // true
+    console.log(/哈$/.test('二哈'))   // true
+    console.log('-----------------')
+    console.log(/^哈$/.test('哈'))     // true 只有这个是true，其它都是false
+    console.log(/^哈$/.test('哈哈'))   // false
+    console.log(/^哈$/.test('二哈'))   // false
+  </script>
+</body>
+
+</html>
