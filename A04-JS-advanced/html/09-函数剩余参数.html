@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 剩余参数 能够将一个不定数量的参数表示为一个数组
+    // (...参数数组名)
+    // 剩余参数前面可以有其它参数，它只接收剩余的参数 例如：function getSum(a, b, ...arr)
+    // 注意：剩余参数是一个真数组 推荐使用剩余参数，而不是arguments
+    function getSum(...arr) {
+      console.log(arr)
+    }
+    getSum(1, 2)
+    getSum(1, 2, 3)
+  </script>
+</body>
+
+</html>

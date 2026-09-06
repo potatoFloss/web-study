@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    作用域链：变量的查找规则
+    作用域链查找是"就近原则"，找到第一个就停手。
+    */
+
+    // 如果找完了都没有，由于在局部作用域中未声明的变量是全局变量，所以window.a = 300被创建
+    let a = 100  // 如果没有，就再往上找。
+    function f() {
+      let a = 200  // f的作用域有a，修改f里的a，查找终止。
+      function g() {
+        a = 300  // 赋值时，先看自己有a吗？没有，再看上一级作用域有a吗？有，就赋值给上一级作用域的a
+      }
+      g()
+    }
+    f()
+    console.log(a)
+  </script>
+</body>
+
+</html>

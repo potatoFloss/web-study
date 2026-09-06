@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 展开运算符 能够将一个数组展开为多个参数
+    // 语法：...数组名
+    // 不会修改原数组
+    // 应用场景：求数组的最大/最小值，合并数组
+
+    const arr1 = [1, 2, 3]
+    console.log(...arr1)
+    // Math.max() 中的参数不能是数组，只能是多个参数，
+    // 所以可以通过展开运算符将数组展开为多个参数，求最大值
+    // console.log(Math.max(1, 2, 3))
+    console.log(Math.max(...arr1))
+    console.log(Math.min(...arr1))
+    // 合并数组
+    const arr2 = [4, 5, 6]
+    const arr = [...arr1, ...arr2]
+    console.log(arr)
+  </script>
+</body>
+
+</html>

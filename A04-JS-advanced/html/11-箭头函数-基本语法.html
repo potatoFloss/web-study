@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    箭头函数：写法更简洁
+    注意：箭头函数不绑定this
+    使用场景：更适用于替代匿名函数
+    */
+
+    /*
+    箭头函数的基本语法：
+    (参数列表) => {
+      函数体
+      return 返回值
+    }
+    1. 如果只有一个参数，参数列表可以省略括号
+    2. 如果函数体只有一行代码，{}和return可以省略
+    3. 箭头函数可以直接返回一个对象，但是由于对象的{}和函数的{}冲突了，所以用小括号把对象括起来
+    */
+
+    // 普通函数的写法（函数表达式）
+    const fn1 = function (a) {
+      return a
+    }
+    // 箭头函数的写法 由于只有一个参数，所以可以省略小括号
+    // const fn2 = (a) => {
+    const fn2 = a => {
+      return a
+    }
+
+    // 如果函数体只有一行代码，{}可以省略
+    // const fn3 = a => {
+    //   console.log(a)
+    // }
+    const fn3 = a => console.log(a)
+
+    // 如果函数体只有一行代码，{}和return可以省略
+    // const fn4 = a => {
+    //   return a + a
+    // }
+    const fn4 = a => a + a
+
+    // 3. 箭头函数可以直接返回一个对象，但是由于对象的{}和函数的{}冲突了，所以用小括号把对象括起来
+    // const fn5 = (name) => {
+    //   return { userName: name }
+    // }
+    const fn5 = name => ({ userName: name })
+    console.log(fn5('刘德华'))
+  </script>
+</body>
+
+</html>

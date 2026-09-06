@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    闭包：函数嵌套函数，内部函数可以访问外部函数的变量。
+    闭包：内层函数 + 外层函数的变量
+
+    
+    */
+
+    // 闭包的作用：实现外部函数对内部函数变量的访问和使用。
+    function outer() {
+      let a = 100
+      function inner() {
+        console.log(a)
+      }
+      return inner
+    }
+    let f = outer()
+    f() // 100
+    console.log('----------------')
+
+    // 闭包的应用：实现数据的私有化
+    // 闭包容易引起的问题：内存泄露
+    // 需求：统计函数调用次数，调用一次就++
+    // 普通的写法 统计fun函数调用次数，缺点在于，count是全局变量，容易被外部修改
+    let i = 0
+    function fun() {
+      i++
+      console.log(i)
+    }
+    // 闭包的写法 统计inner函数调用次数
+    function count() {
+      let num = 0
+      function inner() {
+        num++
+        console.log(`当前调用次数为：${num}`)
+      }
+      return inner
+    }
+    const result = count()
+
+  </script>
+</body>
+
+</html>

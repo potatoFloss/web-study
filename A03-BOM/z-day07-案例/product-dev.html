@@ -466,19 +466,65 @@
 
       // 获取中盒子在视口中距离左侧的距离
       /* 
-      为什么不用 
+      为什么不用 offsetLeft属性?
       因为它获取的是元素左侧距离 离它最近的、带定位的上级元素的距离，而不是元素到视口左侧的距离。
       */
       // console.log(this.getBoundingClientRect().left)
 
-      // 计算遮罩层在中盒子中移动的距离
+      // 计算遮罩层在中盒子中移动的距离 
+      // 注意：y坐标需要减去页面被卷去的距离
       let x = e.pageX - this.getBoundingClientRect().left
-      let y = e.pageY - this.getBoundingClientRect().top
+      let y = e.pageY - this.getBoundingClientRect().top - document.documentElement.scrollTop
       // console.log(x, y)
 
-      // 修改遮罩层的位置
-      layer.style.left = `${x}px`
-      layer.style.top = `${y}px`
+      // 黑色遮罩层只能在中盒子中移动，不能超出中盒子的边界，所以限定它的移动距离
+      if (x >= 0 && x <= this.getBoundingClientRect().width && y >= 0 && y <= this.getBoundingClientRect().height) {
+        // 修改遮罩层的位置
+        // layer.style.left = `${x}px`
+        // layer.style.top = `${y}px`
+        /*
+        优化：
+        当黑色遮罩层的边缘碰到中盒子的边缘时，黑色遮罩层不再向该边缘方向移动
+        已知：
+        1. 遮罩层的宽度和高度 均为200px
+        2. 中盒子的宽度和高度 均为400px
+        3. 此时，鼠标的位置是黑色盒子的左上角
+        所以可得：
+        1. 黑色遮罩层在x轴上移动的位置是[100px, 300px]
+        2. 黑色遮罩层在y轴上移动的位置是[100px, 300px]
+        实现方法：
+        设置遮罩层在中盒子内的移动距离为moveX和moveY
+        */
+        let moveX, moveY
+        if (x < 100) {
+          moveX = 0
+        } else if (x >= 100 && x <= 300) {
+          moveX = x - 100
+        } else if (x > 300) {
+          moveX = 200
+        }
+
+        if (y < 100) {
+          moveY = 0
+        } else if (y >= 100 && y <= 300) {
+          moveY = y - 100
+        } else if (y > 300) {
+          moveY = 200
+        }
+
+        // 修改遮罩层的位置
+        layer.style.left = `${moveX}px`
+        layer.style.top = `${moveY}px`
+
+        /*
+        移动大盒子的背景图片的位置
+        已知：大盒子背景图片的大小为 background-size: 800px 800px
+        可得：大盒子的背景图片与中盒子的大小存在2倍关系，即，在中盒子中移动1px，大盒子的背景图片会移动2px
+        由于是移动大盒子的背景图片，而大盒子本身不移动，所以背景图片的移动和遮罩层的移动是相反的
+        */
+        large.style.backgroundPositionX = `${-moveX * 2}px`
+        large.style.backgroundPositionY = `${-moveY * 2}px`
+      }
     })
   </script>
 </body>

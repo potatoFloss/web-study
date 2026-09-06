@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    仅针对var声明变量时出现变量提升现象
+    变量提升：在代码执行前，把当前作用域下所有var变量声明会被提到当前作用域顶部。
+      只提升声明，不提升赋值
+    */
+
+    console.log(a) // undefined
+    var a = 100
+    console.log(a) // 100
+  </script>
+</body>
+
+</html>
