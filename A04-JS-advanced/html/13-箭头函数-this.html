@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+      普通函数中的this，谁调用它，this就指向谁
+    */
+    // 1. 普通函数的this
+    function fn1() {
+      console.log(this)  // window
+    }
+    fn1()  // fn1()是widow.fn1()的简略写法
+    // 2. 对象中的普通函数的this
+    const obj = {
+      name: '张三',
+      say() {
+        console.log(this)  // obj
+      }
+    }
+    obj.say()
+
+    /*
+      箭头函数中的this，
+      由于箭头函数没有自己的this，所以会沿着作用域链往上逐级查找，找到最近的this指向
+      在DOM对象中，如果在事件处理函数中想要使用this，不建议用箭头函数，因为箭头函数中的this指向的是window，而不是事件触发的元素
+    */
+    // 3. 箭头函数的this
+    const fn2 = () => {
+      // 这里不是因为window调用fn2，而是fn2没有自己的this，
+      // 所以会沿着作用域链往上逐级查找，到script标签，找到最近的this指向window
+      console.log(this)  // window，
+    }
+    fn2()
+    // 4. 对象中的箭头函数的this
+    const obj2 = {
+      name: '李四',
+      say: () => {
+        console.log(this)  // window，
+      }
+    }
+    obj2.say()
+    // 5. 对象的普通函数中的箭头函数的this
+    const obj3 = {
+      name: '王五',
+      say: function () {
+        const fn3 = () => {
+          console.log(this)  // obj3
+        }
+        fn3()
+      }
+    }
+    obj3.say()
+  </script>
+</body>
+
+</html>

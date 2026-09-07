@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const obj = {
+      uname: 'pink老师',
+      age: 18
+    }
+
+    /*
+    对象结构：
+    语法：const {} = {}
+    注意：变量名必须和属性名一样，变量名不能与外面的变量名重复
+    当不得不更改变量名时，解决方法是：旧变量名: 新变量名
+    */
+    // const { uname, age } = { uname: 'pink老师', age: 18 }
+    // 等价于：const uname = obj.uname; const age = obj.age
+    const { uname, age } = obj
+    console.log(uname, age)
+
+    // 当不得不更改变量名时，解决方法是：
+    // 旧变量名: 新变量名
+    const { uname: name, age: years } = obj
+    console.log(name, years)
+
+    // 解构数组对象
+    const pig = [
+      {
+        username: 'pink',
+        userage: 8
+      }
+    ]
+    const [{ username, userage }] = pig
+    console.log(username, userage)
+  </script>
+</body>
+
+</html>

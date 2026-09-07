@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 变量多，单元值少
+    const [a, b, c] = [1, 2]
+    console.log(a, b, c)  // 1 2 undefined
+
+    // 2. 变量少，单元值多
+    const [d, e] = [1, 2, 3]
+    console.log(d, e)  // 1 2，有一个单元值没有被接收
+
+    // 3. 用剩余参数接收多余的单元值
+    const arr = [1, 2, 3, 4, 5]
+    const [f, g, ...rest] = arr
+    console.log(f, g, rest)  // 1 2 [3, 4, 5] 剩余参数是一个真数组
+
+    // 4. 可以给变量赋默认值，类似于形参的默认值，在没有提供实参时，会使用默认值
+    const [h = 200, i = 100] = []
+    console.log(h, i)  // 1 100
+
+    // 5. 按需接收数组中的元素，即可以忽略数组中部分元素
+    const [j, , , m, n] = [1, 2, 3, 4, 5]  // 忽略了2、3，变量那边要把位置空出来
+    console.log(j, m, n)  // 1 4 5
+
+    // 6. 多维数组解构
+    const arr2 = [1, [2, 3], 4, [5, 6]]
+    const [u, v, w, x] = arr2
+    console.log(u, v, w, x)  // 1 [2, 3] 4 [5, 6]
+    const [o, [p, q], r, [s, t]] = arr2
+    console.log(o, p, q, r, s, t)  // 1 2 3 4 5 6
+  </script>
+</body>
+
+</html>

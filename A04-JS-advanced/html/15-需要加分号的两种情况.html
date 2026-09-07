@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 需要加分号的情况：
+    // 1. 立即执行函数
+    (function () {
+      console.log('hello world')
+    })();
+
+    // 2.数组（[]形式）开头，且前面有代码的情况，需要用分号隔开
+    const arr = [1, 2, 3];
+    // arr.map(function (item) { // 这种形式的数组开头的，不会报错
+    [1, 2, 3].map(function (item) {  // 这种[]形式的数组开头的，就需要加分号隔开，否则会报错
+      console.log(item)
+    })
+  </script>
+</body>
+
+</html>
