@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: #000;
+    }
+
+    .btn2 {
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 300px;
+      height: 200px;
+      border: 1px solid #333;
+      border-radius: 10px;
+      margin: 250px;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 200px;
+    }
+
+    /* 径向渐变的盒子 ::before实现 */
+    .btn2::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      /* border: 1px solid #333; */
+      background-image: conic-gradient(transparent, transparent, transparent, #03e9f4);
+      animation: rotate 1s linear infinite;
+      z-index: -1;
+    }
+
+    /* 黑色遮挡盒子 ::after实现 */
+    .btn2::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      background-color: #000;
+      border-radius: 10px;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 思路：
+    1. 大盒子（最外层）
+    2. 径向渐变盒子（做动画）
+    3. 黑色遮挡盒子
+    4. 内容盒子
+  -->
+  <div class="btn2">渐变边框</div>
+</body>
+
+</html>
