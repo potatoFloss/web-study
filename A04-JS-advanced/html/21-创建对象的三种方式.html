@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 字面量方式
+    const obj1 = {
+      name: '张三',
+      age: 18,
+      sex: '男'
+    }
+    console.log(obj1)
+
+    // 2. new Object()
+    const obj2 = new Object({
+      name: '李四',
+      age: 20,
+      sex: '女'
+    })
+    console.log(obj2)
+
+    // 3. 构造函数，new 关键字调用
+    function Person(name, age, sex) {
+      this.name = name
+      this.age = age
+      this.sex = sex
+    }
+    const obj3 = new Person('王五', 22, '男')
+    console.log(obj3)
+  </script>
+</body>
+
+</html>

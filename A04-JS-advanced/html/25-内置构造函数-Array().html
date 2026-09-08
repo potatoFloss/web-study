@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    Array()：创建数组
+    常见的实例方法：
+    forEach()：遍历数组中的每个元素，执行指定的回调函数
+    map()：遍历数组中的每个元素，执行指定的回调函数，返回一个新的数组
+    filter()：遍历数组中的每个元素，执行指定的回调函数，返回一个新的数组
+    reduce()：遍历数组中的每个元素，执行指定的回调函数，返回一个值
+    */
+
+    // reduce(回调函数，初始值) 
+    // 初始值可选，若指定初始值，回调函数的第一个参数为初始值，否则第一个参数为数组的第一个元素
+    const arr = [1, 2, 3, 4, 5]
+    // 计算数组中所有元素的和
+    const sum = arr.reduce((pre, cur) => pre + cur)
+    console.log(sum)
+  </script>
+</body>
+
+</html>

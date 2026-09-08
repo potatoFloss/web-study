@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    Object() 构造函数：创建对象
+    常用的静态属性：
+    Object.values()：返回对象的所有属性值
+    Object.keys()：返回对象的所有属性名
+    常用的静态方法：
+    Object.assign()：合并对象/拷贝对象
+    */
+
+    // 常用的静态属性：
+    const obj = {
+      name: '张三',
+      age: 18
+    }
+    console.log(Object.values(obj))
+    console.log(Object.keys(obj))
+
+    // 常用的静态方法：Object.assign() 
+    // 拷贝对象
+    const obj1 = {
+      name: '张三',
+      age: 18
+    }
+    const obj2 = {}
+    Object.assign(obj2, obj1)
+    console.log(obj2)
+
+    // 合并对象（添加属性）
+    const obj3 = {
+      sex: '男'
+    }
+    Object.assign(obj2, obj3)
+    // Object.assign(obj2, { sex: '男' })
+    console.log(obj2)
+  </script>
+</body>
+
+</html>

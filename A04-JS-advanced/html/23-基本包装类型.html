@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    基本包装类型：
+    字符串：String()
+    数字：Number()
+    布尔值：Boolean()
+    等
+    
+    一些基本数据类型也可以调用属性和方法的原因是：
+    JS 在创建这些类型时，会通过构造函数的方法创建，所以这些类型也可以调用属性和方法
+    把简单数据类型包装为引用数据类型
+    */
+
+    const str = 'hello'
+    console.log(str.length)  // string 是基本数据类型，但是也可以调用属性和方法
+    console.log(str.toUpperCase())
+    /*
+      原因在于，JS底层创建字符串的方法是：
+      const str = new String('hello')
+    */
+
+  </script>
+</body>
+
+</html>

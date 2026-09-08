@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    split()：将字符串转换为数组
+      - 将字符串按照指定的分隔符进行分割，返回一个数组
+      - 和join()方法是相反的，join()方法是将数组转换为字符串
+
+    substring(start[, end])：从字符串中提取子字符串
+      - 从字符串中提取子字符串，返回一个新字符串
+      - 截取范围 [start, end) 左闭右开
+      - 省略end参数，默认截取到字符串末尾
+
+    startsWith(searchValue[, position])：判断字符串是否以指定的子字符串开头
+      - searchValue：要搜索的子字符串
+      - 若字符串以指定的子字符串开头，则返回true，否则返回false
+      - position：判断的起始索引（被搜索的字符串的索引），默认值为0
+
+    includes(searchValue[, position])：判断字符串是否包含指定的子字符串
+      - searchValue：要搜索的子字符串
+      - 若字符串包含指定的子字符串，则返回true，否则返回false
+      - position：判断的起始索引（被搜索的字符串的索引），默认值为0
+    */
+
+    // split()：将字符串转换为数组
+    const str1 = 'hello world'
+    const arr1 = str1.split(' ')
+    console.log(arr1)  // ['hello', 'world']
+  </script>
+</body>
+
+</html>

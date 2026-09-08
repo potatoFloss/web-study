@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const arr = [
+      {
+        name: '张三',
+        salary: 5000
+      },
+      {
+        name: '李四',
+        salary: 6000
+      },
+      {
+        name: '王五',
+        salary: 7000
+      }
+    ]
+
+    // 这种数组对象，用reduce()方法计算薪资总和时，记得初始值为0，否则它就用对象相加了
+    const totalSalary = arr.reduce((pre, cur) => pre + cur.salary, 0)
+    console.log(totalSalary)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    find()：查找第一个符合条件的元素
+      - 遍历数组中的每个元素，执行指定的回调函数，返回第一个符合条件的元素，若没有符合条件的元素，则返回undefined
+    findIndex()：查找第一个符合条件的元素的索引
+      - 遍历数组中的每个元素，执行指定的回调函数，返回第一个符合条件的元素的索引，若没有符合条件的元素，则返回-1
+
+    every()：判断数组中的所有元素是否都符合条件
+      - 遍历数组中的每个元素，执行指定的回调函数，若所有元素都符合条件，则返回true，否则返回false
+    some()：判断数组中是否有元素符合条件
+      - 遍历数组中的每个元素，执行指定的回调函数，若有一个元素符合条件，则返回true，否则返回false
+    */
+
+    // find()方法
+    // 1. 辅助理解：
+    const arr1 = [1, 2, 3, 4, 5]
+    const result1 = arr1.find(item => item > 3)
+    console.log(result1)
+    // 2. 实际应用：
+    const arr2 = [
+      {
+        name: '张三',
+        salary: 5000
+      },
+      {
+        name: '李四',
+        salary: 6000
+      },
+      {
+        name: '王五',
+        salary: 7000
+      }
+    ]
+    // const result2 = arr2.find(function (item) {
+    //   return item.name === '李四'
+    // })
+    const result2 = arr2.find(item => item.name === '李四')
+    console.log(result2)  // {name: '李四', salary: 6000}
+
+    // every()方法
+    // 1. 辅助理解：
+    const arr3 = [1, 2, 3, 4, 5]
+    const result3 = arr3.every(item => item > 0)
+    console.log(result3)  // true
+
+  </script>
+</body>
+
+</html>

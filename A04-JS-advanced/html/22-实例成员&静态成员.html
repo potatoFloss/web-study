@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    实例对象：通过 new关键字 调用构造函数创建的对象
+    实例成员：实例对象的属性和方法
+    静态成员：构造函数的属性和方法
+      - 静态成员只能通过构造函数访问
+      - 静态方法中的this指向构造函数本身
+      - 例如：Date.now() Math.PI Math.random()
+    */
+
+    // 构造函数
+    function Person() {
+      // 省略实例成员
+    }
+    // 静态属性
+    Person.eyes = 2
+    Person.arms = 2
+    // 静态方法
+    Person.say = function () {
+      console.log('我是人')
+      console.log(this.eyes)
+    }
+  </script>
+</body>
+
+</html>

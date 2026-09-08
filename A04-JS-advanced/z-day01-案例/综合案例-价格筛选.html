@@ -166,6 +166,29 @@
     }
     render(goodsList)
 
+
+    // 过滤筛选
+    document.querySelector('.filter').addEventListener('click', e => {
+      const { tagName, dataset } = e.target
+      if (tagName === 'A') {
+        let arr = []
+        switch (dataset.index) {
+          case '1':
+            arr = goodsList.filter(item => item.price >= 0 && item.price < 100)
+            break
+          case '2':
+            arr = goodsList.filter(item => item.price >= 100 && item.price < 300)
+            break
+          case '3':
+            arr = goodsList.filter(item => item.price >= 300)
+            break
+          default:
+            arr = goodsList
+            break
+        }
+        render(arr)
+      }
+    })
   </script>
 </body>
 
