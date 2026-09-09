@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    原型对象 prototype
+    每个构造函数都有一个静态属性prototype，指向原型对象。
+      -（自己的理解：prototype是构造函数的一个属性，它同时也是一个对象）
+    
+    这个对象可以挂载函数，对象实例化时，就不会多次开辟内存空间创建函数，节约内存
+      - 挂载在原型对象内部的成员（如例子中的sing方法），叫原型对象成员
+
+    我们可以把不变的方法挂载到原型对象上，这样所有对象的实例都能共享这个方法
+
+    构造函数和原型对象中的this都指向实例化对象
+    */
+    function Star(uname, age) {
+      this.uname = uname
+      this.age = age
+      // this.sing = function () {
+      //   console.log('会唱歌')
+      // }
+    }
+    // 原型对象
+    Star.prototype.sing = function () {
+      console.log('会唱歌')
+    }
+
+    const ldh = new Star('刘德华', 50)
+    const zxy = new Star('张学友', 50)
+
+    // 写在构造函数内部时
+    // console.log(ldh.sing === zxy.sing)  // false
+
+    // 写在原型对象时
+    console.log(ldh.sing === zxy.sing)  // true
+  </script>
+</body>
+
+</html>

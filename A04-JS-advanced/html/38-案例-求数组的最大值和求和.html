@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 需求：通过给原型对象挂载方法的方式，实现数组调用方法求最大值和求和
+
+    // 求最大值
+    Array.prototype.getMax = function () {
+      return Math.max(...this)
+    }
+    // 求和
+    Array.prototype.getSum = function () {
+      return this.reduce((prev, item) => prev + item, 0)
+    }
+
+    const arr = [1, 2, 3, 4, 5]
+    console.log(arr.getMax())
+    console.log(arr.getSum())
+  </script>
+</body>
+
+</html>

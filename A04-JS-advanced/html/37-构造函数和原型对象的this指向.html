@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    构造函数和原型对象中的this都指向实例化对象
+    */
+    let that
+    function Star(uname) {
+      // that = this
+      this.uname = uname
+    }
+    // 原型对象
+    Star.prototype.sing = function () {
+      that = this
+      console.log('会唱歌')
+    }
+
+    const ldh = new Star('刘德华')
+    // console.log(that === ldh)
+
+    ldh.sing() // 看到这个调用，就知道this指向了ldh，因为谁调用，this指向谁
+    console.log(that === ldh)
+  </script>
+</body>
+
+</html>

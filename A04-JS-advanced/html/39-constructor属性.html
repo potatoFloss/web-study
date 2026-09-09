@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    constructor属性：prototype对象的属性
+    作用：指向构造函数
+    */
+
+    function Star() {
+    }
+    console.log(Star.prototype)  // 有constructor属性
+    /*
+    应用：给原型对象一次性挂载多个方法
+    */
+    // 1. 以前的写法，追加的形式，分开挂载，比较麻烦
+    // Star.prototype.sing = function () {
+    //   console.log('会唱歌')
+    // }
+    // Star.prototype.dance = function () {
+    //   console.log('会跳舞')
+    // }
+
+    // 2. 现在的写法，一次性挂载多个方法
+    // 注意：这种是一种重写，会覆盖掉原型对象上的所有属性，所以要记得写原来的constructor属性
+    Star.prototype = {
+      // 一定记得写constructor属性，
+      constructor: Star,
+      sing: function () {
+        console.log('会唱歌')
+      },
+      dance: function () {
+        console.log('会跳舞')
+      }
+    }
+    console.log(Star.prototype.constructor)
+  </script>
+</body>
+
+</html>
