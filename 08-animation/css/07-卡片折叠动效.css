@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  /* 去掉列表前面的默认符号（圆点、数字） */
+  list-style: none;
+}
+
+.box {
+  max-width: 1320px;
+  height: 527px;
+  margin: 100px auto;
+}
+
+.box ul {
+  /* 视频方法 grid */
+  /* display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-rows: 527px;
+  gap: 8px;
+  transition: all 0.5s; */
+
+  /* ---------------------- */
+
+  /* 我的方法 flex */
+  display: flex;
+  /* flex 没有行模板，高度要给容器，子项默认 stretch 自动拉伸填满 */
+  height: 527px;
+  gap: 8px;
+}
+
+.box .item {
+  flex: 1;
+  /* flex 的份数变化发生在 item 身上，过渡也要写在 item 上 */
+  transition: all 0.5s;
+}
+
+/* 初始状态：第一张是大卡，相当于 2fr */
+.box .item:first-child {
+  flex: 2;
+}
+
+/* ---------------------- */
+
+.box .item:first-child {
+  background: url(../img/pic1.jpg) no-repeat 50%/cover;
+}
+
+.box .item:nth-child(2) {
+  background: url(../img/pic2.jpg) no-repeat center/cover;
+}
+
+.box .item:nth-child(3) {
+  background: url(../img/pic3.jpg) no-repeat center/cover;
+}
+
+.box .item:nth-child(4) {
+  background: url(../img/pic4.jpg) no-repeat center/cover;
+}
+
+/* ---------------------- */
+
+/* 我的方法 flex */
+/* 鼠标经过某个item时，这个item占2份，其它item占1份 */
+.box .item:hover {
+  flex: 2;
+}
+
+/* 
+  否定伪类选择器 :not()
+  选出 不满足括号条件的元素
+*/
+.box .item:not(:hover) {
+  flex: 1;
+}
+
+/* ---------------------- */
+
+/* 视频方法 */
+
+/* 
+  存在选择器 :has() 
+  关系伪类选择器的一种
+  选出 内部存在的、满足括号条件的元素
+  根据子元素的状态来选择父元素
+*/
+/* .box ul:has(.item:first-child:hover) {
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.box ul:has(.item:nth-child(2):hover) {
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+}
+
+.box ul:has(.item:nth-child(3):hover) {
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+}
+
+.box ul:has(.item:nth-child(4):hover) {
+  grid-template-columns: 1fr 1fr 1fr 2fr;
+} */
+
+/* ---------------------- */
+
+.box .item {
+  position: relative;
+}
+
+.item p {
+  position: absolute;
+  left: 0;
+  bottom: -50px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
+  transition: all 0.5s;
+}
+
+/* 鼠标经过某个item时，这个item的p标签从底部升上来 */
+.item:hover p {
+  bottom: 0;
+}
