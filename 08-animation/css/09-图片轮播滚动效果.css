@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ecf4ff;
+}
+
+.box {
+  width: 1180px;
+  margin: 100px auto;
+  /* border: 1px solid #000; */
+  overflow: hidden;
+}
+
+/* 当鼠标移动到滚动区域时，停止滚动 */
+.box:hover .scroll {
+  animation-play-state: paused;
+}
+
+.scroll {
+  display: flex;
+  /* gap: 0 20px; */
+  animation: move 10s linear infinite;
+}
+
+.group {
+  display: grid;
+  grid-template-columns: repeat(6, 180px);
+  grid-template-rows: repeat(4, 90px);
+  gap: 16px 20px;
+  margin-right: 20px;
+}
+
+.group img {
+  width: 180px;
+  height: 90px;
+  border-radius: 10px;
+}
+
+/* 动画 */
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-1200px);
+  }
+}
