@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>hello world</p>
+
+  <script>
+    function fn() {
+      try {
+        // 可能发生错误的代码，要写到try中
+        const p = document.querySelector('.p')
+        p.style.color = 'pink'
+      } catch (error) {
+        // 拦截错误，提示浏览器提供的错误信息，但是不中断程序执行
+        console.log(error.message)
+        // 需要加return 中断程序执行
+        // return
+
+        // 可以在catch中继续抛出异常，就可以不用return了
+        // throw error
+        throw new Error('写错啦')
+      }
+
+      finally {
+        // finally 无论是否有异常，都会执行的代码
+        console.log('finally 一定会执行的代码')
+      }
+
+      console.log('hhhhhh')
+    }
+    fn()
+  </script>
+</body>
+
+</html>

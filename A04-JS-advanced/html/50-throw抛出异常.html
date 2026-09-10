@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    throw 抛出异常
+    1. throw抛出异常，程序终止执行
+    2. throw 后面跟错误提示信息
+    3. 推荐和 Error()构造函数 结合使用，能设置更详细的错误信息
+      - throw new Error('错误提示信息')
+    */
+
+    function counter(x, y) {
+      if (!x || !y) {
+        throw new Error('参数不能为空')
+      }
+      return x + y
+    }
+    counter()
+  </script>
+</body>
+
+</html>

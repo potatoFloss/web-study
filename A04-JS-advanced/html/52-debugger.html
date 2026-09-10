@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    debugger 调试器
+    1. 可以在代码中插入debugger语句，程序执行到debugger语句时，会暂停执行，等待用户操作
+    2. 可以在浏览器的开发者工具中查看程序的运行状态，包括变量的值、调用栈等
+
+    简单理解：
+    以前打断点需要自己去一行一行找，
+    现在在需要打断点的地方写debugger，
+    打开浏览器的开发者工具，程序会自动跳到debugger语句的位置，并暂停执行，等待用户操作
+    */
+
+    // 通过递归，实现深拷贝
+    const obj = {
+      name: '佩奇',
+      age: 18,
+      family: {
+        father: '猪爸爸',
+        mother: '猪妈妈',
+        sister: '朵娅'
+      }
+    }
+    const objCopy = {}
+
+    // 拷贝函数
+    function deepCopy(newObj, oldObj) {
+      debugger
+      // k 是 oldObj 中的属性名
+      for (let k in oldObj) {
+        // 判断数据类型
+        /*
+        注意：一定先判断数组，再判断对象，否则会报错
+        因为，数组也是对象
+        */
+        if (oldObj[k] instanceof Array) {
+          newObj[k] = []
+          deepCopy(newObj[k], oldObj[k])
+        }
+        else if (oldObj[k] instanceof Object) {
+          newObj[k] = {}
+          deepCopy(newObj[k], oldObj[k])
+        }
+        else {
+          newObj[k] = oldObj[k]
+        }
+      }
+    }
+    deepCopy(objCopy, obj)
+  </script>
+</body>
+
+</html>

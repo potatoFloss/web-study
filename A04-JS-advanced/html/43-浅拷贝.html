@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    浅拷贝：
+    只拷贝最外面的那一层，不拷贝里面的对象
+    里面的对象只拷贝地址
+
+    常见的浅拷贝方法：
+    1. 拷贝对象：Object.assign() 或者 展开运算符 {...obj} 拷贝对象
+    2. 拷贝数组：Array.prototype.concat() 或者 展开运算符 [...arr] 拷贝数组
+    */
+
+    const pig = {
+      name: '佩奇',
+      age: 18,
+      family: {
+        father: '猪爸爸',
+        mother: '猪妈妈',
+        sister: '朵娅'
+      }
+    }
+
+    // 1. 展开运算符实现浅拷贝
+    // 我们发现：修改pigCopy.family.sister后，pig.family.sister也会被修改
+    // const pigCopy = { ...pig }
+
+    // 2. Object.assign()方法实现浅拷贝
+    const pigCopy = {}
+    Object.assign(pigCopy, pig)
+
+    pigCopy.name = '佩奇-复制'
+    pigCopy.family.sister = '朵娅-复制'
+
+    console.log(pigCopy)
+    console.log(pig)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="../z-day04-素材/lodash.min.js"></script>
+
+  <script>
+    const obj = {
+      name: '佩奇',
+      age: 18,
+      family: {
+        father: '猪爸爸',
+        mother: '猪妈妈',
+        sister: '朵娅'
+      }
+    }
+
+    const objCopy = _.cloneDeep(obj)
+    objCopy.family.father = 'Copy'
+    console.log(objCopy)
+    console.log(obj)
+  </script>
+</body>
+
+</html>

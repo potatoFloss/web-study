@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    原型链：一种查找规则
+    根据对象的__proto__属性，查找对象能使用的属性和方法
+
+    每个对象都有__proto__属性，指向它的原型对象
+    原型对象也有__proto__属性，指向它的原型对象（上一级构造函数的原型对象）
+    以此类推，直到__proto__属性为null（Object是最大的对象，它的原型对象的__proto__属性指向null）
+
+    instanceof 操作符：判断对象是否是某个构造函数的实例，它俩在不在一条原型链上
+    */
+
+    // instanceof 操作符：它俩在不在一条原型链上
+    function Star() {
+    }
+    const ldh = new Star()
+
+    console.log(ldh instanceof Star) // true
+    console.log(ldh instanceof Object) // true
+    console.log(Star instanceof Object) // true
+    console.log('-----------------')
+    console.log(ldh instanceof Array) // false
+    console.log(Star instanceof Array) // false
+  </script>
+</body>
+
+</html>

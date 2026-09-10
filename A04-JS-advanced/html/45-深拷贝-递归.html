@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    /*
+    如果死递归，会造成栈溢出
+    */
+
+    // 辅助理解
+    // 案例：通过递归，用setTimeout()模拟setInterval()
+    function getTime() {
+      const div = document.querySelector('div')
+      div.innerHTML = new Date().toLocaleString()
+      setTimeout(getTime, 1000)
+    }
+    getTime()
+
+    // 通过递归，实现深拷贝
+    const obj = {
+      name: '佩奇',
+      age: 18,
+      family: {
+        father: '猪爸爸',
+        mother: '猪妈妈',
+        sister: '朵娅'
+      }
+    }
+    const objCopy = {}
+
+    // 拷贝函数
+    function deepCopy(newObj, oldObj) {
+      // k 是 oldObj 中的属性名
+      for (let k in oldObj) {
+        // 判断数据类型
+        /*
+        注意：一定先判断数组，再判断对象，否则会报错
+        因为，数组也是对象
+        */
+        if (oldObj[k] instanceof Array) {
+          newObj[k] = []
+          deepCopy(newObj[k], oldObj[k])
+        }
+        else if (oldObj[k] instanceof Object) {
+          newObj[k] = {}
+          deepCopy(newObj[k], oldObj[k])
+        }
+        else {
+          newObj[k] = oldObj[k]
+        }
+      }
+    }
+    deepCopy(objCopy, obj)
+
+    objCopy.name = 'Copy佩奇'
+    objCopy.family.father = 'Copy爸爸'
+    console.log(objCopy)
+    console.log(obj)
+  </script>
+</body>
+
+</html>
