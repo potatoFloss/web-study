@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a252c;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+}
+
+.box .item {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 2px;
+  cursor: pointer;
+  /* 过渡效果 */
+  transition: all 0.6s;
+  /* 添加倒影 */
+  /* box-reflect 是 非标准属性 ，最初由 WebKit 内核实现，至今只有 Chrome / Edge / Safari 支持， 
+  Firefox 不支持（Firefox 用户看不到倒影，但不报错）。
+  所以写的时候要带前缀——它没有标准版`box-reflect` 。 */
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0002);
+}
+
+.box .item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+/* 动画效果 */
+/* 鼠标经过某个盒子，当前盒子变大 */
+.box .item:hover {
+  transform: scale(1.2);
+  z-index: 1;
+}
+
+/* 鼠标经过某个盒子，其余盒子沿着y轴旋转 */
+.box:hover .item:not(:hover) {
+  transform: perspective(500px) scale(0.9) rotateY(45deg);
+  margin: 0 -20px;
+}
+
+/* 鼠标经过的盒子，后面的兄弟（姐妹） 修改下变形 */
+.box .item:hover~.item {
+  transform: perspective(500px) scale(0.9) rotateY(-45deg);
+}
