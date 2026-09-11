@@ -68,9 +68,27 @@
       <a href="javascript:;" data-ref="outline">评论列表</a>
     </div>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
   <script>
+    const video = document.querySelector('video')
+    // ontimeupdate事件：视频，只要进度条移动，就会触发事件
+    // video.ontimeupdate = function () {
+    //   console.log(11)
+    // }
+    // 需求：每播放1秒，记录一次当前播放时间。通过节流函数实现
+    video.addEventListener('timeupdate', _.throttle(() => {
+      // console.log(video.currentTime)
+      // 将当前播放时间，存储到localStorage中
+      localStorage.setItem('currentTime', video.currentTime)
+    }, 1000))
 
+
+    // 打开页面触发事件：从localStorage中获取当前播放时间，设置到视频中
+    // onloadeddata事件：视频加载完成后，就会触发事件
+    video.addEventListener('loadeddata', () => {
+      video.currentTime = localStorage.getItem('currentTime') || 0
+    })
   </script>
 </body>
 

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 20px;
+      color: #fff;
+      text-align: center;
+      font-size: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+
+  <script src="../js/lodash.min.js"></script>
+  <script>
+    /*
+    节流是什么？
+      - 单位时间内，频繁触发事件，只执行第一次
+
+    实现方法：
+      - lodash库中的_.throttle()方法
+        - 语法：_.throttle(函数, 延迟时间)
+      - 手写节流函数
+
+    使用场景：
+      - 高频事件：鼠标移动mousemove、页面尺寸缩放resize、滚动条滚动scroll
+    */
+    // 需求：鼠标在盒子上移动，数字就会增加
+    const box = document.querySelector('.box')
+    let count = 0
+    function mouseMove() {
+      box.innerHTML = ++count
+      // 如果存在开销较大操作，大量数据处理、大量DOM操作等，会卡顿
+    }
+
+    // _.throttle()方法
+    // box.addEventListener('mousemove', _.throttle(mouseMove, 5000))
+
+    // 手写节流函数
+    function throttle(fn, t) {
+      let timerId = null
+      return function () {
+        // 只有当没有定时器时，才执行函数
+        if (!timerId) {
+          // 开启定时器
+          timerId = setTimeout(function () {
+            fn()
+            // 定时器内不能通过clearTimeout()清除定时器
+            timerId = null
+          }, t)
+        }
+      }
+    }
+    box.addEventListener('mousemove', throttle(mouseMove, 3000))
+  </script>
+</body>
+
+</html>

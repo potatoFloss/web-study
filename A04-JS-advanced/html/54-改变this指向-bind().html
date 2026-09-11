@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>发送验证码</button>
+  <script>
+    const btn = document.querySelector('button')
+
+    btn.addEventListener('click', function () {
+      // 点击之后禁用按钮
+      this.disabled = true
+      // 2秒后启用按钮
+      // setTimeout()一般省略了window，这里为了方便理解，写出了window
+      window.setTimeout(function () {
+        // 在这个普通函数中，我们要this由原来指向window 改为指向btn
+        this.disabled = false
+      }.bind(this), 2000)
+    })
+  </script>
+</body>
+
+</html>

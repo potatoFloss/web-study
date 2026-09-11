@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 20px;
+      color: #fff;
+      text-align: center;
+      font-size: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+
+  <script src="../js/lodash.min.js"></script>
+  <script>
+    /*
+    防抖是什么？
+    - 单位时间内，频繁触发事件，只执行最后一次
+
+    使用场景：
+    - 搜索框输入内容时，只需要用户最后一次输入完，再发送请求
+    - 手机号、邮箱验证输入检测
+
+    实现方法：
+    - lodash库中的_.debounce()方法
+      - 语法：_.debounce(函数, 延迟时间)
+      - 功能：在事件触发后，延迟执行函数，延迟时间为指定的时间
+    - 手写防抖函数
+    */
+    // 需求：鼠标在盒子上移动，数字就会增加
+    const box = document.querySelector('.box')
+
+    let count = 0
+    function mouseMove() {
+      box.innerHTML = ++count
+      // 如果存在开销较大操作，大量数据处理、大量DOM操作等，会卡顿
+    }
+    // box.addEventListener('mousemove', mouseMove)
+
+    // 防抖优化：当鼠标停止500ms后，数字才发生变化
+    // _.debounce()方法
+    // box.addEventListener('mousemove', _.debounce(mouseMove, 500))
+
+    // 手写防抖函数
+    function debounce(fn, t) {
+      let timerId
+      return function () {
+        // 判断是否有定时器存在
+        if (timerId) {
+          clearTimeout(timerId)
+        }
+        // 重新创建定时器，延迟执行函数
+        timerId = setTimeout(function () {
+          fn()
+        }, t)
+      }
+    }
+    box.addEventListener('mousemove', debounce(mouseMove, 500))
+  </script>
+</body>
+
+</html>
