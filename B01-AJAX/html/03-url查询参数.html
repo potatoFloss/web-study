@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!--
+    url查询参数
+      语法：url?参数名=参数值&参数名=参数值...
+      例如：http://hmajax.itheima.net/api/city?pname=辽宁省
+    
+    在axios中使用查询参数：
+      axios提供params属性，用于设置查询参数
+      语法：
+        axios({
+          url: '目标资源地址',
+          params: {
+            参数名: 参数值
+          }
+        })
+  -->
+  <!-- 
+    城市列表: http://hmajax.itheima.net/api/city
+    参数名: pname
+    值: 省份名字
+  -->
+  <p></p>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    axios({
+      url: 'http://hmajax.itheima.net/api/city',
+      params: {
+        pname: '四川省'
+      }
+    }).then(result => {
+      console.log(result.data.list)
+      document.querySelector('p').innerHTML = result.data.list.join('<br>')
+    })
+  </script>
+</body>
+
+</html>

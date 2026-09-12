@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button class="btn">注册用户</button>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    /*
+      请求报文：浏览器根据规定格式发送给服务器的内容集合
+        1. 请求行（第一行）
+        2. 请求头
+        3. 空行
+        4. 请求体（我们提交的数据）
+
+      请求报文在控制台的查看方式：
+        控制台 -> 网络 -> Fetch/XHR -> 选则对应的请求并点击 ->
+        请求头：标头 -> 请求标头（勾选“原始”）查看源代码
+        请求体：载荷 -> 请求载荷（点击“查看源代码”）
+    */
+    document.querySelector('.btn').addEventListener('click', () => {
+      axios({
+        url: 'https://hmajax.itheima.net/api/register',
+        method: 'POST',
+        data: {
+          username: 'liudehua23',
+          password: '123456'
+        }
+      }).then(result => {
+        console.log(result)
+        // 提交失败 控制台查看response.data.message
+      }).catch(error => {
+        console.dir(error)
+        console.log(error.response.data.message)
+        // 提示用户失败信息
+        alert(error.response.data.message)
+      })
+    })
+  </script>
+</body>
+
+</html>

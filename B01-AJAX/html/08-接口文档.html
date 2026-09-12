@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 需求：根据接口文档，实现登录功能 -->
+  <!-- 接口文档：https://s.apifox.cn/1b0dd84f-faa8-435d-b355-5a8a329e34a8 -->
+  <button>登录</button>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    document.querySelector('button').addEventListener('click', function () {
+      axios({
+        url: 'https://hmajax.itheima.net/api/login',
+        method: 'POST',
+        data: {
+          username: 'liudehua23',
+          password: '123456'
+        }
+      }).then(result => {
+        console.log(result)
+      })
+    })
+  </script>
+</body>
+
+</html>
