@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片上传</title>
+</head>
+
+<body>
+  <!-- 文件选择元素 -->
+  <input type="file" class="upload">
+  <img src="" alt="" class="my-img">
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    /**
+     * 目标：图片上传，显示到网页上
+     *  1. 获取图片文件
+     *  2. 使用 FormData 携带图片文件
+     *  3. 提交到服务器，获取图片url网址使用
+    */
+    // 1. 获取图片文件元素
+    const upload = document.querySelector('.upload')
+    // 2. 给图片文件元素注册change事件
+    upload.addEventListener('change', function (e) {
+      // 3. 获取图片文件对象
+      // console.dir(e.target.files[0])
+      const file = e.target.files[0]
+      /*
+        4. 使用FormData对象，携带图片文件对象
+        查看接口文档，明确其对参数的要求，
+        例如：
+          本接口要求参数类型是multipart/form-data，
+          其中form-data就代表要用FormData对象携带参数
+      */
+      const fd = new FormData()
+      fd.append('img', file)  // 这里的img是接口文档要求的参数名
+      // 5. 提交到服务器
+      axios({
+        url: 'http://hmajax.itheima.net/api/uploadimg',
+        method: 'POST',
+        data: fd
+      }).then(result => {
+        // 6. 获取图片url网址使用
+        // console.log(result.data.data)
+        const imgUrl = result.data.data.url
+        document.querySelector('.my-img').src = imgUrl
+      })
+    })
+  </script>
+</body>
+
+</html>
