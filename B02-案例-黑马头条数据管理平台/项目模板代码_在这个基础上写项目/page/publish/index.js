@@ -57,6 +57,10 @@ document.querySelector('.rounded').addEventListener('click', function () {
  *  3.4 重置表单并跳转到列表页
  */
 document.querySelector('.send').addEventListener('click', async function () {
+  // 判断，如果不是发布文章，就return
+  if (this.innerHTML !== '发布') {
+    return
+  }
   // 3.1 基于 form-serialize 插件收集表单数据对象
   const form = document.querySelector('.art-form')
   const formData = serialize(form, { hash: true, empty: true })
@@ -91,13 +95,57 @@ document.querySelector('.send').addEventListener('click', async function () {
   }
 })
 
-/**
- * 目标4：编辑-回显文章
- *  4.1 页面跳转传参（URL 查询参数方式）
- *  4.2 发布文章页面接收参数判断（共用同一套表单）
- *  4.3 修改标题和按钮文字
- *  4.4 获取文章详情数据并回显表单
- */
+  /**
+   * 目标4：编辑-回显文章
+   *  4.1 页面跳转传参（URL 查询参数方式）
+   *  4.2 发布文章页面接收参数判断（共用同一套表单）
+   *  4.3 修改标题和按钮文字
+   *  4.4 获取文章详情数据并回显表单
+   */
+  // 为了避免数据污染，所以使用立即执行函数
+  ; (function () {
+    // 获取 URL 的查询参数
+    // console.log(location.search)
+    const paramsStr = location.search
+    const params = new URLSearchParams(paramsStr)
+    params.forEach(async (value, key) => {
+      if (key === 'id') {
+        // 说明是编辑文章
+        document.querySelector('.title span').innerHTML = '编辑文章'
+        document.querySelector('.send').innerHTML = '保存修改'
+
+        // 获取文章详情数据并回显表单
+        const res = await axios({
+          url: `/v1_0/mp/articles/${value}`,
+        })
+        console.log(res)
+        // 组织我需要的数据对象，为后续遍历回显到页面上做铺垫
+        const dataObj = {
+          id: res.data.id,  // 文章id
+          title: res.data.title,  // 文章标题
+          channel_id: res.data.channel_id,  // 文章频道id
+          rounded: res.data.cover.images[0],  // 文章封面图片url地址
+          content: res.data.content  // 文章内容
+        }
+        // 遍历数据对象属性，映射到页面元素上去，快速赋值
+        Object.keys(dataObj).forEach(key => {
+          if (key === 'rounded') {
+            // 当属性是图片 rounded 时，需要特殊处理
+            if (dataObj[key]) {
+              document.querySelector(`.${key}`).classList.add('show')
+              document.querySelector(`.${key}`).src = dataObj[key]
+              document.querySelector('.place').classList.add('hide')
+            }
+          } else if (key === 'content') {
+            // 当属性是内容 content 时，需要特殊处理
+            editor.setHtml(dataObj[key])
+          } else {
+            document.querySelector(`[name=${key}]`).value = dataObj[key]
+          }
+        })
+      }
+    })
+  })();
 
 /**
  * 目标5：编辑-保存文章
@@ -105,3 +153,41 @@ document.querySelector('.send').addEventListener('click', async function () {
  *  5.2 调用编辑文章接口，保存信息到服务器
  *  5.3 基于 Alert 反馈结果消息给用户
  */
+document.querySelector('.send').addEventListener('click', async function () {
+  // 判断，如果不是保存修改，就return
+  if (this.innerHTML !== '保存修改') {
+    return
+  }
+  // 收集表单数据
+  const form = document.querySelector('.art-form')
+  const data = serialize(form, { hash: true, empty: true })
+  // console.log(data)
+  try {
+    const res = await axios({
+      url: `/v1_0/mp/articles/${data.id}`,
+      method: 'PUT',
+      data: {
+        ...data,
+        cover: {
+          type: document.querySelector('.rounded').src ? 1 : 0,
+          images: [document.querySelector('.rounded').src]
+        }
+      }
+    })
+    // console.log(res)
+    myAlert(true, '保存修改成功')
+    form.reset()
+    editor.setHtml('')
+    document.querySelector('.rounded').src = ''
+    document.querySelector('.rounded').classList.remove('show')
+    document.querySelector('.place').classList.remove('hide')
+    // 保存成功后，跳转到列表页
+    setTimeout(() => {
+      location.href = '../content/index.html'
+    }, 1000)
+  } catch (error) {
+    // console.dir(error)
+    myAlert(false, error.response.data.message)
+  }
+
+})

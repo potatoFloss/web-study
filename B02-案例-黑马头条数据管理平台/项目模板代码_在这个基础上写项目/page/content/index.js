@@ -51,7 +51,7 @@ async function setArticleList() {
                 <td>
                   <span>${item.like_count}</span>
                 </td>
-                <td>
+                <td data-id="${item.id}">
                   <i class="bi bi-pencil-square edit"></i>
                   <i class="bi bi-trash3 del"></i>
                 </td>
@@ -132,6 +132,30 @@ document.querySelector('.last').addEventListener('click', function () {
  *  4.4 重新获取文章列表，并覆盖展示
  *  4.5 删除最后一页的最后一条，需要自动向前翻页
  */
+// 4.2 点击删除时，获取文章 id
+document.querySelector('.art-list').addEventListener('click', async function (e) {
+  if (e.target.classList.contains('del')) {
+    const articleId = e.target.parentNode.dataset.id
+
+    await axios({
+      url: `/v1_0/mp/articles/${articleId}`,
+      method: 'DELETE'
+    })
+    // 4.5 删除最后一页的最后一条，需要自动向前翻页
+    if (this.children.length === 1 && queryObj.page > 1) {
+      queryObj.page--
+      document.querySelector('.page-now').innerHTML = `第${queryObj.page}页`
+    }
+
+    setArticleList()
+  }
+})
 
 // 点击编辑时，获取文章 id，跳转到发布文章页面传递文章 id 过去
-
+document.querySelector('.art-list').addEventListener('click', e => {
+  if (e.target.classList.contains('edit')) {
+    const articleId = e.target.parentNode.dataset.id
+    // console.log(articleId)
+    location.href = `../publish/index.html?id=${articleId}`
+  }
+})
