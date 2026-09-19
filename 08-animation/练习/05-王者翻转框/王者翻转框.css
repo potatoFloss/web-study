@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 300px;
+  height: 400px;
+  margin: 100px auto;
+  transition: all 2s;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.card:hover {
+  transform: perspective(1000px) rotateY(-180deg);
+}
+
+.card .front,
+.card .back {
+  border-radius: 15px;
+  transform-style: preserve-3d;
+  /* 背面不显示 */
+  backface-visibility: hidden;
+}
+
+.card .front {
+  width: 100%;
+  height: 100%;
+  background-image: url(./封面.png);
+  background-size: cover;
+}
+
+.card .front::before {
+  content: '';
+  /* 伪元素虽然能生成内容，但默认display: inline */
+  /* 行内元素的 width/height 不生效 */
+  display: block;
+  width: 100%;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.45);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3D(-50%, -50%, 20px);
+  /* 背面不显示 */
+  backface-visibility: hidden;
+}
+
+.card .front p {
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  line-height: 400px;
+  transform: translateZ(60px);
+}
+
+/* 背面 */
+.card .back {
+  background: #191e25;
+  color: #fff;
+  padding: 25px;
+}
+
+.card .back .head {
+  border-bottom: 2px solid #b49758;
+  padding-bottom: 15px;
+}
+
+.card .back .head h2 {
+  color: #f8fae4;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.card .back .head span {
+  background-color: #c09f5a;
+  border-radius: 2px;
+  color: #191d20;
+  font-weight: bold;
+}

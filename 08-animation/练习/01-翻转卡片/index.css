@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+
+.card {
+  width: 80%;
+  margin: 100px auto;
+}
+
+li {
+  width: 350px;
+  /* 添加透视效果 */
+  perspective: 1000px;
+  /* 让里面的两个盒子保持3d状态 */
+  transform-style: preserve-3d;
+}
+
+li:hover .front {
+  transform: rotateY(-180deg);
+}
+
+li:hover .back {
+  transform: rotateY(0deg);
+}
+
+.front,
+.back {
+  /* 元素背面朝观众时不可见 */
+  backface-visibility: hidden;
+  /* 开启3D空间 */
+  transform-style: preserve-3d;
+  transition: all 1s;
+}
+
+.front {
+  position: relative;
+}
+
+.front p {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) translateZ(60px);
+  font-size: 30px;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 10px;
+}
+
+.front span {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  /* transform: translateX(-(-50%)(-50%) translateZ(60px); */
+  transform: translate3d(-50%, -50%, 60px);
+}
+
+p,
+span {
+  color: #fff;
+  /* 元素背面朝观众时不可见 */
+  backface-visibility: hidden;
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+  border-radius: 15px;
+}
+
+.back {
+  /* flex布局 使文字居中 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #cedce7 0, #596a72 100%);
+  line-height: 35px;
+  transform: rotateY(180deg);
+}
+
+.back p {
+  transform: translateZ(60px);
+}
