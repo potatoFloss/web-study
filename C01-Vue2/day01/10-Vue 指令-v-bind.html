@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    指令v-bind 动态为元素添加属性
+    语法: v-bind:属性名="表达式"
+    简写: :属性名="表达式" (即省略v-bind)
+    例如: v-bind:src="url"
+  -->
+  <div id="app">
+    <img v-bind:src="imgUrl" v-bind:title="msg" alt="">
+    <img :src="imgUrl" :title="msg" alt="">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        imgUrl: './imgs/10-02.png',
+        msg: '这是一张图片',
+      }
+    })
+
+  </script>
+</body>
+
+</html>

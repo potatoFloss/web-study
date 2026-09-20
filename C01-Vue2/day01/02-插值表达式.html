@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    插值表达式: 利用 表达式 进行插值,将数据渲染到页面上
+    语法: {{ 表达式 }}
+
+    注意:
+      1. 表达式只能是实例中有的
+      2. 只能是表达式,不能是语句(if,for,while等)
+      3. 标签行内属性不能使用插值表达式
+  -->
+  <div id="app">
+    <p>{{ name }}</p>
+    <p>{{ message }}</p>
+    <p>{{ age > 18 ? '成年人' : '未成年人' }}</p>
+    <p>{{ friend.name }}</p>
+    <p>{{ friend.like }}</p>
+  </div>
+
+  <!-- 引入vue.js包 开发版本/生产版本 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+  <script>
+    // 创建vue实例
+    // el: 挂载点
+    // data: 数据
+    const app = new Vue({
+      el: '#app',  // 通过选择器指定是哪个元素
+      data: {
+        name: '张三',
+        message: 'hello vue',
+        age: 18,
+        friend: {
+          name: '李四',
+          like: '篮球'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

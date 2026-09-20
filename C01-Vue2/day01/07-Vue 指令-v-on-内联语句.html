@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!--
+    v-on 指令：绑定事件
+    语法: v-on:事件名="事件处理函数"
+    内联语句: 直接把函数写在""中
+
+    v-on:click="count--" 等价于 @click="count--" 
+    即, 将 v-on: 简写为 @
+  -->
+  <div id="app">
+    <button v-on:click="count--">-</button>
+    <span>{{ count }}</span>
+    <button @click="count++">+</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        count: 0,
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    v-model指令
+    特点: 可以实现表单元素的值与vue实例数据的双向绑定
+    语法: v-model="数据"
+    注意: 只能绑定表单元素,不能绑定普通元素
+    例如: <input type-model="username">
+   -->
+  <div id="app">
+    账户：<input type="text" v-model="username"> <br><br>
+    密码：<input type="password" v-model="password"> <br><br>
+    <button>登录</button>
+    <button @click="reset">重置</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        username: '',
+        password: ''
+      },
+      methods: {
+        reset() {
+          this.username = ''
+          this.password = ''
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

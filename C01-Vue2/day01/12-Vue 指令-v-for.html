@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    指令v-for
+    用于遍历数组 对象 字符串等,将数组中的每个元素渲染到页面上
+    语法: v-for="(item, index) in 数组名"
+    说明: item是数组中的每个元素,index是数组中的索引
+          index是可选的,如果不需要使用索引,则可以省略
+   -->
+  <div id="app">
+    <h3>小黑水果店</h3>
+    <ul>
+      <!-- <li v-for="(item, index) in list">{{item}}</li> -->
+      <li v-for="item in list">{{item}}</li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        list: ['西瓜', '苹果', '鸭梨']
+      }
+    })
+  </script>
+</body>
+
+</html>
