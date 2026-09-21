@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    姓：<input v-model="firstName" type="text"><br>
+    名：<input v-model="lastName" type="text"><br>
+    <p>姓名：{{ fullName }}</p>
+    <button @click="changeName">修改姓名</button>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        firstName: '张',
+        lastName: '飞'
+      },
+      computed: {
+        // 简写，只有读取功能，没有修改功能
+        // fullName() {
+        //   return this.firstName + this.lastName
+        // }
+
+        // 完整写法，有读取功能，也有修改功能
+        fullName: {
+          get() {
+            return this.firstName + this.lastName
+          },
+          // 当计算属性(本例为fullName)的值发生变化时，会自动调用set方法，
+          // 将计算属性的新值传递给set()函数的形参newValue，通过形参进行相关操作
+          set(newValue) {
+            this.firstName = newValue.slice(0, 1)
+            this.lastName = newValue.slice(1)
+          }
+        }
+      },
+      methods: {
+        changeName() {
+          this.fullName = '貂小蝉'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

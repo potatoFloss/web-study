@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      border: 1px solid #000;
+      text-align: center;
+      width: 300px;
+    }
+
+    th,
+    td {
+      border: 1px solid #000;
+    }
+
+    h3 {
+      position: relative;
+    }
+
+    span {
+      position: absolute;
+      left: 145px;
+      top: -4px;
+      width: 16px;
+      height: 16px;
+      color: white;
+      font-size: 12px;
+      text-align: center;
+      border-radius: 50%;
+      background-color: #e63f32;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <h3>小黑的礼物清单🛒<span>{{ getTotalNum() }}</span></h3>
+    <h3>小黑的礼物清单🛒<span>{{ getTotalNum() }}</span></h3>
+    <h3>小黑的礼物清单🛒<span>{{ getTotalNum() }}</span></h3>
+    <table>
+      <tr>
+        <th>名字</th>
+        <th>数量</th>
+      </tr>
+      <tr v-for="(item, index) in list" :key="item.id">
+        <td>{{ item.name }}</td>
+        <td>{{ item.num }}个</td>
+      </tr>
+    </table>
+
+    <p>礼物总数：{{ getTotalNum() }} 个</p>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        // 现有的数据
+        list: [
+          { id: 1, name: '篮球', num: 3 },
+          { id: 2, name: '玩具', num: 2 },
+          { id: 3, name: '铅笔', num: 5 },
+        ]
+      },
+      methods: {
+        // 方法 无缓存 每次调用都要重新计算
+        // 适合处理业务逻辑
+        // 强行当作计算属性使用（不推荐），需要手动调用方法 {{ getTotalNum() }}
+        getTotalNum() {
+          console.log('getTotalNum 被调用了')
+          let total = this.list.reduce((sum, item) => sum + item.num, 0)
+          return total
+        }
+      },
+      computed: {
+        // 计算属性 有缓存 直接返回缓存的结果 只有当依赖的数据发生变化时，才会重新计算
+        totalCount() {
+          console.log('totalCount 被调用了')
+          let total = this.list.reduce((sum, item) => sum + item.num, 0)
+          return total
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 18px;
+    }
+
+    #app {
+      padding: 10px 20px;
+    }
+
+    .query {
+      margin: 10px 0;
+    }
+
+    .box {
+      display: flex;
+    }
+
+    textarea {
+      width: 300px;
+      height: 160px;
+      font-size: 18px;
+      border: 1px solid #dedede;
+      outline: none;
+      resize: none;
+      padding: 10px;
+    }
+
+    textarea:hover {
+      border: 1px solid #1589f5;
+    }
+
+    .transbox {
+      width: 300px;
+      height: 160px;
+      background-color: #f0f0f0;
+      padding: 10px;
+      border: none;
+    }
+
+    .tip-box {
+      width: 300px;
+      height: 25px;
+      line-height: 25px;
+      display: flex;
+    }
+
+    .tip-box span {
+      flex: 1;
+      text-align: center;
+    }
+
+    .query span {
+      font-size: 18px;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-wrap span {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      font-size: 12px;
+    }
+
+    .input-wrap i {
+      font-size: 20px;
+      font-style: normal;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 条件选择框 -->
+    <div class="query">
+      <span>翻译成的语言：</span>
+      <select v-model="obj.lang">
+        <option value="italy">意大利</option>
+        <option value="english">英语</option>
+        <option value="german">德语</option>
+      </select>
+    </div>
+
+    <!-- 翻译框 -->
+    <div class="box">
+      <div class="input-wrap">
+        <textarea v-model="obj.words"></textarea>
+        <span><i>⌨️</i>文档翻译</span>
+      </div>
+      <div class="output-wrap">
+        <div class="transbox">{{ res }}</div>
+      </div>
+    </div>
+  </div>
+  <script src="./vue.js"></script>
+  <script src="./axios.js"></script>
+  <script>
+    // 接口地址：https://applet-base-api-t.itheima.net/api/translate
+    // 请求方式：get
+    // 请求参数：
+    // （1）words：需要被翻译的文本（必传）
+    // （2）lang： 需要被翻译成的语言（可选）默认值-意大利
+    // -----------------------------------------------
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        // words: '',
+        obj: {
+          words: '输入需要翻译的文本',
+          lang: 'italy',
+        },
+        res: '',  // 翻译结果
+      },
+      // 具体讲解：(1) watch语法 (2) 具体业务实现
+      /*
+        语法：（旧值可以省略）
+          被监听的属性名(newVal, oldVal) {
+            // 监听的属性变化时，执行的代码
+          }
+      */
+      watch: {
+        // 侦听器的完整写法
+        obj: {
+          deep: true,  // 深度监听
+          immediate: true,  // 立即执行一次
+          handler(newVal, oldVal) {
+            // console.dir(newVal)
+            // 优化 -> 防抖
+            // 不参与响应式的数据，不放在data中，直接使用this.xxx即可，相当于给实例添加一个属性
+            clearTimeout(this.timerId)  // 开启一个定时器之前，先清除上一个定时器，避免重复请求
+            this.timerId = setTimeout(async () => {
+              // 翻译
+              const result = await axios({
+                url: 'https://applet-base-api-t.itheima.net/api/translate',
+                params: newVal
+              })
+              this.res = result.data.data
+              // 在正常的业务开发中，一般设置300ms，比较合适
+            }, 300)
+          }
+        }
+
+        // 1. 当被监听的属性是外层属性时，直接写属性名即可
+        // words(newVal, oldVal) {
+        //   console.log(newVal, oldVal)
+        // }
+
+        // 2. 当被监听的属性，不是外层属性时（例如：obj.words），记得用引号括起来
+        /**
+          'obj.words'(newVal, oldVal) {
+          // console.log(newVal, oldVal)
+
+          // 优化 -> 防抖
+          // 不参与响应式的数据，不放在data中，直接使用this.xxx即可，相当于给实例添加一个属性
+          clearTimeout(this.timerId)  // 开启一个定时器之前，先清除上一个定时器，避免重复请求
+          this.timerId = setTimeout(async () => {
+            // 翻译
+            const result = await axios({
+              url: 'https://applet-base-api-t.itheima.net/api/translate',
+              params: {
+                words: newVal
+              }
+            })
+            this.res = result.data.data
+            // 在正常的业务开发中，一般设置300ms，比较合适
+          }, 300)
+        }
+        */
+      }
+    })
+  </script>
+</body>
+
+</html>
