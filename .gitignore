@@ -1,8 +1,5 @@
-img/
-images/
 /简历/
 .trae/
-node_modules/
 
 # =====================
 # 操作系统生成的文件
@@ -93,6 +90,8 @@ coverage/
 # =====================
 # 缓存与临时文件
 # =====================
+# ESLint 增量检查缓存（Vue CLI 等项目开启 --cache 时生成）
+.eslintcache
 *.tmp
 *.temp
 .cache/

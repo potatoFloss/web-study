@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <h3>{{ title }}</h3>
+    <div>
+      <button @click="count--">-</button>
+      <span>{{ count }}</span>
+      <button @click="count++">+</button>
+    </div>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        count: 100,
+        title: '计数器'
+      },
+      // 1. 创建阶段，响应式数据初始化
+      beforeCreate() {
+        console.log('beforeCreate 响应式数据初始化前', this.count)  // undefined, 说明在 beforeCreate 中，this.count 还没有被创建
+      },
+      created() {
+        console.log('created 响应式数据初始化后', this.count)  // 100, 说明在 created 中，this.count 已经被初始化了
+        // 在这里，可以发送请求，获取数据
+      },
+
+      // 2. 挂载阶段，模板编译
+      beforeMount() {
+        console.log('beforeMount 模板编译前', document.querySelector('span').innerHTML)  // {{ count }}
+      },
+      mounted() {
+        console.log('mounted 模板编译后', document.querySelector('span').innerHTML)  // 100
+        // 在这里，可以操作 DOM 元素
+      },
+
+      // 3. 更新阶段，响应式数据变化 -> 页面更新
+      beforeUpdate() {
+        // 数据已经改变，但是页面还没有更新
+        console.log('beforeUpdate 响应式数据变化前', document.querySelector('span').innerHTML)  // 点击+，100
+      },
+      updated() {
+        // 数据已经改变，页面也更新了
+        console.log('updated 响应式数据变化后', document.querySelector('span').innerHTML)  // 点击+，101
+      },
+
+      // 4. 销毁阶段，组件卸载 
+      // 控制台执行 app.$destroy()，可以触发组件的销毁阶段，执行 beforeDestroy 和 destroyed 钩子
+      beforeDestroy() {
+        console.log('beforeDestroy 组件卸载前')
+        // 释放Vue以外的资源（清除定时器、延时器...）
+      },
+      destroyed() {
+        console.log('destroyed 组件卸载后')
+      }
+    })
+  </script>
+</body>
+
+</html>
