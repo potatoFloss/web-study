@@ -1,12 +1,14 @@
 <template>
   <div>
     <div class="footer_wrap">
-      <a href="javascript:;">发现音乐</a>
-      <a href="javascript:;">我的音乐</a>
-      <a href="javascript:;">朋友</a>
+      <a href="#/find">发现音乐</a>
+      <a href="#/my">我的音乐</a>
+      <a href="#/friend">朋友</a>
     </div>
     <div class="top">
-      
+      <!-- 路由出口 -->
+      <!-- router-view 标签 是VueRouter提供的组件，用于展示匹配的组件 -->
+      <router-view></router-view>
     </div>
   </div>
 </template>
