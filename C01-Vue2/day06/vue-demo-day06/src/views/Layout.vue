@@ -1,21 +1,23 @@
 <template>
   <div class="h5-wrapper">
     <div class="content">
-      内容
+      <!-- 二级路由出口 -->
+      <router-view></router-view>
     </div>
     <nav class="tabbar">
-      <a href="#/article">面经</a>
-      <a href="#/collect">收藏</a>
-      <a href="#/like">喜欢</a>
-      <a href="#/user">我的</a>
+      <router-link to="/article">面经</router-link>
+      <router-link to="/collect">收藏</router-link>
+      <router-link to="/like">喜欢</router-link>
+      <router-link to="/user">我的</router-link>
     </nav>
   </div>
 </template>
 
 <script>
 export default {
+  // 组件名，没有设置时，默认为文件名
   name: "LayoutPage",
-}
+};
 </script>
 
 <style>
@@ -46,6 +48,9 @@ body {
       font-size: 14px;
       color: #333;
       -webkit-tap-highlight-color: transparent;
+    }
+    a.router-link-active {
+      color: orange;
     }
   }
 }

@@ -1,6 +1,8 @@
 <template>
   <div class="article-detail-page">
-    <nav class="nav"><span class="back">&lt;</span> 面经详情</nav>
+    <nav class="nav">
+      <span class="back" @click="$router.back()">&lt;</span> 面经详情
+    </nav>
     <header class="header">
       <h1>百度前端面经</h1>
       <p>2022-01-20 | 315 浏览量 | 44 点赞数</p>
@@ -20,16 +22,18 @@
 </template>
 
 <script>
-// 请求地址: https://mock.boxuegu.com/mock/3083/articles/:id
+// 请求地址(报错): https://mock.boxuegu.com/mock/3083/articles/:id
 // 请求方式: get
 export default {
   name: "ArticleDetailPage",
   data() {
-    return {
-      
-    }
-  }
-}
+    return {};
+  },
+  created() {
+    // 接收路由携带的参数
+    console.log(this.$route.params.id);
+  },
+};
 </script>
 
 <style lang="less" scoped>
