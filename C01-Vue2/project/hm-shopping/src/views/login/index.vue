@@ -11,46 +11,117 @@
 
       <div class="form">
         <div class="form-item">
-          <input class="inp" maxlength="11" placeholder="请输入手机号码" type="text">
+          <input v-model="mobile" class="inp" maxlength="11" placeholder="请输入手机号码" type="text">
         </div>
         <div class="form-item">
-          <input v-model="picCode" class="inp" maxlength="5" placeholder="请输入图形验证码" type="text">
+          <input v-model="picCode" class="inp" maxlength="4" placeholder="请输入图形验证码" type="text">
           <!-- 因为最开始的data中，picUrl为空，所以需要加v-if判断，避免图片为空时，出现的一瞬间的图片损坏 -->
           <img v-if="picUrl" :src="picUrl" @click="getPicCode" alt="">
         </div>
         <div class="form-item">
-          <input class="inp" placeholder="请输入短信验证码" type="text">
-          <button>获取验证码</button>
+          <input v-model="msgCode" class="inp" placeholder="请输入短信验证码" type="text">
+          <button @click="getSmsCode">
+            {{timer ? second + '秒后重新获取' : '获取验证码'}}
+          </button>
         </div>
       </div>
 
-      <div class="login-btn">登录</div>
+      <div @click="login" class="login-btn">登录</div>
     </div>
   </div>
 </template>
 
 <script>
-import { getPicCode } from '@/api/login'
+import { getPicCode, getMsgCode, codeLogin } from '@/api/login'
 export default {
   name: 'LoginPage',
   data () {
     return {
-      picCode: '', // 用户输入的图形验证码
       picUrl: '', // 存储请求渲染的图片地址
-      picKey: '' // 将来请求传递的图形验证码唯一标识
+      picKey: '', // 将来请求传递的图形验证码唯一标识
+      timer: null, // 倒计时定时器ID
+      totalSecond: 6, // 倒计时总秒数为60秒
+      second: 6, // 倒计时当前秒数
+      picCode: '', // 用户输入的图形验证码
+      mobile: '', // 用户输入的手机号码
+      msgCode: '' // 用户输入的短信验证码
     }
   },
   // 测试接口
   created () {
     this.getPicCode()
   },
+  // 组件销毁时，清除定时器
+  beforeDestroy () {
+    clearInterval(this.timer)
+  },
   methods: {
     // 获取图形验证码
     async getPicCode () {
-      const res = await getPicCode()
-      console.log(res)
-      this.picUrl = res.data.base64
-      this.picKey = res.data.key
+      const { data: { base64, key } } = await getPicCode()
+      this.picUrl = base64
+      this.picKey = key
+    },
+    // 校验手机号和图形验证码是否合法
+    validFn () {
+      if (!/^1[3456789]\d{9}$/.test(this.mobile)) {
+        this.$toast('请输入正确的手机号')
+        return false
+      }
+      // \w 等价于 [a-zA-Z0-9_] 即匹配字母、数字或下划线
+      if (!/^\w{4}$/.test(this.picCode)) {
+        this.$toast('请输入正确的图形验证码')
+        return false
+      }
+      return true
+    },
+    // 获取短信验证码
+    async getSmsCode () {
+      // 校验手机号和图形验证码是否合法
+      if (!this.validFn()) {
+        return
+      }
+      // 发送请求获取短信验证码
+      // 目标：如果响应的status不是200，就抛出一个错误
+      // await只会等待成功的Promise，不会等待失败的Promise
+      await getMsgCode(this.picCode, this.picKey, this.mobile)
+      this.$toast('短信验证码发送成功')
+
+      // 倒计时
+      // 当倒计时秒数与总秒数相等，且定时器为空时，开始倒计时
+      if (this.second === this.totalSecond && !this.timer) {
+        this.timer = setInterval(() => {
+          // 倒计时到0时，清除定时器，重置倒计时秒数为总秒数，重新获取验证码
+          // 判断条件改成 this.second <= 1 ，当 second 为 1 时就停止，避免显示到 0 造成视觉跳变
+          if (this.second <= 1) {
+            clearInterval(this.timer)
+            this.timer = null
+            this.second = this.totalSecond
+          } else {
+            // 把 second-- 移到 else 分支 ，重置之后不会再被立刻减成 5
+            this.second--
+          }
+        }, 1000)
+      }
+    },
+    // 登录
+    async login () {
+      // 校验手机号和图形验证码是否合法
+      if (!this.validFn()) {
+        return
+      }
+      // 校验短信验证码是否合法
+      if (!/^\d{6}$/.test(this.msgCode)) {
+        this.$toast('请输入正确的短信验证码')
+        return
+      }
+      // 发送请求登录
+      const res = await codeLogin(this.mobile, this.msgCode)
+      // 登录成功后，将token和userId存储到state.userInfo
+      this.$store.commit('user/setUserInfo', res.data)
+      this.$toast('登录成功')
+      // 登录成功后，跳转到首页
+      this.$router.push('/')
     }
   }
 }
