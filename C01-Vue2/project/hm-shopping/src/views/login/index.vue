@@ -120,8 +120,9 @@ export default {
       // 登录成功后，将token和userId存储到state.userInfo
       this.$store.commit('user/setUserInfo', res.data)
       this.$toast('登录成功')
-      // 登录成功后，跳转到首页
-      this.$router.push('/')
+      // 登录成功后，跳转 判断是否有backUrl查询参数
+      const url = this.$route.query.backUrl || '/'
+      this.$router.replace(url)
     }
   }
 }

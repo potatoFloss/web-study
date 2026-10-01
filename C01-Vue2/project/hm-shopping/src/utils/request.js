@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Toast } from 'vant'
+import store from '@/store'
 
 // 创建axios实例，避免污染全局axios
 const instance = axios.create({
@@ -13,6 +14,11 @@ const instance = axios.create({
 // 添加请求拦截器
 instance.interceptors.request.use(function (config) {
   // 在发送请求之前做些什么
+
+  const token = store.getters.getToken
+  if (token) {
+    config.headers['Access-Token'] = token
+  }
   // 显示loading
   Toast.loading({
     message: '加载中...',
