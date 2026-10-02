@@ -102,7 +102,7 @@
         </div>
         <div class="showbtn" v-if="detail.stock_total > 0">
           <div class="btn" v-if="mode === 'cart'" @click="addCart">加入购物车</div>
-          <div class="btn now" v-else>立刻购买</div>
+          <div class="btn" v-if="mode === 'buyNow'" @click="goBuyNow">立刻购买</div>
         </div>
         <div class="btn-none" v-else>该商品已抢完</div>
       </div>
@@ -115,9 +115,11 @@ import { getProComments, getProDetail } from '@/api/product'
 import defaultImg from '@/assets/default-avatar.png'
 import CountBox from '@/components/CountBox.vue'
 import { addCart } from '@/api/cart'
+import loginConfirm from '@/mixins/loginConfirm.js'
 
 export default {
   name: 'ProDetail',
+  mixins: [loginConfirm],
   components: {
     CountBox
   },
@@ -170,7 +172,7 @@ export default {
     },
     // 立即购买 打开弹窗
     buyFn () {
-      this.mode = 'buy'
+      this.mode = 'buyNow'
       this.showPannel = true
     },
     onChange (index) {
@@ -179,27 +181,7 @@ export default {
     // 弹窗内 加入购物车
     async addCart () {
       // 判断用户是否有登录
-      if (!this.$store.getters.getToken) {
-        this.$dialog.confirm({
-          title: '温馨提示',
-          message: '此时需要先登录才能继续操作哦',
-          confirmButtonText: '去登录',
-          cancelButtonText: '再逛逛'
-        })
-          .then(() => {
-            // 用户点击了确定（去登录）
-            // replace：替换当前路由，不保留历史记录
-            // push：添加新路由，保留历史记录
-            this.$router.replace({
-              path: '/login',
-              query: {
-                // backUrl 登录后，回调到当前页面
-                // fullPath 当前路由的完整路径，包含查询参数
-                backUrl: this.$route.fullPath
-              }
-            })
-          })
-          .catch(() => {})
+      if (this.loginConfirm()) {
         return
       }
 
@@ -209,6 +191,22 @@ export default {
       this.$toast('加入购物车成功')
       // 关闭弹窗
       this.showPannel = false
+    },
+    // 立即购买
+    goBuyNow () {
+      // 判断用户是否有登录
+      if (this.loginConfirm()) {
+        return
+      }
+      this.$router.push({
+        path: '/pay',
+        query: {
+          mode: 'buyNow',
+          goodsId: this.goodsId,
+          goodsSkuId: this.detail.skuList[0].goods_sku_id,
+          goodsNum: this.count
+        }
+      })
     }
   }
 }
