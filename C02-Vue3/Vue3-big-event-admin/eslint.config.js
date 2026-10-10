@@ -8,7 +8,7 @@ import skipFormatting from 'eslint-config-prettier/flat'
 export default defineConfig([
   {
     name: 'app/files-to-lint',
-    files: ['**/*.{vue,js,mjs,jsx}'],
+    files: ['**/*.{vue,js,mjs,jsx}']
   },
 
   globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
@@ -17,8 +17,12 @@ export default defineConfig([
     languageOptions: {
       globals: {
         ...globals.browser,
-      },
-    },
+        // element-plus 组件自动引入，声明为全局变量，避免 no-undef 报错
+        ElMessage: 'readonly',
+        ElMessageBox: 'readonly',
+        ElLoading: 'readonly'
+      }
+    }
   },
 
   js.configs.recommended,
@@ -32,7 +36,7 @@ export default defineConfig([
   {
     rules: {
       // vue 组件名必须多单词组成（忽略 index.vue）
-      'vue/multi-word-component-names': ['warn', { ignores: ['index'] }],
-    },
-  },
+      'vue/multi-word-component-names': ['warn', { ignores: ['index'] }]
+    }
+  }
 ])
