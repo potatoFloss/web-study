@@ -10,6 +10,6 @@ pinia.use(persist)
 export default pinia
 
 // 2. 将所有仓库都放到这里，统一导出
-// import userStore from './user'
+// import userStore from './modules/user'
 // export { userStore }
-export * from './user'
+export * from './modules/user'
