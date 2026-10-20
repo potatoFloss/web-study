@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { artGetChannelsService } from '@/api/article'
 import { Edit, Delete } from '@element-plus/icons-vue'
+import ChannelDialogEdit from '@/views/article/components/ChannelEdit.vue'
 
 // loading效果
 const loading = ref(false)
@@ -18,11 +19,22 @@ const getChannelsList = async () => {
 }
 getChannelsList()
 
+// 弹窗
+const dialog = ref()
+const onAddChannel = () => {
+  dialog.value.open({})
+}
 const onEditChannel = (row) => {
   console.log(row)
+  dialog.value.open(row)
 }
 const onDelChannel = (row) => {
   console.log(row)
+}
+
+// 弹窗成功回调-刷新列表
+const onSuccess = () => {
+  getChannelsList()
 }
 </script>
 
@@ -30,7 +42,7 @@ const onDelChannel = (row) => {
   <page-container title="文章分类">
     <!-- 具名插槽 template包裹 #extra是v-slot:extra的缩写 -->
     <template #extra>
-      <el-button type="primary">添加分类</el-button>
+      <el-button type="primary" @click="onAddChannel">添加分类</el-button>
     </template>
 
     <!-- 文章分类列表 -->
@@ -69,6 +81,12 @@ const onDelChannel = (row) => {
         <el-empty description="没有数据" />
       </template>
     </el-table>
+
+    <!-- 弹窗 -->
+    <channel-dialog-edit
+      ref="dialog"
+      @success="onSuccess"
+    ></channel-dialog-edit>
   </page-container>
 </template>
 
