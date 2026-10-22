@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { Edit, Delete } from '@element-plus/icons-vue'
 import ChannelSelect from './components/ChannelSelect.vue'
+import ArticleEdit from './components/ArticleEdit.vue'
 import { artGetListService } from '@/api/article.js'
 import { formatTime } from '@/utils/format.js'
 
@@ -48,21 +49,26 @@ const onCurrentChange = (page) => {
   getArticleList()
 }
 
+// 抽屉组件实例
+const articleEditRef = ref()
+// 新增文章
+const onAddArticle = () => {
+  articleEditRef.value.open({})
+}
 // 编辑文章
 const onEditArticle = (row) => {
-  console.log(row)
+  articleEditRef.value.open(row)
 }
-
 // 删除文章
 const onDeleteArticle = (row) => {
-  console.log(row)
+  console.log('删除文章', row)
 }
 </script>
 
 <template>
   <page-container title="文章管理">
     <template #extra>
-      <el-button type="primary">添加文章</el-button>
+      <el-button type="primary" @click="onAddArticle">添加文章</el-button>
     </template>
 
     <!-- 内容区域 -->
@@ -71,7 +77,7 @@ const onDeleteArticle = (row) => {
       <el-form-item label="文章分类:">
         <!-- Vue3中 v-model语法糖 相当于 :modelValue和@update:modelValue事件 -->
         <!-- 此处等价于 :modelValue="params.cate_id" @update:modelValue="params.cate_id = $event" -->
-        <channel-select v-model="params.cate_id"></channel-select>
+        <channel-select v-model="params.cate_id" width="200px"></channel-select>
       </el-form-item>
       <el-form-item label="文章状态:">
         <el-select v-model="params.state" style="width: 200px">
@@ -136,6 +142,9 @@ const onDeleteArticle = (row) => {
       @current-change="onCurrentChange"
       style="margin-top: 20px; justify-content: flex-end"
     />
+
+    <!-- 抽屉区域 -->
+    <article-edit ref="articleEditRef"></article-edit>
   </page-container>
 </template>
 
