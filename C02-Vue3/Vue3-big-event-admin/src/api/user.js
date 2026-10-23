@@ -27,3 +27,6 @@ export const userLoginService = ({ username, password }) => {
 
 // 获取用户信息接口
 export const userGetInfoService = () => request.get('/my/userinfo')
+
+// 更新用户基本信息接口
+export const userUpdateInfoService = (data) => request.put('/my/userinfo', data)

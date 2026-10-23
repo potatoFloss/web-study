@@ -3,8 +3,9 @@ import { ref } from 'vue'
 import { Edit, Delete } from '@element-plus/icons-vue'
 import ChannelSelect from './components/ChannelSelect.vue'
 import ArticleEdit from './components/ArticleEdit.vue'
-import { artGetListService } from '@/api/article.js'
+import { artDelService, artGetListService } from '@/api/article.js'
 import { formatTime } from '@/utils/format.js'
+import { ElMessage } from 'element-plus'
 
 const loading = ref(false)
 const params = ref({
@@ -51,6 +52,15 @@ const onCurrentChange = (page) => {
 
 // 抽屉组件实例
 const articleEditRef = ref()
+// 添加/修改 文章成功
+const onSuccess = (type) => {
+  if (type === 'add') {
+    // 如果是添加，需要跳转渲染最后一页，编辑直接渲染当前页
+    const lastPage = Math.ceil((total.value + 1) / params.value.pagesize)
+    params.value.pagenum = lastPage
+  }
+  getArticleList()
+}
 // 新增文章
 const onAddArticle = () => {
   articleEditRef.value.open({})
@@ -60,8 +70,15 @@ const onEditArticle = (row) => {
   articleEditRef.value.open(row)
 }
 // 删除文章
-const onDeleteArticle = (row) => {
-  console.log('删除文章', row)
+const onDeleteArticle = async (row) => {
+  await ElMessageBox.confirm('你确认删除该文章信息吗？', '温馨提示', {
+    type: 'warning',
+    confirmButtonText: '确定',
+    cancelButtonText: '取消'
+  })
+  await artDelService(row.id)
+  ElMessage.success('删除成功')
+  getArticleList()
 }
 </script>
 
@@ -144,7 +161,7 @@ const onDeleteArticle = (row) => {
     />
 
     <!-- 抽屉区域 -->
-    <article-edit ref="articleEditRef"></article-edit>
+    <article-edit ref="articleEditRef" @success="onSuccess"></article-edit>
   </page-container>
 </template>
 
